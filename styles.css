@@ -44,7 +44,7 @@ nav {
   letter-spacing: 0.02em; color: var(--black); text-decoration: none;
   display: flex; align-items: center;
 }
-.nav-logo { height: 72px; width: auto; display: block; }
+.nav-logo { height: 88px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
 .nav-links a {
   font-family: var(--sans); font-size: 12px; font-weight: 400;
@@ -264,7 +264,7 @@ footer {
   font-family: var(--serif); font-size: 20px; font-weight: 600;
   color: var(--black); text-decoration: none;
 }
-.footer-logo { height: 56px; width: auto; display: block; }
+.footer-logo { height: 68px; width: auto; display: block; }
 .footer-dn {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--black-dim);
