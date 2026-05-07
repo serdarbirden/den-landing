@@ -34,7 +34,7 @@ a:focus-visible {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 56px; height: 64px;
+  padding: 0 56px; height: 80px;
   background: rgba(228,217,205,0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--black-faint);
@@ -42,7 +42,9 @@ nav {
 .nav-wordmark {
   font-family: var(--serif); font-size: 26px; font-weight: 600;
   letter-spacing: 0.02em; color: var(--black); text-decoration: none;
+  display: flex; align-items: center;
 }
+.nav-logo { height: 72px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
 .nav-links a {
   font-family: var(--sans); font-size: 12px; font-weight: 400;
@@ -64,6 +66,13 @@ nav {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center; padding: 120px 48px 80px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.13;
+  pointer-events: none; user-select: none;
 }
 .hero-eyebrow {
   font-family: var(--mono); font-size: 11px;
@@ -250,11 +259,12 @@ footer {
   padding: 40px 56px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.footer-left { display: flex; align-items: baseline; gap: 18px; }
+.footer-left { display: flex; align-items: center; gap: 18px; }
 .footer-word {
   font-family: var(--serif); font-size: 20px; font-weight: 600;
   color: var(--black); text-decoration: none;
 }
+.footer-logo { height: 56px; width: auto; display: block; }
 .footer-dn {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--black-dim);
@@ -289,7 +299,7 @@ footer {
 .d3 { transition-delay: 0.3s; }
 
 /* Fixed nav olduğundan ankurlarda üstte kalmayı önler */
-section[id] { scroll-margin-top: 84px; }
+section[id] { scroll-margin-top: 100px; }
 
 /* Erişilebilirlik: azaltılmış hareket tercihi */
 @media (prefers-reduced-motion: reduce) {
