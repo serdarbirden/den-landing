@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>den — Direct Experience Network</title>
+<meta name="description" content="den (Direct Experience Network): gerçek dünya temas noktalarında, deneyimden ürün ve hizmetler inşa eden teknoloji ve deneyim şirketi.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devchauhann/fonts@v1.1.0/cdn/v1/css/all.css">
+<link rel="stylesheet" href="styles.css">
+<style media="screen and (max-width: 0px)">
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #e4d9cd;
+  --bg-dark:     #d6cab9;
+  --bg-darker:   #c8bdb0;
+  --black:       #111010;
+  --black-mid:   #2c2b2a;
+  --black-dim:   #6b6560;
+  --black-faint: rgba(17,16,16,0.12);
+  --surface:     #ddd1c4;
+  --serif:       'Anthropic Serif', Georgia, serif;
+  --sans:        'Anthropic Sans', system-ui, sans-serif;
+  --mono:        'Anthropic Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--black);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px; height: 64px;
+  background: rgba(228,217,205,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--black-faint);
+}
+.nav-wordmark {
+  font-family: var(--serif); font-size: 26px; font-weight: 600;
+  letter-spacing: 0.02em; color: var(--black); text-decoration: none;
+}
+.nav-links { display: flex; align-items: center; gap: 40px; list-style: none; }
+.nav-links a {
+  font-family: var(--sans); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--black-dim); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-cta {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bg) !important; background: var(--black);
+  padding: 10px 22px; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.75; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 120px 48px 80px;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--black-dim); margin-bottom: 36px;
+  opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
+}
+.hero-title {
+  font-family: var(--serif); font-size: clamp(58px, 9vw, 116px);
+  font-weight: 500; line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--black); max-width: 920px; margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.35s;
+}
+.hero-sub {
+  font-family: var(--sans); font-size: clamp(15px, 2vw, 18px);
+  font-weight: 300; line-height: 1.65; color: var(--black-dim);
+  max-width: 520px; margin-bottom: 56px;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
+}
+.hero-steps {
+  display: flex; align-items: center; flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 0.65s;
+}
+.step-item {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--black-dim); padding: 9px 22px;
+  border: 1px solid var(--black-faint);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  cursor: default;
+}
+.step-item:hover { background: var(--black); color: var(--bg); border-color: var(--black); }
+.step-sep { width: 1px; height: 36px; background: var(--black-faint); }
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0; animation: fadeUp 0.8s ease forwards 1s;
+}
+.hero-scroll span {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--black-dim);
+}
+.scroll-bar {
+  width: 1px; height: 44px; background: var(--black-dim);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+/* RULE */
+.rule { border: none; height: 1px; background: var(--black-faint); }
+
+/* ABOUT */
+.about {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+  max-width: 1080px; margin: 0 auto; padding: 120px 48px;
+}
+.label {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--black-dim); margin-bottom: 28px;
+}
+.about-heading {
+  font-family: var(--serif); font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 500; line-height: 1.1; color: var(--black);
+}
+.about-body {
+  font-family: var(--sans); font-size: 16px; line-height: 1.85;
+  color: var(--black-mid); padding-top: 4px;
+}
+.about-body p + p { margin-top: 20px; }
+.about-body strong { color: var(--black); font-weight: 500; }
+
+/* PRODUCTS */
+.products {
+  max-width: 1080px; margin: 0 auto; padding: 80px 48px 120px;
+}
+.section-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 18px; border-bottom: 1px solid var(--black-faint); margin-bottom: 2px;
+}
+.section-bar-label {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--black-dim);
+}
+.section-bar-count { font-family: var(--mono); font-size: 11px; color: var(--black-dim); }
+.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 2px; }
+.pcard {
+  background: var(--surface); padding: 56px 48px;
+  position: relative; overflow: hidden; cursor: pointer;
+  text-decoration: none; display: block;
+  border: 1px solid var(--black-faint); transition: background 0.3s;
+}
+.pcard:hover { background: var(--bg-darker); }
+.pcard-arrow {
+  position: absolute; top: 40px; right: 40px; font-size: 18px;
+  color: var(--black-dim); opacity: 0; transform: translate(-6px, 6px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); }
+.pcard-num {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 36px;
+}
+.pcard-name {
+  font-family: var(--serif); font-size: 54px; font-weight: 600;
+  line-height: 1; color: var(--black); margin-bottom: 20px; letter-spacing: -0.01em;
+}
+.pcard-tag {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--black-dim); display: inline-block;
+  border: 1px solid var(--black-faint); padding: 5px 12px; margin-bottom: 20px;
+}
+.pcard-desc {
+  font-family: var(--sans); font-size: 14px; line-height: 1.8;
+  color: var(--black-mid); max-width: 340px;
+}
+
+/* PHILOSOPHY */
+.philosophy {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--black-faint);
+  border-bottom: 1px solid var(--black-faint);
+}
+.phi-inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+.phi-header {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 52px 0 32px; border-bottom: 1px solid var(--black-faint);
+}
+.phi-title-big {
+  font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500; color: var(--black);
+}
+.phi-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.phi-item { padding: 48px 40px 56px 0; border-right: 1px solid var(--black-faint); }
+.phi-item:not(:first-child) { padding-left: 40px; padding-right: 0; }
+.phi-item:last-child { border-right: none; }
+.phi-num {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 20px;
+}
+.phi-name {
+  font-family: var(--serif); font-size: 28px; font-weight: 500;
+  color: var(--black); margin-bottom: 16px; line-height: 1.2;
+}
+.phi-body {
+  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--black-mid);
+}
+
+/* QUOTE */
+.quote-wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding: 120px 48px; text-align: center;
+}
+.quote-big {
+  font-family: var(--serif); font-size: clamp(30px, 5vw, 60px);
+  font-weight: 500; line-height: 1.15; color: var(--black);
+  max-width: 840px; margin: 0 auto 24px;
+}
+.quote-source {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--black-dim);
+}
+
+/* CTA */
+.cta-strip { background: var(--black); padding: 100px 48px; text-align: center; }
+.cta-strip h2 {
+  font-family: var(--serif); font-size: clamp(32px, 5vw, 56px);
+  font-weight: 500; color: var(--bg); margin-bottom: 40px; line-height: 1.1;
+}
+.cta-btn {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--black); background: var(--bg);
+  padding: 16px 44px; text-decoration: none; display: inline-block;
+  transition: opacity 0.2s;
+}
+.cta-btn:hover { opacity: 0.8; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--black-faint);
+  padding: 40px 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-left { display: flex; align-items: baseline; gap: 18px; }
+.footer-word {
+  font-family: var(--serif); font-size: 20px; font-weight: 600;
+  color: var(--black); text-decoration: none;
+}
+.footer-dn {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--black-dim);
+}
+.footer-links { display: flex; gap: 32px; list-style: none; }
+.footer-links a {
+  font-family: var(--sans); font-size: 12px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--black-dim); text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--black); }
+.footer-copy {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; color: var(--black-dim);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollDown {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  60%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+
+/* MOBILE */
+@media (max-width: 780px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 80px; }
+  .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 24px; }
+  .products { padding: 60px 24px 80px; }
+  .product-grid { grid-template-columns: 1fr; }
+  .phi-inner { padding: 0 24px; }
+  .phi-grid { grid-template-columns: 1fr; }
+  .phi-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 40px 0; }
+  .phi-item:not(:first-child) { padding-left: 0; }
+  .phi-item:last-child { border-bottom: none; }
+  .quote-wrap { padding: 80px 24px; }
+  .cta-strip { padding: 60px 24px; }
+  footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body id="top">
+
+<nav aria-label="Ana menü">
+  <a href="#top" class="nav-wordmark">den</a>
+  <ul class="nav-links">
+    <li><a href="#hakkinda">Hakkında</a></li>
+    <li><a href="#istirakler">İştirakler</a></li>
+    <li><a href="#felsefe">Felsefe</a></li>
+    <li><a href="#iletisim" class="nav-cta">İletişim</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Direct Experience Network</p>
+  <h1 class="hero-title">Hayatı düşünmez,<br>hayata temas eder.</h1>
+  <p class="hero-sub">Teoriden değil, deneyimden inşa edilmiş ürünler. Gerçek temas noktalarında, gerçek problemlere.</p>
+  <div class="hero-steps">
+    <span class="step-item">yap</span>
+    <span class="step-sep"></span>
+    <span class="step-item">dene</span>
+    <span class="step-sep"></span>
+    <span class="step-item">deneyimle</span>
+    <span class="step-sep"></span>
+    <span class="step-item">hata yap</span>
+    <span class="step-sep"></span>
+    <span class="step-item">anında öğren</span>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    <span>aşağı</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="about" id="hakkinda">
+  <div class="reveal">
+    <p class="label">Biz kimiz</p>
+    <h2 class="about-heading">Teoriden değil,<br>deneyimden<br>doğduk.</h2>
+  </div>
+  <div class="reveal d1">
+    <div class="about-body">
+      <p><strong>den</strong>, ürün ve hizmetlerini gerçek dünya temas noktalarında inşa eden bir teknoloji ve deneyim şirketidir. Biz plan değil, pratik üretiriz.</p>
+      <p>Adımızın ilham kaynağı Türkçe'nin en yoğun fiil köklerinden biridir: <strong>denemek</strong>, <strong>deneyimlemek</strong>, <strong>dokunmak</strong>. Hepsinin özünde aynı şey var — harekete geçmek.</p>
+      <p>Her ürünümüz bir sorudan değil, bir sürtünmeden doğar. Gerçekte var olan bir ağrıya doğrudan temas ederiz.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="products" id="istirakler">
+  <div class="section-bar reveal">
+    <span class="section-bar-label">İştirakler</span>
+    <span class="section-bar-count">02</span>
+  </div>
+  <div class="product-grid">
+    <a id="cobot" href="#cobot" class="pcard reveal">
+      <span class="pcard-arrow">↗</span>
+      <p class="pcard-num">01</p>
+      <div class="pcard-name">CoBoT</div>
+      <div class="pcard-tag">Yapay Zeka · Mühendislik</div>
+      <p class="pcard-desc">Harita mühendisliği iş akışlarını otomatize eden AI tasarım ajanı. Günlerce süren manuel üretimi dakikalara indirger; lisanslı mühendislerin yanında çalışır, onların yerine geçmez.</p>
+    </a>
+    <a id="karemetre" href="#karemetre" class="pcard reveal d1">
+      <span class="pcard-arrow">↗</span>
+      <p class="pcard-num">02</p>
+      <div class="pcard-name">Karemetre</div>
+      <div class="pcard-tag">Gayrimenkul · Veri</div>
+      <p class="pcard-desc">Türkiye gayrimenkul piyasasında gerçek zamanlı veri katmanı. Alıcıya, satıcıya ve yatırımcıya temiz, doğrulanabilir bilgi sunar. Tahmin değil, temas.</p>
+    </a>
+  </div>
+</section>
+
+<section class="philosophy" id="felsefe">
+  <div class="phi-inner">
+    <div class="phi-header reveal">
+      <div class="label" style="margin-bottom:0;">Felsefemiz</div>
+      <h2 class="phi-title-big">Üç ilke, bir yön.</h2>
+    </div>
+    <div class="phi-grid">
+      <div class="phi-item reveal">
+        <p class="phi-num">001</p>
+        <h3 class="phi-name">Temas önce gelir</h3>
+        <p class="phi-body">Araştırma, hipotez, pivot — hepsi güzel. Ama biz bunlardan önce gerçeğe dokunuruz. Ürünümüz önce hayatın içine girer, sonra rafine edilir.</p>
+      </div>
+      <div class="phi-item reveal d1">
+        <p class="phi-num">002</p>
+        <h3 class="phi-name">Hata bir sinyal</h3>
+        <p class="phi-body">Hata yaptığımızda özür dilemeyiz, veri toplarız. Başarısızlık bizim için maliyetli değil, öğrenme hızlanıcısıdır. Hızlı hata, hızlı öğrenmedir.</p>
+      </div>
+      <div class="phi-item reveal d2">
+        <p class="phi-num">003</p>
+        <h3 class="phi-name">Ölçek sonra gelir</h3>
+        <p class="phi-body">Önce bir problemi gerçekten çözeriz. Sonra ölçeklendiririz. Hiçbir ürünümüz henüz ihtiyacı kanıtlanmadan büyümez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-wrap">
+  <p class="quote-big reveal">Dünyanın en büyük öğrenme makinesi deneyimdir. Biz sadece onu hızlandırırız.</p>
+  <p class="quote-source reveal d1">den — Direct Experience Network</p>
+</div>
+
+<section class="cta-strip" id="iletisim">
+  <h2 class="reveal">Birlikte bir şey<br>inşa edelim.</h2>
+  <a href="mailto:serdarbirden@denofficial.com" class="cta-btn reveal d1">İletişime Geç</a>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <a href="#top" class="footer-word">den</a>
+    <span class="footer-dn">Direct Experience Network</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#cobot">CoBoT</a></li>
+    <li><a href="#karemetre">Karemetre</a></li>
+    <li><a href="#hakkinda">Hakkında</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+  </ul>
+  <span class="footer-copy">© 2025 den</span>
+</footer>
+
+<script>
+const io = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      observer.unobserve(e.target); // İlk görünümden sonra tekrar tetiklemeyi kes.
+    });
+  },
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
