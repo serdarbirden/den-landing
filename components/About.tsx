@@ -21,7 +21,7 @@ export default function About() {
           <p>
             Adımızın ilham kaynağı Türkçe&apos;nin en yoğun fiil köklerinden
             biridir: <strong>denemek</strong>, <strong>deneyimlemek</strong>,{" "}
-            <strong>dokunmak</strong>. Hepsinin özünde aynı şey var - harekete
+            . Hepsinin özünde aynı şey var - harekete
             geçmek.
           </p>
           <p>
