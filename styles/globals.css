@@ -74,7 +74,7 @@ nav {
 }
 .hero-eyebrow {
   font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.22em; text-transform: uppercase;
+  letter-spacing: 0.22em;
   color: var(--black-dim); margin-bottom: 36px;
   opacity: 0; animation: fadeUp 0.7s ease forwards 0.2s;
 }
@@ -234,7 +234,7 @@ nav {
 }
 .quote-source {
   font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--black-dim);
+  letter-spacing: 0.2em; color: var(--black-dim);
 }
 
 /* CTA */
@@ -266,7 +266,7 @@ footer {
 .footer-logo { height: 68px; width: auto; display: block; }
 .footer-dn {
   font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--black-dim);
+  letter-spacing: 0.14em; color: var(--black-dim);
 }
 .footer-links { display: flex; gap: 32px; list-style: none; }
 .footer-links a {
