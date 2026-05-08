@@ -9,10 +9,10 @@ export default function Footer() {
       </div>
       <ul className="footer-links">
         <li>
-          <a href="#cobot">CoBoT</a>
+          <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">CoBoT</a>
         </li>
         <li>
-          <a href="#karemetre">Karemetre</a>
+          <a href="https://www.karemetre.net/" target="_blank" rel="noopener noreferrer">Karemetre</a>
         </li>
         <li>
           <a href="#hakkinda">Hakkında</a>
