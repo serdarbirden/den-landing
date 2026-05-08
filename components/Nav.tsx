@@ -2,7 +2,7 @@ export default function Nav() {
   return (
     <nav aria-label="Ana menü">
       <a href="#top" className="nav-wordmark">
-        den
+        <img src="/denlogo.png" alt="den" className="nav-logo" />
       </a>
       <ul className="nav-links">
         <li>

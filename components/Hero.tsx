@@ -3,6 +3,7 @@ const steps = ["yap", "dene", "deneyimle", "hata yap", "anında öğren"];
 export default function Hero() {
   return (
     <section className="hero">
+      <img src="/ap1.png" alt="" className="hero-bg" />
       <p className="hero-eyebrow">Direct Experience Network</p>
       <h1 className="hero-title">
         Hayatı düşünmez,

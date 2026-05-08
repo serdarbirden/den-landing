@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div className="footer-left">
         <a href="#top" className="footer-word">
-          den
+          <img src="/denlogo.png" alt="den" className="footer-logo" />
         </a>
         <span className="footer-dn">Direct Experience Network</span>
       </div>
