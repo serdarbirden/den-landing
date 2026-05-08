@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <img src="/ap1.png" alt="" className="hero-bg" />
-      <p className="hero-eyebrow">Direct Experience Network</p>
+      <p className="hero-eyebrow"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</p>
       <h1 className="hero-title">
         Hayatı düşünmez,
         <br />

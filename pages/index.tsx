@@ -13,10 +13,10 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>den - Direct Experience Network</title>
+        <title>den - direct experience network</title>
         <meta
           name="description"
-          content="den (Direct Experience Network): gerçek dünya temas noktalarında, deneyimden ürün ve hizmetler inşa eden teknoloji ve deneyim şirketi."
+          content="den (direct experience network): gerçek dünya temas noktalarında, deneyimden ürün ve hizmetler inşa eden teknoloji ve deneyim şirketi."
         />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link

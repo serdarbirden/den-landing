@@ -5,7 +5,7 @@ export default function Footer() {
         <a href="#top" className="footer-word">
           <img src="/denlogo.png" alt="den" className="footer-logo" />
         </a>
-        <span className="footer-dn">Direct Experience Network</span>
+        <span className="footer-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
       </div>
       <ul className="footer-links">
         <li>
