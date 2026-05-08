@@ -18,6 +18,7 @@ export default function HomePage() {
           name="description"
           content="den (direct experience network): gerçek dünya temas noktalarında, deneyimden ürün ve hizmetler inşa eden teknoloji ve deneyim şirketi."
         />
+        <link rel="icon" href="/denlogo.png" type="image/png" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"
