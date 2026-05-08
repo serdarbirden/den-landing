@@ -1,9 +1,12 @@
 export default function Nav() {
   return (
     <nav aria-label="Ana menü">
-      <a href="#top" className="nav-wordmark">
-        <img src="/denlogo.png" alt="den" className="nav-logo" />
-      </a>
+      <div className="nav-brand">
+        <a href="#top" className="nav-wordmark">
+          <img src="/denlogo.png" alt="den" className="nav-logo" />
+        </a>
+        <span className="nav-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
+      </div>
       <ul className="nav-links">
         <li>
           <a href="#hakkinda">Hakkında</a>
