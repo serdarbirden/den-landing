@@ -2,7 +2,7 @@ export default function Products() {
   return (
     <section className="products" id="istirakler">
       <div className="section-bar reveal">
-        <span className="section-bar-label">Ürün&amp;Hizmetler</span>
+        <span className="section-bar-label">İştirakler</span>
         <span className="section-bar-count">02</span>
       </div>
       <div className="product-grid">

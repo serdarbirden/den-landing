@@ -12,7 +12,7 @@ export default function Nav() {
           <a href="#hakkinda">Hakkında</a>
         </li>
         <li>
-          <a href="#istirakler">Ürün&amp;Hizmetler</a>
+          <a href="#istirakler">İştirakler</a>
         </li>
         <li>
           <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">CoBoT</a>
