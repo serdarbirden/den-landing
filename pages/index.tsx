@@ -1,5 +1,6 @@
 import Head from "next/head";
 import About from "../components/About";
+import Activities from "../components/Activities";
 import Cta from "../components/Cta";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -29,6 +30,8 @@ export default function HomePage() {
       <div id="top">
         <Nav />
         <Hero />
+        <hr className="rule" />
+        <Activities />
         <hr className="rule" />
         <About />
         <hr className="rule" />

@@ -9,13 +9,13 @@ export default function Footer() {
       </div>
       <ul className="footer-links">
         <li>
-          <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">CoBoT</a>
-        </li>
-        <li>
-          <a href="https://www.karemetre.net/" target="_blank" rel="noopener noreferrer">Karemetre</a>
-        </li>
-        <li>
           <a href="#hakkinda">Hakkında</a>
+        </li>
+        <li>
+          <a href="#faaliyet-alanlari">Faaliyet Alanları</a>
+        </li>
+        <li>
+          <a href="#istirakler">İştirakler</a>
         </li>
         <li>
           <a href="#iletisim">İletişim</a>

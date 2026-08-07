@@ -26,7 +26,9 @@ export default function About() {
           </p>
           <p>
             Her ürünümüz bir sorudan değil, bir sürtünmeden doğar. Gerçekte var
-            olan bir ağrıya doğrudan temas ederiz.
+            olan bir ağrıya doğrudan temas ederiz. Ürün, hizmet ve
+            faaliyetlerimizi inşaat, gayrimenkul, teknoloji, enerji ve savunma
+            sanayi alanlarında bu sürtünmenin üzerine inşa ederiz.
           </p>
         </div>
       </div>
