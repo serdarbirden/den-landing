@@ -7,7 +7,7 @@ const areas = [
   {
     num: "02",
     name: "Gayrimenkul",
-    body: "Gayrimenkul piyasasında veri, ürün ve hizmet katmanları geliştiririz; alıcıya, satıcıya ve yatırımcıya temas ederiz.",
+    body: "Gayrimenkul geliştirme, yapım ve proje yönetiminde uçtan uca çözümler sunarız; fizibiliden anahtar teslime kadar sahadayız.",
   },
   {
     num: "03",

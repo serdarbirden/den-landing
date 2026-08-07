@@ -10,22 +10,23 @@ export default function Products() {
           <span className="pcard-arrow">↗</span>
           <p className="pcard-num">01</p>
           <div className="pcard-name">CoBoT</div>
-          <div className="pcard-tag">Yapay Zeka · Mühendislik</div>
+          <div className="pcard-tag">Yapay Zeka · İnşaat & Savunma</div>
           <p className="pcard-desc">
-            Harita mühendisliği iş akışlarını otomatize eden AI tasarım ajanı.
-            Günlerce süren manuel üretimi dakikalara indirger; lisanslı
-            mühendislerin yanında çalışır, onların yerine geçmez.
+            İnşaat, gayrimenkul ve savunma sanayii için yapay zeka destekli tek
+            platform. BIM analizi, imar otomasyonu, ihale takibi, metraj ve iş
+            programı üretimi gibi sekiz modülü tek arayüzde birleştirir.
           </p>
         </a>
         <a id="karemetre" href="https://www.karemetre.net/" target="_blank" rel="noopener noreferrer" className="pcard reveal d1">
           <span className="pcard-arrow">↗</span>
           <p className="pcard-num">02</p>
           <div className="pcard-name">Karemetre</div>
-          <div className="pcard-tag">Gayrimenkul · Veri</div>
+          <div className="pcard-tag">İnşaat 4.0 · Gayrimenkul Geliştirme</div>
           <p className="pcard-desc">
-            Türkiye gayrimenkul piyasasında gerçek zamanlı veri katmanı. Alıcıya,
-            satıcıya ve yatırımcıya temiz, doğrulanabilir bilgi sunar. Tahmin
-            değil, temas.
+            15 yıllık inşaat ve proje yönetimi tecrübesiyle gayrimenkul
+            geliştirme, yapım, tasarım ve fizibilite alanlarında uçtan uca
+            çözümler sunar. Anahtar teslimden bütçe ve kalite yönetimine kadar
+            yeni nesil yapı teknolojileriyle çalışır.
           </p>
         </a>
       </div>
