@@ -158,11 +158,16 @@ nav {
   color: var(--black-mid); max-width: 640px; margin: 28px 0 48px;
 }
 .activities-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
 }
-.activity-item { padding: 32px 24px 0 0; border-right: 1px solid var(--black-faint); }
-.activity-item:not(:first-child) { padding-left: 24px; }
-.activity-item:last-child { border-right: none; }
+.activity-item {
+  padding: 0 24px 32px 0;
+  border-right: 1px solid var(--black-faint);
+  border-bottom: 1px solid var(--black-faint);
+}
+.activity-item:nth-child(n+4) { padding-top: 32px; padding-bottom: 0; border-bottom: none; }
+.activity-item:not(:nth-child(3n+1)) { padding-left: 24px; }
+.activity-item:nth-child(3n) { border-right: none; padding-right: 0; }
 .activity-num {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 16px;

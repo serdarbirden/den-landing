@@ -16,11 +16,16 @@ const areas = [
   },
   {
     num: "04",
+    name: "Girişimcilik",
+    body: "Gerçek bir sürtünme gördüğümüzde yeni bir girişim kurarız; fikirden ürüne, deneyerek ve sahada öğrenerek ilerleriz.",
+  },
+  {
+    num: "05",
     name: "Enerji",
     body: "Enerji verimliliği ve sürdürülebilirlik odaklı ürün ve hizmetler üzerinde çalışırız.",
   },
   {
-    num: "05",
+    num: "06",
     name: "Savunma Sanayi",
     body: "Savunma sanayinde mühendislik disipliniyle teknoloji odaklı faaliyetler yürütürüz.",
   },
@@ -28,15 +33,15 @@ const areas = [
 
 export default function Activities() {
   return (
-    <section className="activities" id="faaliyet-alanlari">
+    <section className="activities" id="deneyim-alanlari">
       <div className="section-bar reveal">
-        <span className="section-bar-label">Faaliyet Alanları</span>
-        <span className="section-bar-count">05</span>
+        <span className="section-bar-label">Deneyim Alanları</span>
+        <span className="section-bar-count">06</span>
       </div>
       <p className="activities-intro reveal">
         Ürün, hizmet ve faaliyetlerimizi tek bir sektörle sınırlamayız.
         Deneyimden doğan temas noktalarını, aralarında güçlü bağlar kurduğumuz
-        beş alanda hayata geçiririz.
+        altı alanda hayata geçiririz.
       </p>
       <div className="activities-grid">
         {areas.map((area, index) => (

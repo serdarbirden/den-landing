@@ -12,7 +12,7 @@ export default function Footer() {
           <a href="#hakkinda">Hakkında</a>
         </li>
         <li>
-          <a href="#faaliyet-alanlari">Faaliyet Alanları</a>
+          <a href="#deneyim-alanlari">Deneyim Alanları</a>
         </li>
         <li>
           <a href="#istirakler">İştirakler</a>
