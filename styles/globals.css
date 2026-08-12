@@ -63,6 +63,35 @@ nav {
   padding: 10px 22px; text-decoration: none; transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.75; }
+.nav-dropdown { position: relative; list-style: none; }
+.nav-cta-split { display: flex; align-items: stretch; background: var(--black); }
+.nav-cta-main {
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bg); text-decoration: none;
+  padding: 10px 18px; display: flex; align-items: center;
+  transition: opacity 0.2s;
+}
+.nav-cta-main:hover { opacity: 0.75; }
+.nav-cta-chevron {
+  font-family: var(--sans); font-size: 11px; line-height: 1;
+  color: var(--bg); background: transparent; cursor: pointer;
+  border: none; border-left: 1px solid rgba(228,217,205,0.25);
+  padding: 10px 14px; transition: opacity 0.2s;
+}
+.nav-cta-chevron:hover { opacity: 0.75; }
+.nav-dropdown-menu {
+  position: absolute; top: calc(100% + 10px); right: 0; z-index: 10;
+  background: var(--black); list-style: none;
+  min-width: 210px; padding: 6px;
+}
+.nav-dropdown-menu li a {
+  display: block; padding: 10px 14px; border-radius: 3px;
+  font-family: var(--sans); font-size: 12px; font-weight: 400;
+  letter-spacing: 0.04em; color: var(--bg); text-decoration: none;
+  transition: background 0.15s;
+}
+.nav-dropdown-menu li a:hover { background: rgba(228,217,205,0.14); }
 
 /* HERO */
 .hero-bg {
@@ -173,10 +202,6 @@ nav {
   font-family: var(--sans); font-size: 13px; line-height: 1.75; color: var(--black-mid);
 }
 
-/* PRODUCTS */
-.products {
-  max-width: 1080px; margin: 0 auto; padding: 80px 48px 120px;
-}
 .section-bar {
   display: flex; align-items: center; justify-content: space-between;
   padding-bottom: 18px; border-bottom: 1px solid var(--black-faint); margin-bottom: 2px;
@@ -186,38 +211,6 @@ nav {
   letter-spacing: 0.2em; text-transform: uppercase; color: var(--black-dim);
 }
 .section-bar-count { font-family: var(--mono); font-size: 11px; color: var(--black-dim); }
-.product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 2px; }
-.pcard {
-  background: var(--surface); padding: 56px 48px;
-  position: relative; overflow: hidden; cursor: pointer;
-  text-decoration: none; display: block;
-  border: 1px solid var(--black-faint); transition: background 0.3s;
-}
-.pcard:hover { background: var(--bg-darker); }
-.pcard-arrow {
-  position: absolute; top: 40px; right: 40px; font-size: 18px;
-  color: var(--black-dim); opacity: 0; transform: translate(-6px, 6px);
-  transition: opacity 0.3s, transform 0.3s;
-}
-.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); }
-.pcard-num {
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 36px;
-}
-.pcard-name {
-  font-family: var(--serif); font-size: 54px; font-weight: 600;
-  line-height: 1; color: var(--black); margin-bottom: 20px; letter-spacing: -0.01em;
-}
-.pcard-tag {
-  font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--black-dim); display: inline-block;
-  border: 1px solid var(--black-faint); padding: 5px 12px; margin-bottom: 20px;
-}
-.pcard-desc {
-  font-family: var(--sans); font-size: 14px; line-height: 1.8;
-  color: var(--black-mid); max-width: 340px;
-}
 
 /* PHILOSOPHY */
 .philosophy {
@@ -364,8 +357,6 @@ section[id] { scroll-margin-top: 84px; }
   .activity-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 28px 0; }
   .activity-item:not(:first-child) { padding-left: 0; }
   .activity-item:last-child { border-bottom: none; }
-  .products { padding: 60px 24px 80px; }
-  .product-grid { grid-template-columns: 1fr; }
   .phi-inner { padding: 0 24px; }
   .phi-grid { grid-template-columns: 1fr; }
   .phi-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 40px 0; }

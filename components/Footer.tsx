@@ -15,9 +15,6 @@ export default function Footer() {
           <a href="#deneyim-alanlari">Deneyim Alanları</a>
         </li>
         <li>
-          <a href="#istirakler">İştirakler</a>
-        </li>
-        <li>
           <a href="#iletisim">İletişim</a>
         </li>
       </ul>

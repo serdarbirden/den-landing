@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Nav from "../components/Nav";
 import Philosophy from "../components/Philosophy";
-import Products from "../components/Products";
 import Quote from "../components/Quote";
 import RevealObserver from "../components/RevealObserver";
 
@@ -34,8 +33,6 @@ export default function HomePage() {
         <Activities />
         <hr className="rule" />
         <About />
-        <hr className="rule" />
-        <Products />
         <Philosophy />
         <Quote />
         <Cta />
