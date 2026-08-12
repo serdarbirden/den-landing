@@ -298,6 +298,12 @@ footer {
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--black); }
+.footer-right { display: flex; align-items: center; gap: 24px; }
+.footer-social { display: flex; align-items: center; gap: 16px; }
+.footer-social a {
+  color: var(--black-dim); display: flex; transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--black); }
 .footer-copy {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.1em; color: var(--black-dim);
@@ -366,6 +372,7 @@ section[id] { scroll-margin-top: 84px; }
   .quote-wrap { padding: 80px 24px; }
   .cta-strip { padding: 60px 24px; }
   footer { flex-direction: column; gap: 20px; padding: 32px 24px; text-align: center; }
+  .footer-right { flex-direction: column; gap: 16px; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
 
