@@ -213,6 +213,41 @@ nav {
 }
 .section-bar-count { font-family: var(--mono); font-size: 11px; color: var(--black-dim); }
 
+/* RESEARCH */
+.research {
+  background: var(--bg-dark);
+  border-top: 1px solid var(--black-faint);
+  border-bottom: 1px solid var(--black-faint);
+}
+.research-inner { max-width: 1080px; margin: 0 auto; padding: 64px 48px 0; }
+.research-title {
+  font-family: var(--serif); font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 500; line-height: 1.15; color: var(--black);
+  max-width: 760px; margin-top: 8px;
+}
+.research-intro {
+  font-family: var(--sans); font-size: 16px; line-height: 1.85;
+  color: var(--black-mid); max-width: 640px; margin: 24px 0 0;
+}
+.research-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  margin-top: 48px; border-top: 1px solid var(--black-faint);
+}
+.research-item { padding: 40px 40px 56px 0; border-right: 1px solid var(--black-faint); }
+.research-item:not(:first-child) { padding-left: 40px; }
+.research-item:last-child { border-right: none; padding-right: 0; }
+.research-num {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 20px;
+}
+.research-name {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--black); margin-bottom: 14px; line-height: 1.2;
+}
+.research-body {
+  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--black-mid);
+}
+
 /* PHILOSOPHY */
 .philosophy {
   background: var(--bg-dark);
@@ -364,6 +399,11 @@ section[id] { scroll-margin-top: 84px; }
   .activity-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 28px 0; }
   .activity-item:not(:first-child) { padding-left: 0; }
   .activity-item:last-child { border-bottom: none; }
+  .research-inner { padding: 48px 24px 0; }
+  .research-grid { grid-template-columns: 1fr; margin-top: 32px; border-top: none; }
+  .research-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 32px 0; }
+  .research-item:not(:first-child) { padding-left: 0; }
+  .research-item:last-child { border-bottom: none; }
   .phi-inner { padding: 0 24px; }
   .phi-grid { grid-template-columns: 1fr; }
   .phi-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 40px 0; }

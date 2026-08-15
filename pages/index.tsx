@@ -7,6 +7,7 @@ import Hero from "../components/Hero";
 import Nav from "../components/Nav";
 import Philosophy from "../components/Philosophy";
 import Quote from "../components/Quote";
+import Research from "../components/Research";
 import RevealObserver from "../components/RevealObserver";
 
 export default function HomePage() {
@@ -30,6 +31,7 @@ export default function HomePage() {
         <Nav />
         <Hero />
         <hr className="rule" />
+        <Research />
         <Activities />
         <hr className="rule" />
         <About />

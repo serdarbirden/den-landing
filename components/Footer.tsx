@@ -9,6 +9,9 @@ export default function Footer() {
       </div>
       <ul className="footer-links">
         <li>
+          <a href="#yapay-zeka">Yapay Zeka</a>
+        </li>
+        <li>
           <a href="#hakkinda">Hakkında</a>
         </li>
         <li>
