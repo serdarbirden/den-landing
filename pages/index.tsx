@@ -31,10 +31,10 @@ export default function HomePage() {
         <Nav />
         <Hero />
         <hr className="rule" />
-        <Research />
-        <Activities />
-        <hr className="rule" />
         <About />
+        <hr className="rule" />
+        <Activities />
+        <Research />
         <Philosophy />
         <Quote />
         <Cta />
