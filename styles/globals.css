@@ -91,9 +91,9 @@ nav {
   font-family: var(--sans); font-size: 12px; font-weight: 400;
   letter-spacing: 0.04em; text-transform: none;
   color: var(--bg); text-decoration: none;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
-.nav-dropdown-menu li a:hover { background: rgba(228,217,205,0.14); }
+.nav-dropdown-menu li a:hover { background: rgba(228,217,205,0.14); color: var(--claude-orange); }
 
 /* HERO */
 .hero-bg {
