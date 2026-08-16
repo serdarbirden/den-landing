@@ -12,6 +12,7 @@
   --serif:       'Anthropic Serif', Georgia, serif;
   --sans:        'Anthropic Sans', system-ui, sans-serif;
   --mono:        'Anthropic Mono', monospace;
+  --claude-orange: #D97757;
 }
 
 html { scroll-behavior: smooth; }
@@ -70,9 +71,9 @@ nav {
   letter-spacing: 0.02em; text-transform: none;
   color: var(--bg); text-decoration: none;
   padding: 10px 18px; display: flex; align-items: center;
-  transition: opacity 0.2s;
+  transition: background-color 0.2s;
 }
-.nav-cta-main:hover { opacity: 0.75; }
+.nav-cta-main:hover { background: var(--claude-orange); }
 .nav-cta-chevron {
   font-family: var(--sans); font-size: 11px; line-height: 1;
   color: var(--bg); background: transparent; cursor: pointer;

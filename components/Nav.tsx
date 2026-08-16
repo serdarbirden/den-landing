@@ -43,14 +43,14 @@ export default function Nav() {
               rel="noopener noreferrer"
               className="nav-cta-main"
             >
-              CoBoT Dene
+              GoDoT Dene
             </a>
             <button
               type="button"
               className="nav-cta-chevron"
               aria-haspopup="true"
               aria-expanded={open}
-              aria-label="CoBoT ürünlerini göster"
+              aria-label="GoDoT ürünlerini göster"
               onClick={() => setOpen((v) => !v)}
             >
               ⌄
@@ -60,12 +60,12 @@ export default function Nav() {
             <ul className="nav-dropdown-menu">
               <li>
                 <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">
-                  CoBoT Yapı Zekası
+                  GoDoT Yapı Zekası
                 </a>
               </li>
               <li>
                 <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">
-                  CoBoT Tesis Zekası
+                  GoDoT Tesis Zekası
                 </a>
               </li>
             </ul>
