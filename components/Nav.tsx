@@ -63,11 +63,6 @@ export default function Nav() {
                   GoDoT Yapı Zekası
                 </a>
               </li>
-              <li>
-                <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">
-                  GoDoT Tesis Zekası
-                </a>
-              </li>
             </ul>
           )}
         </li>
