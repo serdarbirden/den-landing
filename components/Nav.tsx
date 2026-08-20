@@ -30,6 +30,9 @@ export default function Nav() {
           <a href="#deneyim-alanlari">Deneyim Alanları</a>
         </li>
         <li>
+          <a href="#istirakler">İştirakler</a>
+        </li>
+        <li>
           <a href="#felsefe">Felsefe</a>
         </li>
         <li className="nav-dropdown" ref={dropdownRef}>
