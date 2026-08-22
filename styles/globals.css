@@ -271,31 +271,39 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   text-decoration: none; display: block;
   border: 1px solid var(--black-faint); transition: background 0.3s;
 }
-.pcard:hover { background: var(--bg-darker); }
+.pcard:hover { background: var(--claude-orange); }
 .pcard-arrow {
   position: absolute; top: 40px; right: 40px; font-size: 18px;
   color: var(--black-dim); opacity: 0; transform: translate(-6px, 6px);
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, color 0.3s;
 }
-.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); }
+.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); color: var(--bg); }
 .pcard-num {
   font-family: var(--mono); font-size: 11px;
   letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 36px;
+  transition: color 0.3s;
 }
+.pcard:hover .pcard-num { color: var(--bg); }
 .pcard-name {
   font-family: var(--serif); font-size: 54px; font-weight: 600;
   line-height: 1; color: var(--black); margin-bottom: 20px; letter-spacing: -0.01em;
+  transition: color 0.3s;
 }
+.pcard:hover .pcard-name { color: var(--bg); }
 .pcard-tag {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--black-dim); display: inline-block;
   border: 1px solid var(--black-faint); padding: 5px 12px; margin-bottom: 20px;
+  transition: color 0.3s, border-color 0.3s;
 }
+.pcard:hover .pcard-tag { color: var(--bg); border-color: rgba(245,245,240,0.4); }
 .pcard-desc {
   font-family: var(--sans); font-size: 14px; line-height: 1.8;
   color: var(--black-mid); max-width: 340px;
+  transition: color 0.3s;
 }
+.pcard:hover .pcard-desc { color: var(--bg); }
 
 /* PHILOSOPHY */
 .philosophy {
