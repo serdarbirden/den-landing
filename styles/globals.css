@@ -266,44 +266,36 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 .product-grid { display: grid; grid-template-columns: minmax(0, 460px); gap: 2px; margin-top: 2px; }
 .pcard {
-  background: var(--surface); padding: 56px 48px;
+  background: var(--claude-orange); padding: 56px 48px;
   position: relative; overflow: hidden; cursor: pointer;
   text-decoration: none; display: block;
   border: 1px solid var(--black-faint); transition: background 0.3s;
 }
-.pcard:hover { background: var(--claude-orange); }
+.pcard:hover { background: var(--black); }
 .pcard-arrow {
   position: absolute; top: 40px; right: 40px; font-size: 18px;
-  color: var(--black-dim); opacity: 0; transform: translate(-6px, 6px);
-  transition: opacity 0.3s, transform 0.3s, color 0.3s;
+  color: var(--bg); opacity: 0; transform: translate(-6px, 6px);
+  transition: opacity 0.3s, transform 0.3s;
 }
-.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); color: var(--bg); }
+.pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); }
 .pcard-num {
   font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 36px;
-  transition: color 0.3s;
+  letter-spacing: 0.2em; color: var(--bg); margin-bottom: 36px;
 }
-.pcard:hover .pcard-num { color: var(--bg); }
 .pcard-name {
   font-family: var(--serif); font-size: 54px; font-weight: 600;
-  line-height: 1; color: var(--black); margin-bottom: 20px; letter-spacing: -0.01em;
-  transition: color 0.3s;
+  line-height: 1; color: var(--bg); margin-bottom: 20px; letter-spacing: -0.01em;
 }
-.pcard:hover .pcard-name { color: var(--bg); }
 .pcard-tag {
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--black-dim); display: inline-block;
-  border: 1px solid var(--black-faint); padding: 5px 12px; margin-bottom: 20px;
-  transition: color 0.3s, border-color 0.3s;
+  color: var(--bg); display: inline-block;
+  border: 1px solid rgba(245,245,240,0.4); padding: 5px 12px; margin-bottom: 20px;
 }
-.pcard:hover .pcard-tag { color: var(--bg); border-color: rgba(245,245,240,0.4); }
 .pcard-desc {
   font-family: var(--sans); font-size: 14px; line-height: 1.8;
-  color: var(--black-mid); max-width: 340px;
-  transition: color 0.3s;
+  color: var(--bg); max-width: 340px;
 }
-.pcard:hover .pcard-desc { color: var(--bg); }
 
 /* PHILOSOPHY */
 .philosophy {
