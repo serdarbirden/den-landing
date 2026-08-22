@@ -1,39 +1,33 @@
 const areas = [
   {
     num: "01",
-    name: "İnşaat",
-    body: "Yapı ve altyapı projelerinde saha bilgisini süreç ve teknolojiyle birleştiren faaliyetler yürütürüz.",
+    name: "Proje Yönetimi",
+    body: "İnşaat altyapı ve üstyapı, fabrika ve gayrimenkul projelerinde fizibiliteden teslime uçtan uca proje yönetimi hizmeti sunarız.",
     visible: true,
   },
   {
     num: "02",
-    name: "Gayrimenkul",
-    body: "Gayrimenkul geliştirme, yapım ve proje yönetiminde uçtan uca çözümler sunarız; fizibiliden anahtar teslime kadar sahadayız.",
+    name: "İnşaat Uygulama",
+    body: "Akaryakıt enerji tesisleri, fabrika, konut, raylı sistemler ve fit-out projelerinde sahada uygulama ve yapım yönetimi yürütürüz.",
     visible: true,
   },
   {
     num: "03",
-    name: "Teknoloji",
-    body: "Yapay zeka ve mühendislik alanında gerçek problemlere doğrudan temas eden ürünler tasarlarız.",
+    name: "Yazılım, Otomasyon ve Yapay Zeka",
+    body: "Yapay zeka, otomasyon ve yazılım çözümleriyle yapı ve endüstriyel süreçleri uçtan uca dijitalleştiririz.",
     visible: true,
   },
   {
     num: "04",
-    name: "Girişimcilik",
-    body: "Gerçek bir sürtünme gördüğümüzde yeni bir girişim kurarız; fikirden ürüne, deneyerek ve sahada öğrenerek ilerleriz.",
+    name: "Dijital İkiz ve Veri Yönetimi",
+    body: "Yapı bilgi yönetimi (BIM) süreçlerini 3 boyuttan 7 boyuta kadar uçtan uca yönetir, dijital ikiz teknolojisiyle proje verisini yaşam döngüsü boyunca değerli kılarız.",
     visible: true,
   },
   {
     num: "05",
-    name: "Enerji",
-    body: "Enerji verimliliği ve sürdürülebilirlik odaklı ürün ve hizmetler üzerinde çalışırız.",
-    visible: false,
-  },
-  {
-    num: "06",
-    name: "Savunma Sanayi",
-    body: "Savunma sanayinde mühendislik disipliniyle teknoloji odaklı faaliyetler yürütürüz.",
-    visible: false,
+    name: "Girişimcilik",
+    body: "Sistem kurma ve ürün geliştirmeden şirket değerlemeye, yatırım süreçlerinden şirket satın alma ve birleşmelerine girişimci bir yaklaşımla değer üretiriz.",
+    visible: true,
   },
 ];
 
