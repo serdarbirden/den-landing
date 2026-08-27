@@ -25,6 +25,12 @@ const areas = [
   },
   {
     num: "05",
+    name: "Enerji",
+    body: "Yenilenebilir enerji kurulumları, şarj istasyonu kurulumu, akaryakıt ve dolum tesisi projelerinde uçtan uca proje yönetimi hizmeti sunarız.",
+    visible: true,
+  },
+  {
+    num: "06",
     name: "Girişimcilik",
     body: "Sistem kurma ve ürün geliştirmeden şirket değerlemeye, yatırım süreçlerinden şirket satın alma ve birleşmelerine girişimci bir yaklaşımla değer üretiriz.",
     visible: true,
