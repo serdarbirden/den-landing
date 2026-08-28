@@ -1,16 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
 export default function Nav() {
-  const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setMobileOpen(false);
       }
@@ -56,38 +51,6 @@ export default function Nav() {
         </li>
         <li>
           <a href="#felsefe" onClick={() => setMobileOpen(false)}>Felsefe</a>
-        </li>
-        <li className="nav-dropdown" ref={dropdownRef}>
-          <div className="nav-cta-split">
-            <a
-              href="https://www.cobot-ai.co/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-cta-main"
-              onClick={() => setMobileOpen(false)}
-            >
-              GoDoT Dene
-            </a>
-            <button
-              type="button"
-              className="nav-cta-chevron"
-              aria-haspopup="true"
-              aria-expanded={open}
-              aria-label="GoDoT ürünlerini göster"
-              onClick={() => setOpen((v) => !v)}
-            >
-              ⌄
-            </button>
-          </div>
-          {open && (
-            <ul className="nav-dropdown-menu">
-              <li>
-                <a href="https://www.cobot-ai.co/" target="_blank" rel="noopener noreferrer">
-                  GoDoT Yapı Zekası
-                </a>
-              </li>
-            </ul>
-          )}
         </li>
         <li>
           <a href="#iletisim" className="nav-cta" onClick={() => setMobileOpen(false)}>

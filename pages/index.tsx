@@ -11,6 +11,8 @@ import Quote from "../components/Quote";
 import Research from "../components/Research";
 import RevealObserver from "../components/RevealObserver";
 
+const SHOW_AI_SECTION = false;
+
 export default function HomePage() {
   return (
     <>
@@ -35,7 +37,7 @@ export default function HomePage() {
         <About />
         <hr className="rule" />
         <Activities />
-        <Research />
+        {SHOW_AI_SECTION && <Research />}
         <Products />
         <Philosophy />
         <Quote />

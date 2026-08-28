@@ -1,3 +1,5 @@
+const SHOW_AI_LINK = false;
+
 export default function Footer() {
   return (
     <footer>
@@ -14,9 +16,11 @@ export default function Footer() {
         <li>
           <a href="#deneyim-alanlari">Deneyim Alanları</a>
         </li>
-        <li>
-          <a href="#yapay-zeka">Yapay Zeka</a>
-        </li>
+        {SHOW_AI_LINK && (
+          <li>
+            <a href="#yapay-zeka">Yapay Zeka</a>
+          </li>
+        )}
         <li>
           <a href="#iletisim">İletişim</a>
         </li>
