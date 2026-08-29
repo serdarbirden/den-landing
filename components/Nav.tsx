@@ -47,7 +47,7 @@ export default function Nav() {
           <a href="#deneyim-alanlari" onClick={() => setMobileOpen(false)}>Deneyim Alanları</a>
         </li>
         <li>
-          <a href="#istirakler" onClick={() => setMobileOpen(false)}>İştirakler</a>
+          <a href="#istirakler" onClick={() => setMobileOpen(false)}>İştirakler & Markalar</a>
         </li>
         <li>
           <a href="#felsefe" onClick={() => setMobileOpen(false)}>Felsefe</a>
