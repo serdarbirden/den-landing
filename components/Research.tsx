@@ -12,7 +12,7 @@ const pillars = [
   {
     num: "003",
     name: "Ürünler",
-    body: "Bu modelin üzerine, gerçek sürtünmeleri çözen ürünler inşa ediyoruz. GoDoT, bu yaklaşımın bugün sahada olan ilk somut örneği.",
+    body: "Bu modelin üzerine, gerçek sürtünmeleri çözen ürünler inşa ediyoruz. CoBoT, bu yaklaşımın bugün sahada olan ilk somut örneği.",
   },
 ];
 
