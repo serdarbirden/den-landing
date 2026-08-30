@@ -236,29 +236,29 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: 2px; }
 .pcard {
-  background: var(--claude-orange); padding: 28px 22px;
+  background: var(--bg-dark); color: var(--black); padding: 28px 22px;
   position: relative; overflow: hidden; cursor: pointer;
   text-decoration: none; display: block;
-  border: 1px solid var(--black-faint); transition: background 0.3s;
+  border: 1px solid var(--black-faint); transition: background 0.3s, color 0.3s;
 }
-.pcard:hover { background: var(--black); }
+.pcard:hover { background: var(--black); color: var(--bg); }
 .pcard-arrow {
   position: absolute; top: 20px; right: 20px; font-size: 16px;
-  color: var(--bg); opacity: 0; transform: translate(-6px, 6px);
+  color: inherit; opacity: 0; transform: translate(-6px, 6px);
   transition: opacity 0.3s, transform 0.3s;
 }
 .pcard:hover .pcard-arrow { opacity: 1; transform: translate(0,0); }
 .pcard-num {
   font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.2em; color: var(--bg); margin-bottom: 20px;
+  letter-spacing: 0.2em; color: inherit; margin-bottom: 20px;
 }
 .pcard-name {
   font-family: var(--serif); font-size: 54px; font-weight: 600;
-  line-height: 1; color: var(--bg); margin-bottom: 20px; letter-spacing: -0.01em;
+  line-height: 1; color: inherit; margin-bottom: 20px; letter-spacing: -0.01em;
 }
 .pcard-logo {
   display: block; height: 30px; width: auto;
-  margin-bottom: 14px; filter: brightness(0) invert(1);
+  margin-bottom: 14px;
 }
 .pcard-logo-square { height: 48px; }
 .pcard-soon { cursor: default; }
@@ -275,17 +275,17 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 .pcard-tag {
   font-family: var(--mono); font-size: 9px;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--bg); display: inline-block;
-  border: 1px solid rgba(245,245,240,0.4); padding: 4px 9px; margin-bottom: 14px;
+  color: inherit; display: inline-block;
+  border: 1px solid currentColor; padding: 4px 9px; margin-bottom: 14px;
 }
 .pcard-desc {
   font-family: var(--sans); font-size: 12.5px; line-height: 1.6;
-  color: var(--bg);
+  color: inherit;
 }
 
 /* PHILOSOPHY */
 .philosophy {
-  background: var(--bg-dark);
+  background: var(--claude-orange);
   border-top: 1px solid var(--black-faint);
   border-bottom: 1px solid var(--black-faint);
 }
