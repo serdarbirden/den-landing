@@ -14,7 +14,11 @@ export default function Products() {
         >
           <span className="pcard-arrow">↗</span>
           <p className="pcard-num">01</p>
-          <div className="pcard-name">CoBoT</div>
+          <img
+            src="/CoBoT-transparent-trimmed.png"
+            alt="CoBoT"
+            className="pcard-logo"
+          />
           <div className="pcard-tag">Yapay Zeka · İnşaat & Savunma</div>
           <p className="pcard-desc">
             İnşaat, gayrimenkul ve savunma sanayii için yapay zeka destekli tek
