@@ -3,6 +3,7 @@ const soonProducts = [
     num: "02",
     name: "Karemetre",
     logo: "/Karemetre-transparent-trimmed.png",
+    logoClass: "pcard-logo-square",
     tag: "Gayrimenkul · Veri",
     desc: "Türkiye gayrimenkul piyasasında gerçek zamanlı veri katmanı. Alıcıya, satıcıya ve yatırımcıya temiz, doğrulanabilir bilgi sunar. Tahmin değil, temas.",
   },
@@ -53,7 +54,11 @@ export default function Products() {
         {soonProducts.map((p, i) => (
           <div key={p.name} className={`pcard pcard-soon reveal d${i + 1}`}>
             <p className="pcard-num">{p.num}</p>
-            <img src={p.logo} alt={p.name} className="pcard-logo" />
+            <img
+              src={p.logo}
+              alt={p.name}
+              className={`pcard-logo ${p.logoClass ?? ""}`}
+            />
             <div className="pcard-tag">{p.tag}</div>
             <p className="pcard-desc">{p.desc}</p>
             <span className="pcard-soon-badge">Çok Yakında</span>
