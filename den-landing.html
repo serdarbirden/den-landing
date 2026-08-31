@@ -23,6 +23,7 @@
   --serif:       'Anthropic Serif', Georgia, serif;
   --sans:        'Anthropic Sans', system-ui, sans-serif;
   --mono:        'Anthropic Mono', monospace;
+  --claude-orange: #D97757;
 }
 
 html { scroll-behavior: smooth; }
@@ -59,9 +60,9 @@ nav {
   font-family: var(--sans); font-size: 12px; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--bg) !important; background: var(--black);
-  padding: 10px 22px; text-decoration: none; transition: opacity 0.2s;
+  padding: 10px 22px; text-decoration: none; transition: background-color 0.2s;
 }
-.nav-cta:hover { opacity: 0.75; }
+.nav-cta:hover { background: var(--claude-orange); }
 
 /* HERO */
 .hero {
@@ -245,9 +246,9 @@ nav {
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--black); background: var(--bg);
   padding: 16px 44px; text-decoration: none; display: inline-block;
-  transition: opacity 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
-.cta-btn:hover { opacity: 0.8; }
+.cta-btn:hover { background: var(--claude-orange); color: var(--bg); }
 
 /* FOOTER */
 footer {
