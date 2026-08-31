@@ -5,7 +5,7 @@ const soonProducts = [
     logo: "/Karemetre-transparent-trimmed.png",
     logoClass: "pcard-logo-square",
     tag: "Gayrimenkul · Veri",
-    desc: "Türkiye gayrimenkul piyasasında gerçek zamanlı veri katmanı. Alıcıya, satıcıya ve yatırımcıya temiz, doğrulanabilir bilgi sunar. Tahmin değil, temas.",
+    desc: "Gayrimenkul danışmanlığı, fizibilite, konsept geliştirme ve proje yönetimi uzmanlığımıza teknoloji ve veri odaklı bir bakış açısı katarak yatırımcılara, mülk sahiplerine ve kurumsal müşterilere kapsamlı çözümler sunuyoruz. Danışmanlıktan kendi geliştirdiğimiz projelere; satış, kiralama ve proje yönetiminde uçtan uca değer yaratıyoruz.",
   },
   {
     num: "03",
