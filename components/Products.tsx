@@ -5,7 +5,7 @@ const soonProducts = [
     logo: "/Karemetre-transparent-trimmed.png",
     logoClass: "pcard-logo-square",
     tag: "Gayrimenkul · Veri",
-    desc: "Gayrimenkul danışmanlığı, fizibilite, konsept geliştirme ve proje yönetimi uzmanlığımıza teknoloji ve veri odaklı bir bakış açısı katarak yatırımcılara, mülk sahiplerine ve kurumsal müşterilere kapsamlı çözümler sunuyoruz. Danışmanlıktan kendi geliştirdiğimiz projelere; satış, kiralama ve proje yönetiminde uçtan uca değer yaratıyoruz.",
+    desc: "Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan kendi projelerine satış ve kiralamada uçtan uca değer yaratan bir gayrimenkul şirketi.",
   },
   {
     num: "03",
