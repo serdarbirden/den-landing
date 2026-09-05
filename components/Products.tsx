@@ -1,6 +1,6 @@
 const soonProducts = [
   {
-    num: "02",
+    num: "03",
     name: "Karemetre",
     logo: "/Karemetre-transparent-trimmed.png",
     logoClass: "pcard-logo-square",
@@ -8,14 +8,14 @@ const soonProducts = [
     desc: "Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan kendi projelerine satış ve kiralamada uçtan uca değer yaratan bir gayrimenkul şirketi.",
   },
   {
-    num: "03",
+    num: "04",
     name: "E-Fill Enerji",
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji · Şarj Teknolojileri",
     desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yerli şarj ünitesi Ar-Ge'sine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
   },
   {
-    num: "04",
+    num: "05",
     name: "PAF",
     logo: "/PAF-transparent-trimmed.png",
     tag: "Endüstriyel Çözümler · Mühendislik",
@@ -28,9 +28,24 @@ export default function Products() {
     <section className="products" id="istirakler">
       <div className="section-bar reveal">
         <span className="section-bar-label">İştirakler & Markalar</span>
-        <span className="section-bar-count">04</span>
+        <span className="section-bar-count">05</span>
       </div>
       <div className="product-grid">
+        <a href="/" className="pcard reveal">
+          <span className="pcard-arrow">↗</span>
+          <p className="pcard-num">01</p>
+          <img
+            src="/den-construction-transparent-trimmed.png"
+            alt="DEN Construction"
+            className="pcard-logo"
+          />
+          <div className="pcard-tag">Proje Yönetimi · İnşaat Uygulama</div>
+          <p className="pcard-desc">
+            Proje yönetiminden saha uygulamasına, inşaatın her aşamasında
+            edinilen derin deneyimi bir araya getiren; planlama, uygulama ve
+            denetim süreçlerini uçtan uca yöneten inşaat uygulama şirketi.
+          </p>
+        </a>
         <a
           href="https://www.cobot-ai.co/"
           target="_blank"
@@ -38,7 +53,7 @@ export default function Products() {
           className="pcard reveal"
         >
           <span className="pcard-arrow">↗</span>
-          <p className="pcard-num">01</p>
+          <p className="pcard-num">02</p>
           <img
             src="/CoBoT-transparent-trimmed.png"
             alt="CoBoT"
