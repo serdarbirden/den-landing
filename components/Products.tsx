@@ -1,13 +1,5 @@
 const soonProducts = [
   {
-    num: "03",
-    name: "Karemetre",
-    logo: "/Karemetre-transparent-trimmed.png",
-    logoClass: "pcard-logo-square",
-    tag: "Gayrimenkul · Veri",
-    desc: "Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan kendi projelerine satış ve kiralamada uçtan uca değer yaratan bir gayrimenkul şirketi.",
-  },
-  {
     num: "04",
     name: "E-Fill Enerji",
     logo: "/efill-transparent-trimmed.png",
@@ -46,6 +38,22 @@ export default function Products() {
             denetim süreçlerini uçtan uca yöneten inşaat uygulama şirketi.
           </p>
         </a>
+        <div className="pcard pcard-soon reveal">
+          <p className="pcard-num">02</p>
+          <img
+            src="/Karemetre-transparent-trimmed.png"
+            alt="Karemetre"
+            className="pcard-logo pcard-logo-square"
+          />
+          <div className="pcard-tag">Gayrimenkul · Veri</div>
+          <p className="pcard-desc">
+            Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına
+            teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan
+            kendi projelerine satış ve kiralamada uçtan uca değer yaratan bir
+            gayrimenkul şirketi.
+          </p>
+          <span className="pcard-soon-badge">Çok Yakında</span>
+        </div>
         <a
           href="https://www.cobot-ai.co/"
           target="_blank"
@@ -53,7 +61,7 @@ export default function Products() {
           className="pcard reveal"
         >
           <span className="pcard-arrow">↗</span>
-          <p className="pcard-num">02</p>
+          <p className="pcard-num">03</p>
           <img
             src="/CoBoT-transparent-trimmed.png"
             alt="CoBoT"
