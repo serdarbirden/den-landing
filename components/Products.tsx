@@ -1,4 +1,13 @@
-const soonProducts = [
+type SoonProduct = {
+  num: string;
+  name: string;
+  logo: string;
+  logoClass?: string;
+  tag: string;
+  desc: string;
+};
+
+const soonProducts: SoonProduct[] = [
   {
     num: "04",
     name: "E-Fill Enerji",
