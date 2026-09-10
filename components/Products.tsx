@@ -50,7 +50,7 @@ export default function Products() {
         <div className="pcard pcard-soon reveal">
           <p className="pcard-num">02</p>
           <img
-            src="/Karemetre-transparent-trimmed.png"
+            src="/Karemetre-yeni-transparent-trimmed.png"
             alt="Karemetre"
             className="pcard-logo pcard-logo-square"
           />
