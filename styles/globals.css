@@ -292,27 +292,27 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 .phi-inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
 .phi-header {
   display: flex; align-items: baseline; justify-content: space-between;
-  padding: 52px 0 32px; border-bottom: 1px solid var(--black-faint);
+  padding: 52px 0 32px; border-bottom: 1px solid rgba(245,245,240,0.2);
 }
-.phi-label { margin-bottom: 0; }
+.phi-label { margin-bottom: 0; color: rgba(245,245,240,0.7); }
 .phi-title-big {
   font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
-  font-weight: 500; color: var(--black);
+  font-weight: 500; color: #fff;
 }
 .phi-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.phi-item { padding: 48px 40px 56px 0; border-right: 1px solid var(--black-faint); }
+.phi-item { padding: 48px 40px 56px 0; border-right: 1px solid rgba(245,245,240,0.2); }
 .phi-item:not(:first-child) { padding-left: 40px; padding-right: 0; }
 .phi-item:last-child { border-right: none; }
 .phi-num {
   font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 20px;
+  letter-spacing: 0.2em; color: rgba(245,245,240,0.6); margin-bottom: 20px;
 }
 .phi-name {
   font-family: var(--serif); font-size: 28px; font-weight: 500;
-  color: var(--black); margin-bottom: 16px; line-height: 1.2;
+  color: #fff; margin-bottom: 16px; line-height: 1.2;
 }
 .phi-body {
-  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--black-mid);
+  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--bg);
 }
 
 /* QUOTE */
