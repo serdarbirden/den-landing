@@ -13,7 +13,7 @@ const soonProducts: SoonProduct[] = [
     num: "03",
     name: "E-Fill Enerji",
     logo: "/efill-transparent-trimmed.png",
-    tag: "Enerji · Şarj Teknolojileri",
+    tag: "Enerji",
     desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yerli şarj ünitesi Ar-Ge'sine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
   },
   {
@@ -45,7 +45,7 @@ export default function Products() {
             alt="Karemetre"
             className="pcard-logo pcard-logo-square"
           />
-          <div className="pcard-tag">Gayrimenkul · Veri</div>
+          <div className="pcard-tag">Gayrimenkul 4.0</div>
           <p className="pcard-desc">
             Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına
             teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan
@@ -67,7 +67,7 @@ export default function Products() {
             alt="CoBoT"
             className="pcard-logo"
           />
-          <div className="pcard-tag">Yapay Zeka · İnşaat & Savunma</div>
+          <div className="pcard-tag">Yapay Zeka</div>
           <p className="pcard-desc">
             İnşaat, gayrimenkul ve savunma sanayii için yapay zeka destekli tek
             platform. BIM analizi, imar otomasyonu, ihale takibi, metraj ve iş
