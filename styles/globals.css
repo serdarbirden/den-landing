@@ -235,6 +235,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   max-width: 1080px; margin: 0 auto; padding: 80px 48px 120px;
 }
 .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; margin-top: 2px; }
+.product-grid-centered { grid-template-columns: repeat(2, minmax(0, 270px)); max-width: 542px; margin: 2px auto 0; justify-content: center; }
 .pcard {
   background: #b2b2b2; color: var(--black); padding: 28px 22px;
   position: relative; overflow: hidden; cursor: pointer;
@@ -452,6 +453,7 @@ section[id] { scroll-margin-top: 84px; }
   .research-item:last-child { border-bottom: none; }
   .products { padding: 60px 24px 80px; }
   .product-grid { grid-template-columns: 1fr; }
+  .product-grid-centered { max-width: none; margin-left: 0; margin-right: 0; }
   .phi-inner { padding: 0 24px; }
   .phi-grid { grid-template-columns: 1fr; }
   .phi-item { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 40px 0; }
