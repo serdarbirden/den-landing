@@ -14,7 +14,7 @@ const soonProducts: SoonProduct[] = [
     name: "E-Fill Enerji",
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji",
-    desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yerli şarj ünitesi Ar-Ge'sine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
+    desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yapay zeka ile enerji ve panel izleme çözümlerine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
   },
   {
     num: "04",
