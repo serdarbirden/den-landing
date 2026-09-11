@@ -15,7 +15,6 @@ const soonProducts: SoonProduct[] = [
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji · Şarj Teknolojileri",
     desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yerli şarj ünitesi Ar-Ge'sine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
-    hidden: true,
   },
   {
     num: "04",
