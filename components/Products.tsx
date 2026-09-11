@@ -5,7 +5,6 @@ type SoonProduct = {
   logoClass?: string;
   tag: string;
   desc: string;
-  hidden?: boolean;
 };
 
 const soonProducts: SoonProduct[] = [
@@ -15,7 +14,6 @@ const soonProducts: SoonProduct[] = [
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji · Şarj Teknolojileri",
     desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yerli şarj ünitesi Ar-Ge'sine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
-    hidden: true,
   },
   {
     num: "05",
@@ -23,20 +21,15 @@ const soonProducts: SoonProduct[] = [
     logo: "/PAF-transparent-trimmed.png",
     tag: "Endüstriyel Çözümler · Mühendislik",
     desc: "Ürün satışını mühendislik, teknik uzmanlık, proje yönetimi ve sürdürülebilir tedarik yaklaşımıyla aynı yapı altında birleştiren yeni nesil bir endüstriyel çözüm merkezi.",
-    hidden: true,
   },
 ];
-
-const visibleSoonProducts = soonProducts.filter((p) => !p.hidden);
 
 export default function Products() {
   return (
     <section className="products" id="istirakler">
       <div className="section-bar reveal">
         <span className="section-bar-label">İştirakler & Markalar</span>
-        <span className="section-bar-count">
-          {String(3 + visibleSoonProducts.length).padStart(2, "0")}
-        </span>
+        <span className="section-bar-count">05</span>
       </div>
       <div className="product-grid">
         <a href="/" className="pcard reveal">
@@ -90,7 +83,7 @@ export default function Products() {
             programı üretimi gibi sekiz modülü tek arayüzde birleştirir.
           </p>
         </a>
-        {visibleSoonProducts.map((p, i) => (
+        {soonProducts.map((p, i) => (
           <div key={p.name} className={`pcard pcard-soon reveal d${i + 1}`}>
             <p className="pcard-num">{p.num}</p>
             <img
