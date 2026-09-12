@@ -14,8 +14,7 @@ const soonProducts: SoonProduct[] = [
     name: "E-Fill Enerji",
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji",
-    desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yapay zeka ile enerji ve panel izleme çözümlerine kadar enerjinin tüm değer zincirinde çalışan bir enerji şirketi.",
-    hidden: true,
+    desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yapay zeka ile enerji ve panel izleme çözümlerine kadar enerjinin tüm değer zincirinde yer alan bir enerji ürünü.",
   },
   {
     num: "04",
@@ -33,7 +32,7 @@ export default function Products() {
   return (
     <section className="products" id="istirakler">
       <div className="section-bar reveal">
-        <span className="section-bar-label">İştirakler & Markalar</span>
+        <span className="section-bar-label">Ürünler & Markalar</span>
         <span className="section-bar-count">
           {String(2 + visibleSoonProducts.length).padStart(2, "0")}
         </span>
@@ -51,7 +50,7 @@ export default function Products() {
             Gayrimenkul danışmanlığı, fizibilite ve proje yönetimi uzmanlığına
             teknoloji ve veri odaklı bir bakış açısı katan; danışmanlıktan
             kendi projelerine satış ve kiralamada uçtan uca değer yaratan bir
-            gayrimenkul şirketi.
+            gayrimenkul çözümü.
           </p>
           <span className="pcard-soon-badge">Çok Yakında</span>
         </div>
