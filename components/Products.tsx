@@ -22,7 +22,6 @@ const soonProducts: SoonProduct[] = [
     logo: "/PAF-transparent-trimmed.png",
     tag: "Endüstriyel Çözümler · Mühendislik",
     desc: "Ürün satışını mühendislik, teknik uzmanlık, proje yönetimi ve sürdürülebilir tedarik yaklaşımıyla aynı yapı altında birleştiren yeni nesil bir endüstriyel çözüm merkezi.",
-    hidden: true,
   },
 ];
 
