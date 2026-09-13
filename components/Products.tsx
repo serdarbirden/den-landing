@@ -20,7 +20,7 @@ const soonProducts: SoonProduct[] = [
     num: "04",
     name: "PAF",
     logo: "/PAF-transparent-trimmed.png",
-    tag: "Endüstriyel Çözümler · Mühendislik",
+    tag: "Endüstriyel Çözümler",
     desc: "Ürün satışını mühendislik, teknik uzmanlık, proje yönetimi ve sürdürülebilir tedarik yaklaşımıyla aynı yapı altında birleştiren yeni nesil bir endüstriyel çözüm merkezi.",
   },
 ];
