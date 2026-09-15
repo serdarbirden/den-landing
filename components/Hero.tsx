@@ -12,14 +12,9 @@ export default function Hero() {
       </div>
       <p className="hero-eyebrow"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</p>
       <p className="hero-eyebrow"><strong>den</strong>eyim</p>
-      <h1 className="hero-title">
-        Hayatı düşünmez,
-        <br />
-        hayata temas eder.
-      </h1>
+      <h1 className="hero-title">İkinci Beyin.</h1>
       <p className="hero-sub">
-        Teoriden değil, deneyimden inşa edilmiş ürünler. Gerçek temas
-        noktalarında, gerçek problemlere.
+        Sizin veya işletmenizin dijital ikizi, ikinci beyniniz.
       </p>
       <div className="hero-steps">
         {steps.map((step, index) => (
