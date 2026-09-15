@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+const SHOW_PRODUCTS_SECTION = false;
+
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
@@ -46,9 +48,11 @@ export default function Nav() {
         <li>
           <a href="#deneyim-alanlari" onClick={() => setMobileOpen(false)}>Deneyim Alanları</a>
         </li>
-        <li>
-          <a href="#istirakler" onClick={() => setMobileOpen(false)}>Ürünler & Markalar</a>
-        </li>
+        {SHOW_PRODUCTS_SECTION && (
+          <li>
+            <a href="#istirakler" onClick={() => setMobileOpen(false)}>Ürünler & Markalar</a>
+          </li>
+        )}
         <li>
           <a href="#felsefe" onClick={() => setMobileOpen(false)}>Felsefe</a>
         </li>
