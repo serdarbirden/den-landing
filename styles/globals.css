@@ -108,6 +108,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   max-width: 520px; margin-bottom: 56px;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
 }
+.hero-sub-accent { color: var(--claude-orange); font-weight: 500; }
 .hero-steps {
   display: flex; align-items: center; flex-wrap: wrap;
   justify-content: center;

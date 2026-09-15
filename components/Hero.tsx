@@ -14,7 +14,7 @@ export default function Hero() {
       <p className="hero-eyebrow"><strong>den</strong>eyim</p>
       <h1 className="hero-title">İkinci Beyin.</h1>
       <p className="hero-sub">
-        Sizin veya işletmenizin dijital ikizi, ikinci beyniniz.
+        Sizin veya işletmenizin dijital ikizi, <span className="hero-sub-accent">ikinci beyniniz</span>.
       </p>
       <div className="hero-steps">
         {steps.map((step, index) => (
