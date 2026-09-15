@@ -1,9 +1,15 @@
+import dynamic from "next/dynamic";
+
+const BrainField = dynamic(() => import("./BrainField"), { ssr: false });
+
 const steps = ["yap", "dene", "deneyimle", "hata yap", "anında öğren"];
 
 export default function Hero() {
   return (
     <section className="hero">
-      <img src="/ap1.png" alt="" className="hero-bg" />
+      <div className="hero-brain">
+        <BrainField />
+      </div>
       <p className="hero-eyebrow"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</p>
       <p className="hero-eyebrow"><strong>den</strong>eyim</p>
       <h1 className="hero-title">
