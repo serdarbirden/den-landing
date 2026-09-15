@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 const areas = [
   {
     num: "01",
@@ -51,7 +53,10 @@ export default function Activities() {
         Deneyimden doğan temas noktalarını, aralarında güçlü bağlar kurduğumuz
         alanlarda hayata geçiririz.
       </p>
-      <div className="activities-grid" style={{ gridTemplateColumns: `repeat(${visibleAreas.length}, 1fr)` }}>
+      <div
+        className="activities-grid"
+        style={{ "--activity-cols": visibleAreas.length } as CSSProperties}
+      >
         {visibleAreas.map((area, index) => (
           <div className={`activity-item reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={area.name}>
             <p className="activity-num">{area.num}</p>
