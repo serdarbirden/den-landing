@@ -161,7 +161,15 @@ function buildEdges(positions: Float32Array, count: number, k: number, maxDist: 
   return new Float32Array(edgePositions);
 }
 
-function BrainGroup({ reducedMotion }: { reducedMotion: boolean }) {
+function BrainGroup({
+  reducedMotion,
+  scale,
+  offsetY,
+}: {
+  reducedMotion: boolean;
+  scale: number;
+  offsetY: number;
+}) {
   const count = useMemo(() => (typeof window !== "undefined" && window.innerWidth < 640 ? 380 : 720), []);
   const { positions, phases } = useMemo(() => buildBrain(count), [count]);
   const edgePositions = useMemo(() => buildEdges(positions, count, 4, 0.24), [positions, count]);
@@ -202,7 +210,7 @@ function BrainGroup({ reducedMotion }: { reducedMotion: boolean }) {
   });
 
   return (
-    <group ref={groupRef} scale={1.35}>
+    <group ref={groupRef} scale={scale} position={[0, offsetY, 0]}>
       <lineSegments>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[edgePositions, 3]} />
@@ -226,7 +234,15 @@ function BrainGroup({ reducedMotion }: { reducedMotion: boolean }) {
   );
 }
 
-export default function BrainField() {
+export default function BrainField({
+  cameraZ = 4.4,
+  scale = 1.35,
+  offsetY = 0,
+}: {
+  cameraZ?: number;
+  scale?: number;
+  offsetY?: number;
+}) {
   const reducedMotion = useMemo(
     () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     []
@@ -235,11 +251,11 @@ export default function BrainField() {
   return (
     <Canvas
       className="hero-brain-canvas"
-      camera={{ position: [0, 0, 4.4], fov: 42 }}
+      camera={{ position: [0, 0, cameraZ], fov: 42 }}
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
     >
-      <BrainGroup reducedMotion={reducedMotion} />
+      <BrainGroup reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} />
     </Canvas>
   );
 }
