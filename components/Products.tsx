@@ -15,6 +15,7 @@ const soonProducts: SoonProduct[] = [
     logo: "/efill-transparent-trimmed.png",
     tag: "Enerji",
     desc: "Güneş ve rüzgâr yatırımlarından şebeke altyapısına, elektrikli araç şarj çözümlerinden yapay zeka ile enerji ve panel izleme çözümlerine kadar enerjinin tüm değer zincirinde yer alan bir enerji ürünü.",
+    hidden: true,
   },
   {
     num: "04",
@@ -22,6 +23,7 @@ const soonProducts: SoonProduct[] = [
     logo: "/PAF-transparent-trimmed.png",
     tag: "Endüstriyel Çözümler",
     desc: "Ürün satışını mühendislik, teknik uzmanlık, proje yönetimi ve sürdürülebilir tedarik yaklaşımıyla aynı yapı altında birleştiren yeni nesil bir endüstriyel çözüm merkezi.",
+    hidden: true,
   },
 ];
 
