@@ -44,26 +44,28 @@ export default function Activities() {
 
   return (
     <section className="activities" id="deneyim-alanlari">
-      <div className="section-bar reveal">
-        <span className="section-bar-label">Deneyim Alanları</span>
-        <span className="section-bar-count">{String(visibleAreas.length).padStart(2, "0")}</span>
-      </div>
-      <p className="activities-intro reveal">
-        Ürün, hizmet ve faaliyetlerimizi tek bir sektörle sınırlamayız.
-        Deneyimden doğan temas noktalarını, aralarında güçlü bağlar kurduğumuz
-        alanlarda hayata geçiririz.
-      </p>
-      <div
-        className="activities-grid"
-        style={{ "--activity-cols": visibleAreas.length } as CSSProperties}
-      >
-        {visibleAreas.map((area, index) => (
-          <div className={`activity-item reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={area.name}>
-            <p className="activity-num">{area.num}</p>
-            <h3 className="activity-name">{area.name}</h3>
-            <p className="activity-body">{area.body}</p>
-          </div>
-        ))}
+      <div className="activities-inner">
+        <div className="section-bar reveal">
+          <span className="section-bar-label">Deneyim Alanları</span>
+          <span className="section-bar-count">{String(visibleAreas.length).padStart(2, "0")}</span>
+        </div>
+        <p className="activities-intro reveal">
+          Ürün, hizmet ve faaliyetlerimizi tek bir sektörle sınırlamayız.
+          Deneyimden doğan temas noktalarını, aralarında güçlü bağlar kurduğumuz
+          alanlarda hayata geçiririz.
+        </p>
+        <div
+          className="activities-grid"
+          style={{ "--activity-cols": visibleAreas.length } as CSSProperties}
+        >
+          {visibleAreas.map((area, index) => (
+            <div className={`activity-item reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={area.name}>
+              <p className="activity-num">{area.num}</p>
+              <h3 className="activity-name">{area.name}</h3>
+              <p className="activity-body">{area.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
