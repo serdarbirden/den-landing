@@ -13,7 +13,7 @@ const copy = {
       { name: "Hatırlar", body: "Sorduğunuzda arama sonucu değil, bağlamıyla ve gerekçesiyle hafıza döndürür." },
       { name: "Öğrenir", body: "Her yeni deneyimle ağ büyür; kararlarınızın tutarlılığını zamanla izler." },
     ],
-    punchline: "Obsidian gibi araçlar not tutmanızı bekler. den, sizin yerinize hatırlar.",
+    punchline: "Diğer benzer araçlar not tutmanızı bekler. den, sizin yerinize hatırlar.",
   },
   en: {
     id: "how-it-works",
