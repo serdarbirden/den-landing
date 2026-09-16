@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { extend } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -174,6 +174,13 @@ function BrainGroup({
   const { positions, phases } = useMemo(() => buildBrain(count), [count]);
   const edgePositions = useMemo(() => buildEdges(positions, count, 4, 0.24), [positions, count]);
 
+  const { size } = useThree();
+  const fittedScale = useMemo(() => {
+    const aspect = size.width / size.height;
+    const fit = Math.min(1, Math.max(0.55, aspect / 0.75));
+    return scale * fit;
+  }, [scale, size.width, size.height]);
+
   const groupRef = useRef<THREE.Group>(null);
   const materialRef = useRef<any>(null);
   const lineMaterialRef = useRef<THREE.LineBasicMaterial>(null);
@@ -210,7 +217,7 @@ function BrainGroup({
   });
 
   return (
-    <group ref={groupRef} scale={scale} position={[0, offsetY, 0]}>
+    <group ref={groupRef} scale={fittedScale} position={[0, offsetY, 0]}>
       <lineSegments>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[edgePositions, 3]} />

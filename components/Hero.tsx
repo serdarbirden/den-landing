@@ -9,7 +9,7 @@ const copy = {
     title: "İkinci Beyin.",
     sub: (
       <>
-        Şirketinizin ve sizin <span className="hero-sub-accent">dijital ikizi</span>,{" "}
+        Sizin ve şirketinizin <span className="hero-sub-accent">dijital ikizi</span>,{" "}
         <span className="hero-sub-accent">ikinci beyni</span>.
       </>
     ),
