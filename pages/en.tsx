@@ -13,19 +13,19 @@ import Problem from "../components/Problem";
 import ProductTwins from "../components/ProductTwins";
 import RevealObserver from "../components/RevealObserver";
 
-export default function HomePage() {
+export default function HomePageEn() {
   return (
     <>
       <Head>
-        <title>den — İkinci Beyin | Kurumsal Hafıza ve Dijital İkiz Platformu</title>
+        <title>den — Second Brain | Organizational Memory &amp; Digital Twin Platform</title>
         <meta
           name="description"
-          content="den, kurumunuzun ve yöneticilerinizin dijital ikizini kurar: yaşayan kurumsal hafıza, karar geçmişi ve on-premise yapay zeka."
+          content="den builds the digital twin of your organization and its leaders: living organizational memory, decision history, and on-premise AI."
         />
         <link rel="icon" href="/denlogo.png" type="image/png" />
-        <link rel="canonical" href="https://denofficial.com/" />
-        <link rel="alternate" hrefLang="tr" href="https://denofficial.com/" />
+        <link rel="canonical" href="https://denofficial.com/en" />
         <link rel="alternate" hrefLang="en" href="https://denofficial.com/en" />
+        <link rel="alternate" hrefLang="tr" href="https://denofficial.com/" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"
@@ -34,23 +34,23 @@ export default function HomePage() {
       </Head>
 
       <div id="top">
-        <Nav lang="tr" />
-        <Hero lang="tr" />
+        <Nav lang="en" />
+        <Hero lang="en" />
         <hr className="rule" />
-        <Problem lang="tr" />
+        <Problem lang="en" />
         <hr className="rule" />
-        <ProductTwins lang="tr" />
-        <HowItWorks lang="tr" />
+        <ProductTwins lang="en" />
+        <HowItWorks lang="en" />
         <hr className="rule" />
-        <DataSovereignty lang="tr" />
-        <CaseStudy lang="tr" />
+        <DataSovereignty lang="en" />
+        <CaseStudy lang="en" />
         <hr className="rule" />
-        <About lang="tr" />
+        <About lang="en" />
         <hr className="rule" />
-        <Activities lang="tr" />
-        <Philosophy lang="tr" />
-        <EarlyAccess lang="tr" />
-        <Footer lang="tr" />
+        <Activities lang="en" />
+        <Philosophy lang="en" />
+        <EarlyAccess lang="en" />
+        <Footer lang="en" />
       </div>
       <RevealObserver />
     </>

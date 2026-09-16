@@ -1,6 +1,26 @@
-const SHOW_AI_LINK = false;
+type Lang = "tr" | "en";
 
-export default function Footer() {
+const copy = {
+  tr: {
+    links: [
+      { href: "#urun", label: "Ürün" },
+      { href: "#nasil-calisir", label: "Nasıl Çalışır" },
+      { href: "#hakkinda", label: "Hakkında" },
+      { href: "#erken-erisim", label: "Erken Erişim" },
+    ],
+  },
+  en: {
+    links: [
+      { href: "#product", label: "Product" },
+      { href: "#how-it-works", label: "How It Works" },
+      { href: "#about", label: "About" },
+      { href: "#early-access", label: "Early Access" },
+    ],
+  },
+};
+
+export default function Footer({ lang = "tr" }: { lang?: Lang }) {
+  const t = copy[lang];
   return (
     <footer>
       <div className="footer-left">
@@ -10,20 +30,11 @@ export default function Footer() {
         <span className="footer-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
       </div>
       <ul className="footer-links">
-        <li>
-          <a href="#hakkinda">Hakkında</a>
-        </li>
-        <li>
-          <a href="#deneyim-alanlari">Deneyim Alanları</a>
-        </li>
-        {SHOW_AI_LINK && (
-          <li>
-            <a href="#yapay-zeka">Yapay Zeka</a>
+        {t.links.map((link) => (
+          <li key={link.href}>
+            <a href={link.href}>{link.label}</a>
           </li>
-        )}
-        <li>
-          <a href="#iletisim">İletişim</a>
-        </li>
+        ))}
       </ul>
       <div className="footer-right">
         <div className="footer-social">
@@ -42,4 +53,3 @@ export default function Footer() {
     </footer>
   );
 }
-

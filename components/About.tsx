@@ -1,38 +1,57 @@
-export default function About() {
+type Lang = "tr" | "en";
+
+const copy = {
+  tr: {
+    id: "hakkinda",
+    label: "Nereden doğdu",
+    heading: ["Teoriden değil,", <br key="br1" />, "deneyimden", <br key="br2" />, "doğduk."],
+    body: [
+      <>
+        <strong>den</strong>, gerçek dünya temas noktalarında inşa edilen bir
+        yapay zeka ürünüdür. Adımızın ilham kaynağı Türkçe&apos;nin en yoğun
+        fiil köklerinden biridir: <strong>denemek</strong>,{" "}
+        <strong>deneyimlemek</strong>.
+      </>,
+      <>
+        den de bu köklerden doğdu — teoriden değil, gerçekte var olan bir
+        ağrıya doğrudan temas ederek.
+      </>,
+    ],
+  },
+  en: {
+    id: "about",
+    label: "Where it comes from",
+    heading: ["Born from", <br key="br1" />, "experience,", <br key="br2" />, "not theory."],
+    body: [
+      <>
+        <strong>den</strong> is an AI product built at real-world points of
+        contact, not in a lab. Its name comes from the Turkish verb roots{" "}
+        <strong>denemek</strong> (to try) and <strong>deneyimlemek</strong>{" "}
+        (to experience).
+      </>,
+      <>
+        den was born from those same roots — not from theory, but from
+        direct contact with a real, lived pain point.
+      </>,
+    ],
+  },
+};
+
+export default function About({ lang = "tr" }: { lang?: Lang }) {
+  const t = copy[lang];
   return (
-    <section className="about" id="hakkinda">
+    <section className="about" id={t.id}>
       <div className="reveal">
-        <p className="label">Biz kimiz</p>
-        <h2 className="about-heading">
-          Teoriden değil,
-          <br />
-          deneyimden
-          <br />
-          doğduk.
-        </h2>
+        <p className="label">{t.label}</p>
+        <h2 className="about-heading">{t.heading}</h2>
       </div>
       <div className="reveal d1">
         <div className="about-body">
-          <p>
-            <strong>den</strong>, ürün ve hizmetlerini gerçek dünya temas
-            noktalarında inşa eden bir teknoloji ve deneyim şirketidir. Biz plan
-            değil, pratik üretiriz.
-          </p>
-          <p>
-            Adımızın ilham kaynağı Türkçe&apos;nin en yoğun fiil köklerinden
-            biridir: <strong>denemek</strong>, <strong>deneyimlemek</strong>,{" "}
-            . Hepsinin özünde aynı şey var - harekete
-            geçmek.
-          </p>
-          <p>
-            Her ürünümüz bir sorudan değil, bir sürtünmeden doğar. Gerçekte var
-            olan bir ağrıya doğrudan temas ederiz. Ürün ve hizmetlerimizi
-            inşaat, gayrimenkul, teknoloji, girişimcilik, enerji ve savunma
-            sanayi deneyim alanlarında, bu sürtünmenin üzerine inşa ederiz.
-          </p>
+          {t.body.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-

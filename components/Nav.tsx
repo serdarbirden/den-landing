@@ -1,10 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 
-const SHOW_PRODUCTS_SECTION = false;
+type Lang = "tr" | "en";
 
-export default function Nav() {
+const copy = {
+  tr: {
+    links: [
+      { href: "#urun", label: "Ürün" },
+      { href: "#nasil-calisir", label: "Nasıl Çalışır" },
+      { href: "#guvenlik", label: "Güvenlik" },
+      { href: "#hakkinda", label: "Hakkında" },
+    ],
+    cta: { href: "#erken-erisim", label: "Erken Erişim" },
+    menuLabel: "Menüyü aç/kapat",
+  },
+  en: {
+    links: [
+      { href: "#product", label: "Product" },
+      { href: "#how-it-works", label: "How It Works" },
+      { href: "#security", label: "Security" },
+      { href: "#about", label: "About" },
+    ],
+    cta: { href: "#early-access", label: "Early Access" },
+    menuLabel: "Toggle menu",
+  },
+};
+
+export default function Nav({ lang = "tr" }: { lang?: Lang }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const t = copy[lang];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -22,7 +46,7 @@ export default function Nav() {
   }, [mobileOpen]);
 
   return (
-    <nav aria-label="Ana menü" ref={navRef}>
+    <nav aria-label={lang === "tr" ? "Ana menü" : "Main menu"} ref={navRef}>
       <div className="nav-brand">
         <a href="#top" className="nav-wordmark">
           <img src="/denlogo.png" alt="den" className="nav-logo" />
@@ -34,7 +58,7 @@ export default function Nav() {
         className="nav-hamburger"
         aria-haspopup="true"
         aria-expanded={mobileOpen}
-        aria-label="Menüyü aç/kapat"
+        aria-label={t.menuLabel}
         onClick={() => setMobileOpen((v) => !v)}
       >
         <span />
@@ -42,27 +66,24 @@ export default function Nav() {
         <span />
       </button>
       <ul className={`nav-links${mobileOpen ? " nav-links-open" : ""}`}>
-        <li>
-          <a href="#hakkinda" onClick={() => setMobileOpen(false)}>Hakkında</a>
-        </li>
-        <li>
-          <a href="#deneyim-alanlari" onClick={() => setMobileOpen(false)}>Deneyim Alanları</a>
-        </li>
-        {SHOW_PRODUCTS_SECTION && (
-          <li>
-            <a href="#istirakler" onClick={() => setMobileOpen(false)}>Ürünler & Markalar</a>
+        {t.links.map((link) => (
+          <li key={link.href}>
+            <a href={link.href} onClick={() => setMobileOpen(false)}>{link.label}</a>
           </li>
-        )}
+        ))}
         <li>
-          <a href="#felsefe" onClick={() => setMobileOpen(false)}>Felsefe</a>
+          <a href={t.cta.href} className="nav-cta" onClick={() => setMobileOpen(false)}>
+            {t.cta.label}
+          </a>
         </li>
         <li>
-          <a href="#iletisim" className="nav-cta" onClick={() => setMobileOpen(false)}>
-            İletişim
-          </a>
+          <span className="nav-lang">
+            <a href="/" className={lang === "tr" ? "active" : undefined}>TR</a>
+            <span className="nav-lang-sep">/</span>
+            <a href="/en" className={lang === "en" ? "active" : undefined}>EN</a>
+          </span>
         </li>
       </ul>
     </nav>
   );
 }
-

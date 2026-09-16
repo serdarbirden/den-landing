@@ -2,33 +2,46 @@ import dynamic from "next/dynamic";
 
 const BrainField = dynamic(() => import("./BrainField"), { ssr: false });
 
-const steps = ["yap", "dene", "deneyimle", "hata yap", "anında öğren"];
+type Lang = "tr" | "en";
 
-export default function Hero() {
+const copy = {
+  tr: {
+    title: "İkinci Beyin.",
+    sub: "den, kurumunuzun ve sizin dijital ikizinizi kurar. Yazışmalarınız, toplantılarınız, belgeleriniz ve kararlarınız tek bir yaşayan hafızada birleşir — ve sorduğunuzda, gerekçesiyle hatırlar.",
+    primary: { href: "#erken-erisim", label: "Erken Erişim İste" },
+    secondary: { href: "#nasil-calisir", label: "Nasıl çalışır?" },
+    scroll: "aşağı",
+    showWordplay: true,
+  },
+  en: {
+    title: "Second Brain.",
+    sub: "den builds the digital twin of your organization — and of you. Your emails, meetings, documents and decisions merge into one living memory that recalls with context and reasoning when you ask.",
+    primary: { href: "#early-access", label: "Request Early Access" },
+    secondary: { href: "#how-it-works", label: "How it works" },
+    scroll: "scroll",
+    showWordplay: false,
+  },
+};
+
+export default function Hero({ lang = "tr" }: { lang?: Lang }) {
+  const t = copy[lang];
   return (
     <section className="hero">
       <div className="hero-brain">
         <BrainField />
       </div>
       <p className="hero-eyebrow"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</p>
-      <p className="hero-eyebrow"><strong>den</strong>eyim</p>
-      <h1 className="hero-title">İkinci Beyin.</h1>
-      <p className="hero-sub">
-        Sizin veya işletmenizin dijital ikizi, <span className="hero-sub-accent">ikinci beyni</span>.
-      </p>
-      <div className="hero-steps">
-        {steps.map((step, index) => (
-          <span key={step}>
-            <span className="step-item">{step}</span>
-            {index < steps.length - 1 ? <span className="step-sep" /> : null}
-          </span>
-        ))}
+      {t.showWordplay && <p className="hero-eyebrow"><strong>den</strong>eyim</p>}
+      <h1 className="hero-title">{t.title}</h1>
+      <p className="hero-sub">{t.sub}</p>
+      <div className="hero-ctas">
+        <a href={t.primary.href} className="hero-cta-primary">{t.primary.label}</a>
+        <a href={t.secondary.href} className="hero-cta-secondary">{t.secondary.label}</a>
       </div>
       <div className="hero-scroll">
         <div className="scroll-bar" />
-        <span>aşağı</span>
+        <span>{t.scroll}</span>
       </div>
     </section>
   );
 }
-
