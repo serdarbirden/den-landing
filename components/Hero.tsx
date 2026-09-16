@@ -7,7 +7,12 @@ type Lang = "tr" | "en";
 const copy = {
   tr: {
     title: "İkinci Beyin.",
-    sub: "den, kurumunuzun ve sizin dijital ikizinizi kurar. Yazışmalarınız, toplantılarınız, belgeleriniz ve kararlarınız tek bir yaşayan hafızada birleşir — ve sorduğunuzda, gerekçesiyle hatırlar.",
+    sub: (
+      <>
+        Şirketinizin ve sizin <span className="hero-sub-accent">dijital ikizi</span>,{" "}
+        <span className="hero-sub-accent">ikinci beyni</span>.
+      </>
+    ),
     primary: { href: "#erken-erisim", label: "Erken Erişim İste" },
     secondary: { href: "#nasil-calisir", label: "Nasıl çalışır?" },
     scroll: "aşağı",
