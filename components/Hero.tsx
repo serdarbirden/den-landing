@@ -9,8 +9,8 @@ const copy = {
     title: "İkinci Beyin.",
     sub: (
       <>
-        Sizin ve şirketinizin <span className="hero-sub-accent">dijital ikizi</span>,{" "}
-        <span className="hero-sub-accent">ikinci beyni</span>.
+        Size ve şirketinize ait <span className="hero-sub-accent">dijital ikiz</span>,{" "}
+        <span className="hero-sub-accent">ikinci beyin</span>.
       </>
     ),
     primary: { href: "#erken-erisim", label: "Erken Erişim İste" },
@@ -20,7 +20,12 @@ const copy = {
   },
   en: {
     title: "Second Brain.",
-    sub: "den builds the digital twin of your organization — and of you. Your emails, meetings, documents and decisions merge into one living memory that recalls with context and reasoning when you ask.",
+    sub: (
+      <>
+        The <span className="hero-sub-accent">digital twin</span> that belongs to you and your company,{" "}
+        your <span className="hero-sub-accent">second brain</span>.
+      </>
+    ),
     primary: { href: "#early-access", label: "Request Early Access" },
     secondary: { href: "#how-it-works", label: "How it works" },
     scroll: "scroll",
