@@ -10,7 +10,7 @@ const copy = {
       { href: "#guvenlik", label: "Güvenlik" },
       { href: "#hakkinda", label: "Hakkında" },
     ],
-    cta: { href: "#erken-erisim", label: "Erken Erişim" },
+    cta: { href: "#erken-erisim", label: "İletişim" },
     menuLabel: "Menüyü aç/kapat",
   },
   en: {

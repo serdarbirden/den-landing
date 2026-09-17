@@ -6,7 +6,7 @@ const copy = {
       { href: "#urun", label: "Ürün" },
       { href: "#nasil-calisir", label: "Nasıl Çalışır" },
       { href: "#hakkinda", label: "Hakkında" },
-      { href: "#erken-erisim", label: "Erken Erişim" },
+      { href: "#erken-erisim", label: "İletişim" },
     ],
   },
   en: {
