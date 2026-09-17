@@ -55,12 +55,19 @@ declare global {
   }
 }
 
+type Shape = "brain" | "factory" | "head";
+type Vec3 = [number, number, number];
+
 function noise(a: number, b: number, c: number) {
   return (
     0.5 * Math.sin(a * 8.0 + c * 2.3) +
     0.3 * Math.sin(b * 11.0 - a * 4.0) +
     0.2 * Math.sin(a * 17.0 + b * 6.0 + c * 3.1)
   );
+}
+
+function randRange(a: number, b: number) {
+  return a + Math.random() * (b - a);
 }
 
 function buildBrain(count: number) {
@@ -128,6 +135,104 @@ function buildBrain(count: number) {
   return { positions, phases };
 }
 
+type Part =
+  | { type: "box"; weight: number; min: Vec3; max: Vec3 }
+  | { type: "cyl"; weight: number; cx: number; cz: number; yMin: number; yMax: number; radius: number }
+  | { type: "ellipsoid"; weight: number; cx: number; cy: number; cz: number; rx: number; ry: number; rz: number };
+
+function sampleBox(min: Vec3, max: Vec3): Vec3 {
+  const face = Math.floor(Math.random() * 6);
+  const [minX, minY, minZ] = min;
+  const [maxX, maxY, maxZ] = max;
+  let x = randRange(minX, maxX);
+  let y = randRange(minY, maxY);
+  let z = randRange(minZ, maxZ);
+  switch (face) {
+    case 0: x = minX; break;
+    case 1: x = maxX; break;
+    case 2: y = minY; break;
+    case 3: y = maxY; break;
+    case 4: z = minZ; break;
+    default: z = maxZ; break;
+  }
+  return [x, y, z];
+}
+
+function sampleCylinder(cx: number, cz: number, yMin: number, yMax: number, radius: number): Vec3 {
+  const theta = Math.random() * Math.PI * 2;
+  const y = randRange(yMin, yMax);
+  return [cx + Math.cos(theta) * radius, y, cz + Math.sin(theta) * radius];
+}
+
+function sampleEllipsoidSurface(cx: number, cy: number, cz: number, rx: number, ry: number, rz: number): Vec3 {
+  const theta = Math.random() * Math.PI * 2;
+  const phi = Math.acos(2 * Math.random() - 1);
+  const lx = Math.sin(phi) * Math.cos(theta);
+  const ly = Math.cos(phi);
+  const lz = Math.sin(phi) * Math.sin(theta);
+  return [cx + lx * rx, cy + ly * ry, cz + lz * rz];
+}
+
+function samplePart(part: Part): Vec3 {
+  switch (part.type) {
+    case "box":
+      return sampleBox(part.min, part.max);
+    case "cyl":
+      return sampleCylinder(part.cx, part.cz, part.yMin, part.yMax, part.radius);
+    case "ellipsoid":
+      return sampleEllipsoidSurface(part.cx, part.cy, part.cz, part.rx, part.ry, part.rz);
+  }
+}
+
+function buildFromParts(count: number, parts: Part[]) {
+  const positions = new Float32Array(count * 3);
+  const phases = new Float32Array(count);
+  const totalWeight = parts.reduce((sum, p) => sum + p.weight, 0);
+
+  for (let i = 0; i < count; i++) {
+    let r = Math.random() * totalWeight;
+    let chosen = parts[parts.length - 1];
+    for (const part of parts) {
+      if (r < part.weight) {
+        chosen = part;
+        break;
+      }
+      r -= part.weight;
+    }
+    const [x, y, z] = samplePart(chosen);
+    positions[i * 3] = x;
+    positions[i * 3 + 1] = y;
+    positions[i * 3 + 2] = z;
+    phases[i] = Math.random();
+  }
+
+  return { positions, phases };
+}
+
+function buildFactory(count: number) {
+  return buildFromParts(count, [
+    { type: "box", weight: 0.3, min: [-0.95, -0.5, -0.45], max: [0.6, -0.05, 0.45] }, // low warehouse hall
+    { type: "box", weight: 0.16, min: [0.55, -0.5, -0.3], max: [0.95, 0.5, 0.3] }, // office tower
+    { type: "cyl", weight: 0.13, cx: -0.62, cz: 0, yMin: -0.05, yMax: 0.78, radius: 0.055 }, // chimney 1
+    { type: "cyl", weight: 0.11, cx: -0.25, cz: 0.16, yMin: -0.05, yMax: 0.55, radius: 0.05 }, // chimney 2
+    { type: "box", weight: 0.2, min: [-0.95, -0.85, -0.45], max: [0.95, -0.5, 0.45] }, // ground slab
+  ]);
+}
+
+function buildHead(count: number) {
+  return buildFromParts(count, [
+    { type: "ellipsoid", weight: 0.62, cx: 0, cy: 0.28, cz: 0, rx: 0.5, ry: 0.62, rz: 0.52 }, // head
+    { type: "cyl", weight: 0.1, cx: 0, cz: 0, yMin: -0.32, yMax: -0.08, radius: 0.16 }, // neck
+    { type: "box", weight: 0.28, min: [-0.75, -0.95, -0.4], max: [0.75, -0.32, 0.4] }, // shoulders
+  ]);
+}
+
+function buildShape(shape: Shape, count: number) {
+  if (shape === "factory") return buildFactory(count);
+  if (shape === "head") return buildHead(count);
+  return buildBrain(count);
+}
+
 function buildEdges(positions: Float32Array, count: number, k: number, maxDist: number) {
   const maxDistSq = maxDist * maxDist;
   const seen = new Set<string>();
@@ -161,18 +266,31 @@ function buildEdges(positions: Float32Array, count: number, k: number, maxDist: 
   return new Float32Array(edgePositions);
 }
 
-function BrainGroup({
+const EDGE_PARAMS: Record<Shape, { k: number; maxDist: number }> = {
+  brain: { k: 4, maxDist: 0.24 },
+  factory: { k: 4, maxDist: 0.34 },
+  head: { k: 4, maxDist: 0.3 },
+};
+
+function CloudGroup({
+  shape,
   reducedMotion,
   scale,
   offsetY,
 }: {
+  shape: Shape;
   reducedMotion: boolean;
   scale: number;
   offsetY: number;
 }) {
-  const count = useMemo(() => (typeof window !== "undefined" && window.innerWidth < 640 ? 380 : 720), []);
-  const { positions, phases } = useMemo(() => buildBrain(count), [count]);
-  const edgePositions = useMemo(() => buildEdges(positions, count, 4, 0.24), [positions, count]);
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const count = useMemo(() => {
+    if (shape === "brain") return isMobile ? 380 : 720;
+    return isMobile ? 160 : 260;
+  }, [shape, isMobile]);
+  const { positions, phases } = useMemo(() => buildShape(shape, count), [shape, count]);
+  const { k, maxDist } = EDGE_PARAMS[shape];
+  const edgePositions = useMemo(() => buildEdges(positions, count, k, maxDist), [positions, count, k, maxDist]);
 
   const { size } = useThree();
   const fittedScale = useMemo(() => {
@@ -242,10 +360,12 @@ function BrainGroup({
 }
 
 export default function BrainField({
+  shape = "brain",
   cameraZ = 4.4,
   scale = 1.35,
   offsetY = 0,
 }: {
+  shape?: Shape;
   cameraZ?: number;
   scale?: number;
   offsetY?: number;
@@ -262,7 +382,7 @@ export default function BrainField({
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
     >
-      <BrainGroup reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} />
+      <CloudGroup shape={shape} reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} />
     </Canvas>
   );
 }
