@@ -210,21 +210,93 @@ function buildFromParts(count: number, parts: Part[]) {
 }
 
 function buildFactory(count: number) {
-  return buildFromParts(count, [
-    { type: "box", weight: 0.3, min: [-0.95, -0.5, -0.45], max: [0.6, -0.05, 0.45] }, // low warehouse hall
-    { type: "box", weight: 0.16, min: [0.55, -0.5, -0.3], max: [0.95, 0.5, 0.3] }, // office tower
-    { type: "cyl", weight: 0.13, cx: -0.62, cz: 0, yMin: -0.05, yMax: 0.78, radius: 0.055 }, // chimney 1
-    { type: "cyl", weight: 0.11, cx: -0.25, cz: 0.16, yMin: -0.05, yMax: 0.55, radius: 0.05 }, // chimney 2
+  const { positions, phases } = buildFromParts(count, [
+    { type: "box", weight: 0.28, min: [-0.95, -0.5, -0.45], max: [0.6, -0.05, 0.45] }, // low warehouse hall
+    { type: "box", weight: 0.05, min: [-0.95, -0.05, -0.45], max: [0.6, 0.06, 0.45] }, // roof ridge accent
+    { type: "box", weight: 0.15, min: [0.55, -0.5, -0.3], max: [0.95, 0.5, 0.3] }, // office tower
+    { type: "cyl", weight: 0.12, cx: -0.62, cz: 0, yMin: -0.05, yMax: 0.78, radius: 0.055 }, // chimney 1
+    { type: "cyl", weight: 0.1, cx: -0.25, cz: 0.16, yMin: -0.05, yMax: 0.55, radius: 0.05 }, // chimney 2
+    { type: "box", weight: 0.1, min: [-0.55, -0.5, -0.45], max: [-0.15, -0.22, -0.45] }, // dock canopy hint
     { type: "box", weight: 0.2, min: [-0.95, -0.85, -0.45], max: [0.95, -0.5, 0.45] }, // ground slab
   ]);
+
+  // soften the flat box faces with a light grain so the cloud reads as fine
+  // detail rather than a rigid geometric grid, matching the organic feel of
+  // the brain field.
+  for (let i = 0; i < count; i++) {
+    const x = positions[i * 3];
+    const y = positions[i * 3 + 1];
+    const z = positions[i * 3 + 2];
+    const n = noise(x * 5, y * 5, z * 5 + 4.1);
+    positions[i * 3] = x + n * 0.014;
+    positions[i * 3 + 1] = y + n * 0.01;
+    positions[i * 3 + 2] = z + n * 0.014;
+  }
+
+  return { positions, phases };
 }
 
 function buildHead(count: number) {
-  return buildFromParts(count, [
-    { type: "ellipsoid", weight: 0.62, cx: 0, cy: 0.28, cz: 0, rx: 0.5, ry: 0.62, rz: 0.52 }, // head
-    { type: "cyl", weight: 0.1, cx: 0, cz: 0, yMin: -0.32, yMax: -0.08, radius: 0.16 }, // neck
-    { type: "box", weight: 0.28, min: [-0.75, -0.95, -0.4], max: [0.75, -0.32, 0.4] }, // shoulders
-  ]);
+  const positions = new Float32Array(count * 3);
+  const phases = new Float32Array(count);
+
+  const headCount = Math.round(count * 0.48);
+  const neckCount = Math.round(count * 0.07);
+  const bustCount = count - headCount - neckCount;
+
+  for (let i = 0; i < headCount; i++) {
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const lx = Math.sin(phi) * Math.cos(theta);
+    const ly = Math.cos(phi);
+    const lz = Math.sin(phi) * Math.sin(theta);
+
+    const fold = 1 + 0.045 * noise(theta, phi, 1.7);
+    const jaw = ly < -0.1 ? 1 - (-ly - 0.1) * 0.32 : 1;
+
+    const px = lx * 0.47 * fold * jaw;
+    const py = ly * 0.58 * fold + 0.34;
+    const pz = lz * 0.5 * fold * jaw;
+
+    positions[i * 3] = px;
+    positions[i * 3 + 1] = py;
+    positions[i * 3 + 2] = pz;
+    phases[i] = Math.random();
+  }
+
+  for (let i = 0; i < neckCount; i++) {
+    const idx = headCount + i;
+    const theta = Math.random() * Math.PI * 2;
+    const y = randRange(-0.34, -0.14);
+    const radius = 0.15;
+    positions[idx * 3] = Math.cos(theta) * radius;
+    positions[idx * 3 + 1] = y;
+    positions[idx * 3 + 2] = Math.sin(theta) * radius;
+    phases[idx] = Math.random();
+  }
+
+  const topY = -0.32;
+  const bottomY = -0.98;
+  for (let i = 0; i < bustCount; i++) {
+    const idx = headCount + neckCount + i;
+    const t = Math.random();
+    const frac = 1 - Math.pow(1 - t, 2); // ease-out: denser spread toward the shoulders
+    const y = topY + (bottomY - topY) * frac;
+
+    const widthEase = Math.min(1, frac / 0.55);
+    const width = 0.16 + (0.72 - 0.16) * (1 - Math.pow(1 - widthEase, 2));
+    const depth = width * 0.62;
+
+    const angle = Math.random() * Math.PI * 2;
+    const fold = 1 + 0.035 * noise(angle, frac, 2.3);
+
+    positions[idx * 3] = Math.cos(angle) * width * fold;
+    positions[idx * 3 + 1] = y;
+    positions[idx * 3 + 2] = Math.sin(angle) * depth * fold;
+    phases[idx] = Math.random();
+  }
+
+  return { positions, phases };
 }
 
 function buildShape(shape: Shape, count: number) {
@@ -268,8 +340,8 @@ function buildEdges(positions: Float32Array, count: number, k: number, maxDist: 
 
 const EDGE_PARAMS: Record<Shape, { k: number; maxDist: number }> = {
   brain: { k: 4, maxDist: 0.24 },
-  factory: { k: 4, maxDist: 0.34 },
-  head: { k: 4, maxDist: 0.3 },
+  factory: { k: 4, maxDist: 0.22 },
+  head: { k: 4, maxDist: 0.2 },
 };
 
 function CloudGroup({
@@ -277,16 +349,18 @@ function CloudGroup({
   reducedMotion,
   scale,
   offsetY,
+  pointSize,
 }: {
   shape: Shape;
   reducedMotion: boolean;
   scale: number;
   offsetY: number;
+  pointSize: number;
 }) {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
   const count = useMemo(() => {
     if (shape === "brain") return isMobile ? 380 : 720;
-    return isMobile ? 160 : 260;
+    return isMobile ? 340 : 560;
   }, [shape, isMobile]);
   const { positions, phases } = useMemo(() => buildShape(shape, count), [shape, count]);
   const { k, maxDist } = EDGE_PARAMS[shape];
@@ -353,7 +427,7 @@ function CloudGroup({
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
           <bufferAttribute attach="attributes-aPhase" args={[phases, 1]} />
         </bufferGeometry>
-        <brainPointsMaterial ref={materialRef} transparent depthWrite={false} />
+        <brainPointsMaterial ref={materialRef} transparent depthWrite={false} uBaseSize={pointSize} />
       </points>
     </group>
   );
@@ -364,11 +438,13 @@ export default function BrainField({
   cameraZ = 4.4,
   scale = 1.35,
   offsetY = 0,
+  pointSize = 34,
 }: {
   shape?: Shape;
   cameraZ?: number;
   scale?: number;
   offsetY?: number;
+  pointSize?: number;
 }) {
   const reducedMotion = useMemo(
     () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -382,7 +458,7 @@ export default function BrainField({
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
     >
-      <CloudGroup shape={shape} reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} />
+      <CloudGroup shape={shape} reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} pointSize={pointSize} />
     </Canvas>
   );
 }
