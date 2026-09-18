@@ -6,7 +6,7 @@ const copy = {
     heading: "Üç ilke, bir yön.",
     items: [
       { name: "Temas önce gelir", body: "den gerçek verinizle kurulur, demo verisiyle değil." },
-      { name: "Hata bir sinyal", body: "Yaşanmış her hata, hafızanızda bir öğrenme düğümüdür." },
+      { name: "Hata bir sinyal", body: "den'de hata bile boşa gitmez; hafızanızda bir öğrenme düğümüne dönüşür." },
       { name: "Ölçek sonra gelir", body: "Önce sizin ikizinizi doğru kurarız." },
     ],
   },
@@ -15,7 +15,7 @@ const copy = {
     heading: "Three principles, one direction.",
     items: [
       { name: "Contact comes first", body: "den is built on your real data, not demo data." },
-      { name: "Mistakes are signals", body: "Every lived mistake becomes a learning node in your memory." },
+      { name: "Mistakes are signals", body: "In den, even mistakes aren't wasted; they become learning nodes in your memory." },
       { name: "Scale comes later", body: "First, we get your twin right." },
     ],
   },

@@ -25,7 +25,7 @@ const copy = {
       { name: "Recalls", body: "Ask, and get memory with context and reasoning — not a list of search results." },
       { name: "Learns", body: "The network grows with every new experience; it tracks the consistency of your decisions over time." },
     ],
-    punchline: "Tools like Obsidian wait for you to take notes. den remembers for you.",
+    punchline: "Other similar tools wait for you to take notes. den remembers for you.",
   },
 };
 

@@ -8,6 +8,7 @@ const copy = {
       { href: "#hakkinda", label: "Hakkında" },
       { href: "#erken-erisim", label: "İletişim" },
     ],
+    tagline: "hiçbir deneyim boşa gitmez.",
   },
   en: {
     links: [
@@ -16,6 +17,7 @@ const copy = {
       { href: "#about", label: "About" },
       { href: "#early-access", label: "Early Access" },
     ],
+    tagline: "no experience is ever wasted.",
   },
 };
 
@@ -27,7 +29,10 @@ export default function Footer({ lang = "tr" }: { lang?: Lang }) {
         <a href="#top" className="footer-word">
           <img src="/denlogo.png" alt="den" className="footer-logo" />
         </a>
-        <span className="footer-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
+        <div className="footer-text">
+          <span className="footer-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
+          <span className="footer-tagline">{t.tagline}</span>
+        </div>
       </div>
       <ul className="footer-links">
         {t.links.map((link) => (

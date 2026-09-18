@@ -17,10 +17,10 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>den — İkinci Beyin | Kurumsal Hafıza ve Dijital İkiz Platformu</title>
+        <title>den — İkinci Beyin | Hiçbir Deneyim Boşa Gitmez</title>
         <meta
           name="description"
-          content="den, kurumunuzun ve yöneticilerinizin dijital ikizini kurar: yaşayan kurumsal hafıza, karar geçmişi ve on-premise yapay zeka."
+          content="den, kurumunuzun ve yöneticilerinizin dijital ikizini kurar: yaşayan kurumsal hafıza, karar geçmişi ve on-premise yapay zeka. Hiçbir deneyim boşa gitmez."
         />
         <link rel="icon" href="/denlogo.png" type="image/png" />
         <link rel="canonical" href="https://denofficial.com/" />

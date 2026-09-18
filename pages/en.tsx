@@ -17,10 +17,10 @@ export default function HomePageEn() {
   return (
     <>
       <Head>
-        <title>den — Second Brain | Organizational Memory &amp; Digital Twin Platform</title>
+        <title>den — Second Brain | No Experience Is Ever Wasted</title>
         <meta
           name="description"
-          content="den builds the digital twin of your organization and its leaders: living organizational memory, decision history, and on-premise AI."
+          content="den builds the digital twin of your organization and its leaders: living organizational memory, decision history, and on-premise AI. No experience is ever wasted."
         />
         <link rel="icon" href="/denlogo.png" type="image/png" />
         <link rel="canonical" href="https://denofficial.com/en" />

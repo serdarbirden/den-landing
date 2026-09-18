@@ -7,6 +7,7 @@ type Lang = "tr" | "en";
 const copy = {
   tr: {
     title: "İkinci Beyin.",
+    slogan: "Hiçbir deneyim boşa gitmez.",
     sub: (
       <>
         Size ve şirketinize ait <span className="hero-sub-accent">dijital ikiz</span>,{" "}
@@ -20,6 +21,7 @@ const copy = {
   },
   en: {
     title: "Second Brain.",
+    slogan: "No experience is ever wasted.",
     sub: (
       <>
         The <span className="hero-sub-accent">digital twin</span> that belongs to you and your company,{" "}
@@ -43,6 +45,7 @@ export default function Hero({ lang = "tr" }: { lang?: Lang }) {
       <p className="hero-eyebrow"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</p>
       {t.showWordplay && <p className="hero-eyebrow"><strong>den</strong>eyim</p>}
       <h1 className="hero-title">{t.title}</h1>
+      <p className="hero-slogan">{t.slogan}</p>
       <p className="hero-sub">{t.sub}</p>
       <div className="hero-ctas">
         <a href={t.primary.href} className="hero-cta-primary">{t.primary.label}</a>

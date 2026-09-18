@@ -8,6 +8,7 @@ const copy = {
       "Aynı hatalar, aynı müzakereler, aynı kararlar tekrar tekrar sıfırdan yaşanır.",
       "Karar vericiler bilgiye değil, hatırlamaya vakit harcar.",
     ],
+    punchline: "Oysa yaşanan her şey bir yerde birikiyor olmalıydı.",
   },
   en: {
     heading: "Organizations forget. People burn out.",
@@ -16,6 +17,7 @@ const copy = {
       "The same mistakes, the same negotiations, the same decisions get replayed from scratch.",
       "Decision-makers spend their time not on knowledge, but on trying to remember.",
     ],
+    punchline: "Everything you live through should have been accumulating somewhere.",
   },
 };
 
@@ -31,6 +33,7 @@ export default function Problem({ lang = "tr" }: { lang?: Lang }) {
           </div>
         ))}
       </div>
+      <p className="problem-punchline reveal">{t.punchline}</p>
     </section>
   );
 }

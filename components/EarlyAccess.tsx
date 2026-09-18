@@ -7,7 +7,8 @@ const EMAIL = "serdarbirden@denofficial.com";
 const copy = {
   tr: {
     id: "erken-erisim",
-    heading: "Kurumunuzun hafızası, sizinle konuşmaya hazır.",
+    heading: "Biriktirmeye bugün başlayın.",
+    subline: "Kurumunuzun hafızası, sizinle konuşmaya hazır.",
     fields: {
       name: "Ad Soyad",
       email: "E-posta",
@@ -23,7 +24,8 @@ const copy = {
   },
   en: {
     id: "early-access",
-    heading: "Your organization's memory is ready to talk to you.",
+    heading: "Start compounding today.",
+    subline: "Your organization's memory is ready to talk to you.",
     fields: {
       name: "Full name",
       email: "Email",
@@ -59,6 +61,7 @@ export default function EarlyAccess({ lang = "tr" }: { lang?: Lang }) {
     <section className="early-access" id={t.id}>
       <div className="early-access-inner">
         <h2 className="early-access-heading reveal">{t.heading}</h2>
+        <p className="early-access-subline reveal">{t.subline}</p>
         <form className="ea-form reveal d1" onSubmit={handleSubmit}>
           <div className="ea-row">
             <div className="ea-field">
