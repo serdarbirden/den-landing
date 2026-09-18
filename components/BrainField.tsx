@@ -391,8 +391,13 @@ function CloudGroup({
   useFrame((state, delta) => {
     if (!groupRef.current) return;
 
+    // Clamp delta so a backgrounded/inactive tab (where rAF pauses and the
+    // next frame reports a multi-second gap) doesn't make the field jump
+    // far ahead and then visibly spin fast while it catches up.
+    const dt = Math.min(delta, 1 / 30);
+
     if (!reducedMotion) {
-      autoRotate.current += delta * 0.1;
+      autoRotate.current += dt * 0.1;
     }
     const targetY = autoRotate.current + mouse.current.x * 0.35;
     const targetX = -0.12 + mouse.current.y * 0.18;
