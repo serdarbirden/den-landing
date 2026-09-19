@@ -41,7 +41,7 @@ export default function HomePageEn() {
         <Problem lang="en" />
         <hr className="rule" />
         <ProductTwins lang="en" />
-        <ThreeRings />
+        <ThreeRings lang="en" />
         <HowItWorks lang="en" />
         <hr className="rule" />
         <DataSovereignty lang="en" />
