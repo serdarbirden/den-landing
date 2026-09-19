@@ -12,6 +12,7 @@ import Philosophy from "../components/Philosophy";
 import Problem from "../components/Problem";
 import ProductTwins from "../components/ProductTwins";
 import RevealObserver from "../components/RevealObserver";
+import ThreeRings from "../components/ThreeRings";
 
 export default function HomePageEn() {
   return (
@@ -40,6 +41,7 @@ export default function HomePageEn() {
         <Problem lang="en" />
         <hr className="rule" />
         <ProductTwins lang="en" />
+        <ThreeRings />
         <HowItWorks lang="en" />
         <hr className="rule" />
         <DataSovereignty lang="en" />

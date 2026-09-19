@@ -306,6 +306,52 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   border-top: 1px solid var(--black-faint);
 }
 
+/* THREE RINGS (product, continued) */
+.rings { max-width: 1080px; margin: 0 auto; padding: 110px 48px; }
+.rings-heading {
+  font-family: var(--serif); font-size: clamp(30px, 4.5vw, 50px);
+  font-weight: 500; color: var(--black); margin-bottom: 20px;
+}
+.rings-intro {
+  font-family: var(--sans); font-size: 15px; line-height: 1.85;
+  color: var(--black-mid); max-width: 700px; margin-bottom: 52px;
+}
+.rings-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--black-faint); }
+.rings-col { padding: 28px 28px 0 0; border-right: 1px solid var(--black-faint); }
+.rings-col:not(:first-child) { padding-left: 28px; }
+.rings-col:last-child { border-right: none; padding-right: 0; }
+.ring-mark { display: block; width: 60px; height: 60px; margin-bottom: 22px; }
+.ring-mark .ring-live { stroke: var(--black); stroke-width: 1.5; opacity: 0.85; }
+.ring-mark .ring-dim { stroke: var(--black-dim); stroke-width: 1.5; opacity: 0.3; }
+.ring-mark .ring-dot { fill: var(--claude-orange); }
+.ring-mark .ring-dot-dim { fill: var(--black-dim); opacity: 0.3; }
+.rings-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  color: var(--black-dim); margin-bottom: 18px;
+}
+.rings-name {
+  font-family: var(--serif); font-size: 20px; font-weight: 500;
+  color: var(--black); margin-bottom: 12px; line-height: 1.2;
+}
+.rings-tag {
+  display: inline-block; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--black-dim);
+  border: 1px solid var(--black-faint); padding: 4px 10px; margin-bottom: 16px;
+}
+.rings-body {
+  font-family: var(--sans); font-size: 13px; line-height: 1.75;
+  color: var(--black-mid); margin-bottom: 16px;
+}
+.rings-subline {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--black-dim);
+}
+.rings-closing {
+  font-family: var(--serif); font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 500; color: var(--black); text-align: center;
+  max-width: 760px; margin: 56px auto 0; padding-top: 44px;
+  border-top: 1px solid var(--black-faint);
+}
+
 /* DATA SOVEREIGNTY */
 .sovereignty { background: #b2b2b2; border-top: 1px solid var(--black-faint); border-bottom: 1px solid var(--black-faint); }
 .sovereignty-inner { max-width: 780px; margin: 0 auto; padding: 110px 48px; text-align: center; }
@@ -670,6 +716,12 @@ section[id] { scroll-margin-top: 84px; }
   .how-step:not(:first-child) { padding-left: 0; }
   .how-step:last-child { border-bottom: none; }
   .how-punchline { margin-top: 40px; padding-top: 32px; }
+  .rings { padding: 70px 24px; }
+  .rings-grid { grid-template-columns: 1fr; }
+  .rings-col { border-right: none; border-bottom: 1px solid var(--black-faint); padding: 24px 0; }
+  .rings-col:not(:first-child) { padding-left: 0; }
+  .rings-col:last-child { border-bottom: none; }
+  .rings-closing { margin-top: 40px; padding-top: 32px; }
   .sovereignty-inner { padding: 70px 24px; }
   .case-study { padding: 70px 24px; }
   .early-access { padding: 70px 24px; }
