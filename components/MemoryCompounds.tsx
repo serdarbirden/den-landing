@@ -17,7 +17,7 @@ type Panel = {
 
 const copy: Record<Lang, { label: string; heading: string; lead: string; closing: string; panels: Panel[] }> = {
   tr: {
-    label: "03 — Hafıza",
+    label: "Hafıza",
     heading: "Hafıza birikir.",
     lead: "Aynı ağ, dört dönemde. Her yeni deneyim bir düğüm, her karar bir bağ olur. Siz çalıştıkça hafızanız büyür.",
     closing: "Hiçbir deneyim boşa gitmez.",
@@ -29,7 +29,7 @@ const copy: Record<Lang, { label: string; heading: string; lead: string; closing
     ],
   },
   en: {
-    label: "03 — Memory",
+    label: "Memory",
     heading: "Memory compounds.",
     lead: "The same network across four periods. Every new experience becomes a node, every decision a link. Your memory grows as you work.",
     closing: "No experience is ever wasted.",

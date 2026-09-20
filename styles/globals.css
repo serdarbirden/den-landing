@@ -307,7 +307,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 
 /* THREE RINGS (product, continued) */
-.rings { background: var(--black); }
+.rings { background: #0b0b0c; }
 .rings-inner { max-width: 1080px; margin: 0 auto; padding: 110px 48px; }
 .rings .section-bar { border-bottom: 1px solid rgba(245,245,240,0.16); }
 .rings .section-bar-label { color: #b2b2b2; }
@@ -419,7 +419,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 
 /* EARLY ACCESS FORM */
-.early-access { background: var(--black); padding: 110px 48px; }
+.early-access { background: #0b0b0c; padding: 110px 48px; }
 .early-access-inner { max-width: 640px; margin: 0 auto; }
 .early-access-heading {
   font-family: var(--serif); font-size: clamp(32px, 5vw, 52px);
