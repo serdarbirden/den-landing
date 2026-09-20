@@ -39,11 +39,11 @@ export default function HomePage() {
         <Nav lang="tr" />
         <Hero lang="tr" />
         <hr className="rule" />
+        <MemoryCompounds lang="tr" />
         <Problem lang="tr" />
         <hr className="rule" />
         <ProductTwins lang="tr" />
         <ThreeRings lang="tr" />
-        <MemoryCompounds lang="tr" />
         <HowItWorks lang="tr" />
         <hr className="rule" />
         <DataSovereignty lang="tr" />

@@ -25,15 +25,17 @@ export default function Problem({ lang = "tr" }: { lang?: Lang }) {
   const t = copy[lang];
   return (
     <section className="problem">
-      <h2 className="problem-heading reveal">{t.heading}</h2>
-      <div className="problem-list">
-        {t.items.map((item, index) => (
-          <div className={`problem-item reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={item}>
-            <p>{item}</p>
-          </div>
-        ))}
+      <div className="problem-inner">
+        <h2 className="problem-heading reveal">{t.heading}</h2>
+        <div className="problem-list">
+          {t.items.map((item, index) => (
+            <div className={`problem-item reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={item}>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+        <p className="problem-punchline reveal">{t.punchline}</p>
       </div>
-      <p className="problem-punchline reveal">{t.punchline}</p>
     </section>
   );
 }

@@ -39,11 +39,11 @@ export default function HomePageEn() {
         <Nav lang="en" />
         <Hero lang="en" />
         <hr className="rule" />
+        <MemoryCompounds lang="en" />
         <Problem lang="en" />
         <hr className="rule" />
         <ProductTwins lang="en" />
         <ThreeRings lang="en" />
-        <MemoryCompounds lang="en" />
         <HowItWorks lang="en" />
         <hr className="rule" />
         <DataSovereignty lang="en" />
