@@ -7,6 +7,7 @@ import EarlyAccess from "../components/EarlyAccess";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import HowItWorks from "../components/HowItWorks";
+import MemoryCompounds from "../components/MemoryCompounds";
 import Nav from "../components/Nav";
 import Philosophy from "../components/Philosophy";
 import Problem from "../components/Problem";
@@ -42,6 +43,7 @@ export default function HomePage() {
         <hr className="rule" />
         <ProductTwins lang="tr" />
         <ThreeRings lang="tr" />
+        <MemoryCompounds lang="tr" />
         <HowItWorks lang="tr" />
         <hr className="rule" />
         <DataSovereignty lang="tr" />

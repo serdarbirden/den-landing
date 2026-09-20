@@ -355,6 +355,36 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   border-top: 1px solid rgba(245,245,240,0.16);
 }
 
+/* MEMORY COMPOUNDS (den-growth) */
+.den-growth { background: #0b0b0c; color: #f5f5f0; padding: 96px 0; font-family: var(--sans); }
+.den-growth__inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.den-growth__label { margin: 0 0 20px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #6e6e69; }
+.den-growth h2 { margin: 0 0 14px; font-size: clamp(28px, 4vw, 44px); font-weight: 500; letter-spacing: -.02em; font-family: var(--serif); }
+.den-growth__lead { margin: 0 0 56px; max-width: 640px; font-size: clamp(15px, 1.4vw, 17px); font-weight: 300; line-height: 1.6; color: #b9b7b0; }
+.den-growth__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.den-panel { margin: 0; display: flex; flex-direction: column; gap: 14px; position: relative; }
+.den-panel svg { width: 100%; height: auto; display: block; background: #0b0b0c; }
+.den-panel:not(:last-child)::after { content: ""; position: absolute; top: 50%; right: -15px; width: 7px; height: 7px; border-top: 1px solid #3a3a38; border-right: 1px solid #3a3a38; transform: translateY(-50%) rotate(45deg); }
+.den-panel figcaption { display: flex; flex-direction: column; gap: 5px; padding-top: 14px; border-top: 1px solid #232322; }
+.den-panel__year { font-size: 13px; letter-spacing: .14em; color: #8d8b84; }
+.den-panel--now .den-panel__year { color: #f5f5f0; }
+.den-panel__meta { font-size: 12.5px; font-weight: 300; color: #6e6e69; }
+.den-growth__closing { margin: 64px 0 0; padding-top: 28px; border-top: 1px solid #232322; font-size: clamp(18px, 2vw, 22px); font-weight: 500; font-family: var(--serif); }
+@media (max-width: 900px) {
+  .den-growth { padding: 72px 0; }
+  .den-growth__grid { grid-template-columns: repeat(2, 1fr); gap: 20px 28px; }
+  .den-panel:not(:last-child)::after { display: none; }
+  .den-panel:nth-child(2)::after, .den-panel:nth-child(4)::after { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .den-panel { opacity: 0; transform: translateY(12px); animation: den-rise .7s ease forwards; }
+  .den-panel:nth-child(1) { animation-delay: .05s; }
+  .den-panel:nth-child(2) { animation-delay: .20s; }
+  .den-panel:nth-child(3) { animation-delay: .35s; }
+  .den-panel:nth-child(4) { animation-delay: .50s; }
+  @keyframes den-rise { to { opacity: 1; transform: none; } }
+}
+
 /* DATA SOVEREIGNTY */
 .sovereignty { background: var(--bg); border-top: 1px solid var(--black-faint); border-bottom: 1px solid var(--black-faint); }
 .sovereignty-inner { max-width: 780px; margin: 0 auto; padding: 110px 48px; text-align: center; }
