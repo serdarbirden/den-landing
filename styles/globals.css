@@ -63,7 +63,7 @@ nav {
   color: var(--bg) !important; background: var(--black);
   padding: 10px 22px; text-decoration: none; transition: background-color 0.2s;
 }
-.nav-cta:hover { background: var(--claude-orange); }
+.nav-cta:hover { background: #b2b2b2; color: var(--black) !important; }
 
 .nav-lang {
   display: flex; align-items: center; gap: 6px;
@@ -113,7 +113,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 .hero-slogan {
   font-family: var(--sans); font-size: clamp(16px, 2.2vw, 20px);
-  font-weight: 500; letter-spacing: 0.01em; color: var(--claude-orange);
+  font-weight: 500; letter-spacing: 0.01em; color: var(--black);
   margin-bottom: 20px;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.42s;
 }
@@ -123,7 +123,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   max-width: 520px; margin-bottom: 56px;
   opacity: 0; animation: fadeUp 0.8s ease forwards 0.5s;
 }
-.hero-sub-accent { color: var(--claude-orange); font-weight: 500; }
+.hero-sub-accent { color: var(--black); font-weight: 500; }
 .hero-ctas {
   display: flex; align-items: center; flex-wrap: wrap;
   justify-content: center; gap: 20px;
@@ -136,7 +136,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   padding: 16px 36px; text-decoration: none;
   transition: background-color 0.2s;
 }
-.hero-cta-primary:hover { background: var(--claude-orange); }
+.hero-cta-primary:hover { background: #b2b2b2; color: var(--black); }
 .hero-cta-secondary {
   font-family: var(--sans); font-size: 13px; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
@@ -422,7 +422,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   color: var(--black); background: var(--bg); border: none;
   padding: 16px 44px; cursor: pointer; transition: background-color 0.2s, color 0.2s;
 }
-.ea-submit:hover { background: var(--claude-orange); color: var(--bg); }
+.ea-submit:hover { background: #b2b2b2; color: var(--black); }
 .ea-secondary {
   margin-top: 36px; font-family: var(--mono); font-size: 12px;
   letter-spacing: 0.08em; color: #b2b2b2; text-align: center;
@@ -530,34 +530,34 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 
 /* PHILOSOPHY */
 .philosophy {
-  background: var(--claude-orange);
+  background: #b2b2b2;
   border-top: 1px solid var(--black-faint);
   border-bottom: 1px solid var(--black-faint);
 }
 .phi-inner { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
 .phi-header {
   display: flex; align-items: baseline; justify-content: space-between;
-  padding: 52px 0 32px; border-bottom: 1px solid rgba(178,178,178,0.3);
+  padding: 52px 0 32px; border-bottom: 1px solid var(--black-faint);
 }
-.phi-label { margin-bottom: 0; color: #b2b2b2; }
+.phi-label { margin-bottom: 0; color: var(--black-dim); }
 .phi-title-big {
   font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
-  font-weight: 500; color: #fff;
+  font-weight: 500; color: var(--black);
 }
 .phi-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.phi-item { padding: 48px 40px 56px 0; border-right: 1px solid rgba(178,178,178,0.3); }
+.phi-item { padding: 48px 40px 56px 0; border-right: 1px solid var(--black-faint); }
 .phi-item:not(:first-child) { padding-left: 40px; padding-right: 0; }
 .phi-item:last-child { border-right: none; }
 .phi-num {
   font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.2em; color: #b2b2b2; margin-bottom: 20px;
+  letter-spacing: 0.2em; color: var(--black-dim); margin-bottom: 20px;
 }
 .phi-name {
   font-family: var(--serif); font-size: 28px; font-weight: 500;
-  color: #fff; margin-bottom: 16px; line-height: 1.2;
+  color: var(--black); margin-bottom: 16px; line-height: 1.2;
 }
 .phi-body {
-  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: #b2b2b2;
+  font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--black-mid);
 }
 
 /* QUOTE */
