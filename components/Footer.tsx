@@ -15,6 +15,7 @@ const copy = {
     links: [
       { href: "#product", label: "Product" },
       { href: "#how-it-works", label: "How It Works" },
+      { href: "/en/transformation", label: "Transformation" },
       { href: "#about", label: "About" },
       { href: "#early-access", label: "Early Access" },
     ],
@@ -22,7 +23,14 @@ const copy = {
   },
 };
 
-export default function Footer({ lang = "tr", home }: { lang?: Lang; home?: string }) {
+type FooterProps = {
+  lang?: Lang;
+  home?: string;
+  // Ürün sloganı yalnızca ürün sayfalarında gösterilir.
+  showTagline?: boolean;
+};
+
+export default function Footer({ lang = "tr", home, showTagline = true }: FooterProps) {
   const t = copy[lang];
   const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
   return (
@@ -33,7 +41,7 @@ export default function Footer({ lang = "tr", home }: { lang?: Lang; home?: stri
         </a>
         <div className="footer-text">
           <span className="footer-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
-          <span className="footer-tagline">{t.tagline}</span>
+          {showTagline && <span className="footer-tagline">{t.tagline}</span>}
         </div>
       </div>
       <ul className="footer-links">

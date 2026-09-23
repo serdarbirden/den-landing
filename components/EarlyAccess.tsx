@@ -41,8 +41,11 @@ const copy = {
     submit: "Request Early Access",
     secondaryPrefix: "Or write directly:",
     subject: "Early Access Request",
-    // Dönüşüm bölümünün EN karşılığı henüz yok.
-    crossLink: null,
+    crossLink: {
+      before: "For our organizational transformation programs, see ",
+      link: { href: "/en/transformation", label: "Transformation" },
+      after: ".",
+    },
     body: (v: Record<string, string>) =>
       `Name: ${v.name}\nEmail: ${v.email}\nCompany: ${v.company}\nRole: ${v.role}\nWhat wears you out the most?: ${v.note}`,
   },

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import HeroCloud from "./HeroCloud";
 
 type Cta = { href: string; label: string };
 
@@ -8,11 +9,14 @@ type Props = {
   sub: string;
   primary?: Cta;
   secondary?: Cta;
+  // Yalnızca bölümün giriş sayfasında: ana sayfadaki hafıza ağının nokta bulutu.
+  cloud?: boolean;
 };
 
-export default function DnHero({ label, heading, sub, primary, secondary }: Props) {
+export default function DnHero({ label, heading, sub, primary, secondary, cloud = false }: Props) {
   return (
-    <section className="dn-hero">
+    <section className={`dn-hero${cloud ? " dn-hero--cloud" : ""}`}>
+      {cloud && <HeroCloud />}
       <div className="dn-inner">
         <p className="dn-hero-label">{label}</p>
         <h1 className="dn-hero-title">{heading}</h1>

@@ -69,7 +69,7 @@ nav {
   display: flex; align-items: center; gap: 6px;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
 }
-.nav-lang a { color: var(--black-dim); text-decoration: none; transition: color 0.2s; }
+.nav-lang a { color: #6e6e69; text-decoration: none; transition: color 0.2s; }
 .nav-lang a:hover { color: var(--black); }
 .nav-lang a.active { color: var(--black); font-weight: 600; pointer-events: none; }
 .nav-lang-sep { color: var(--black-faint); }
@@ -755,6 +755,24 @@ footer {
 .dn-hero-sub { animation-delay: 0.45s; }
 .dn-hero .dn-ctas { animation-delay: 0.6s; }
 
+/* Dönüşüm — hero nokta bulutu (yalnızca giriş sayfası) */
+.dn-hero--cloud { position: relative; overflow: hidden; }
+.dn-hero--cloud .dn-inner { position: relative; z-index: 1; }
+.dn-cloud {
+  position: absolute; inset: 0; pointer-events: none;
+  /* Metnin bulunduğu sol-alt bölgede bulut kaybolur; sağ ve üst kenarda belirginleşir. */
+  -webkit-mask-image: linear-gradient(to right, transparent 32%, #000 92%), linear-gradient(to top, transparent 18%, #000 92%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 32%, #000 92%), linear-gradient(to top, transparent 18%, #000 92%);
+  mask-composite: intersect;
+}
+.dn-cloud svg { display: block; width: 100%; height: 100%; }
+.dn-cloud-link { stroke: var(--dn-text); stroke-width: 0.8; stroke-opacity: 0.06; }
+.dn-cloud-link-strong { stroke: var(--dn-text); stroke-width: 1.2; stroke-opacity: 0.08; }
+.dn-cloud-node { fill: var(--dn-text); fill-opacity: 0.14; }
+.dn-cloud-hub, .dn-cloud-square, .dn-cloud-diamond { fill: var(--dn-text); fill-opacity: 0.18; }
+.dn-cloud-ring { fill: none; stroke: var(--dn-text); stroke-width: 1; stroke-opacity: 0.18; }
+
 /* Dönüşüm — olgunluk merdiveni */
 .dn-ladder-figure { margin: 0 0 56px; }
 .dn-ladder-svg { display: block; width: 100%; max-width: 760px; height: auto; }
@@ -900,6 +918,14 @@ footer {
   .dn-inner { padding: 0 24px; }
   .dn-section { padding-top: 72px; }
   .dn-hero { padding: 130px 0 16px; }
+  /* Mobilde bulut yalnızca sağ üst köşede, metnin üstünde kalan bir kesit; opaklık yarıya iner. */
+  .dn-hero--cloud { padding-top: 230px; }
+  .dn-cloud {
+    inset: 0 0 auto auto; width: 100%; height: 210px; opacity: 0.5;
+    -webkit-mask-image: linear-gradient(to right, transparent 20%, #000 85%), linear-gradient(to top, transparent 0%, #000 60%);
+    mask-image: linear-gradient(to right, transparent 20%, #000 85%), linear-gradient(to top, transparent 0%, #000 60%);
+  }
+  .dn-cloud svg { position: absolute; top: 0; right: 0; width: 250%; height: auto; }
   .dn-den { padding: 28px 24px; }
   .dn-programs, .dn-flow { grid-template-columns: 1fr; }
   .dn-program, .dn-flow-step { border-right: none; border-bottom: 1px solid var(--dn-rule); padding: 28px 0; }

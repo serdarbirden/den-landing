@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 type Lang = "tr" | "en";
 
@@ -19,6 +19,7 @@ const copy = {
       { href: "#product", label: "Product" },
       { href: "#how-it-works", label: "How It Works" },
       { href: "#security", label: "Security" },
+      { href: "/en/transformation", label: "Transformation" },
       { href: "#about", label: "About" },
     ],
     cta: { href: "#early-access", label: "Early Access" },
@@ -30,18 +31,22 @@ type NavProps = {
   lang?: Lang;
   // Ürün sayfasının yolu; alt sayfalarda "#urun" gibi bağlantılar bu yola eklenir.
   home?: string;
-  // Alt sayfadaysak o sayfanın yolu (ör. "/donusum"); menüde aktif gösterilir.
+  // Alt sayfadaysak o sayfanın yolu (ör. "/donusum/program"); ilgili menü öğesi aktif gösterilir.
   current?: string;
-  // Sayfanın diğer dildeki karşılığı yoksa dil seçici gizlenir.
-  showLangSwitch?: boolean;
+  // Bu sayfanın diğer dildeki eşleniği. Eşlenik yoksa diğer dilin ana sayfasına gidilir.
+  alternate?: string;
 };
 
-export default function Nav({ lang = "tr", home, current, showLangSwitch = true }: NavProps) {
+const LANG_HOME: Record<Lang, string> = { tr: "/", en: "/en" };
+
+export default function Nav({ lang = "tr", home, current, alternate }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const t = copy[lang];
   const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
   const isCurrent = (href: string) => current !== undefined && current.startsWith(href);
+  const langHref = (target: Lang) =>
+    target === lang ? current ?? LANG_HOME[lang] : alternate ?? LANG_HOME[target];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -95,15 +100,24 @@ export default function Nav({ lang = "tr", home, current, showLangSwitch = true 
             {t.cta.label}
           </a>
         </li>
-        {showLangSwitch && (
-          <li>
-            <span className="nav-lang">
-              <a href="/" className={lang === "tr" ? "active" : undefined}>TR</a>
-              <span className="nav-lang-sep">/</span>
-              <a href="/en" className={lang === "en" ? "active" : undefined}>EN</a>
-            </span>
-          </li>
-        )}
+        <li>
+          <span className="nav-lang">
+            {(["tr", "en"] as Lang[]).map((target, index) => (
+              <Fragment key={target}>
+                {index > 0 && <span className="nav-lang-sep">/</span>}
+                <a
+                  href={langHref(target)}
+                  hrefLang={target}
+                  lang={target}
+                  className={target === lang ? "active" : undefined}
+                  aria-current={target === lang ? "true" : undefined}
+                >
+                  {target.toUpperCase()}
+                </a>
+              </Fragment>
+            ))}
+          </span>
+        </li>
       </ul>
     </nav>
   );
