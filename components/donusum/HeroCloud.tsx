@@ -1,10 +1,10 @@
 import { denGrowthSvgToday } from "../denGrowthSvgs";
 
-// Ana sayfadaki "Hafıza birikir" bölümünün BUGÜN ağı: aynı düğümler ve bağlantılar,
-// hero genişliğine yayılmış hâli. Statik, satır içi SVG; renk/opaklık CSS'te (.dn-cloud).
-//   entry: giriş sayfası, ağın tamamı, sağ-üstte belirgin.
-//   edge:  program sayfası, ağın sağ-alt yarısı (düğümlerin yarısı); yoğun tarafı maskelenir,
-//          seyrek kenar bölgesi hero'nun sağ-altını doldurur.
+// Ana sayfadaki "Hafıza birikir" bölümünün BUGÜN ağı: aynı düğümler ve bağlantılar.
+// Statik, satır içi SVG; krem (#f5f5f0), tam opak. Okunabilirlik yalnızca konumla
+// sağlanır: bulut hero'da metin bloğunun altındaki bantta, sağa yaslı durur (CSS: .dn-cloud).
+//   entry: giriş sayfası, ağın tamamı.
+//   edge:  program sayfası, ağın sağ-alt yarısı (daha seyrek kenar bölgesi).
 
 type Variant = "entry" | "edge";
 
@@ -12,15 +12,14 @@ type Kind = "node" | "hub" | "ring" | "square" | "diamond";
 type RawNode = { x: number; y: number; kind: Kind };
 type RawLink = { x1: number; y1: number; x2: number; y2: number; strong: boolean };
 
+// Çizim alanı (bandın en-boy oranı) ve kenar boşluğu.
+const W = 640;
+const H = 280;
+const PAD = 8;
+
 // Kaynak ağın merkezi (300x300 viewBox içinde).
 const CX = 151;
 const CY = 153;
-
-const LAYOUT: Record<Variant, { w: number; h: number; sx: number; sy: number; ox: number; oy: number; align: string }> = {
-  entry: { w: 1600, h: 800, sx: 12, sy: 7, ox: 900, oy: 380, align: "xMaxYMin slice" },
-  // Ağ merkezi görünür bölgenin sol-üst köşesine; sağ-alt yarı oradan kenara doğru açılır.
-  edge: { w: 900, h: 600, sx: 7.5, sy: 6.5, ox: 400, oy: 230, align: "xMaxYMax slice" },
-};
 
 const attr = (el: string, name: string) => parseFloat(new RegExp(`\\b${name}="([^"]+)"`).exec(el)?.[1] ?? "0");
 
@@ -71,14 +70,21 @@ function select(variant: Variant) {
 }
 
 export default function HeroCloud({ variant = "entry" }: { variant?: Variant }) {
-  const { w, h, sx, sy, ox, oy, align } = LAYOUT[variant];
-  const px = (x: number) => +((x - CX) * sx + ox).toFixed(1);
-  const py = (y: number) => +((y - CY) * sy + oy).toFixed(1);
   const { nodes, links } = select(variant);
+
+  // Seçilen düğümlerin sınır kutusu, çizim alanına yayılır.
+  const xs = nodes.map((n) => n.x);
+  const ys = nodes.map((n) => n.y);
+  const minX = Math.min(...xs);
+  const minY = Math.min(...ys);
+  const sx = (W - 2 * PAD) / (Math.max(...xs) - minX);
+  const sy = (H - 2 * PAD) / (Math.max(...ys) - minY);
+  const px = (x: number) => +((x - minX) * sx + PAD).toFixed(1);
+  const py = (y: number) => +((y - minY) * sy + PAD).toFixed(1);
 
   return (
     <div className={`dn-cloud dn-cloud--${variant}`} aria-hidden="true">
-      <svg viewBox={`0 0 ${w} ${h}`} preserveAspectRatio={align} fill="none">
+      <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMaxYMax meet" fill="none">
         <g strokeLinecap="round">
           {links.map((l, i) => (
             <line
@@ -95,9 +101,9 @@ export default function HeroCloud({ variant = "entry" }: { variant?: Variant }) 
           const x = px(n.x);
           const y = py(n.y);
           const cls = `dn-cloud-${n.kind}`;
-          if (n.kind === "square") return <rect key={i} x={x - 3.5} y={y - 3.5} width={7} height={7} className={cls} />;
-          if (n.kind === "diamond") return <path key={i} d={`M${x} ${y - 5}L${x + 5} ${y}L${x} ${y + 5}L${x - 5} ${y}Z`} className={cls} />;
-          const r = n.kind === "ring" ? 5.5 : n.kind === "hub" ? 3 : 2;
+          if (n.kind === "square") return <rect key={i} x={x - 2.5} y={y - 2.5} width={5} height={5} className={cls} />;
+          if (n.kind === "diamond") return <path key={i} d={`M${x} ${y - 3.5}L${x + 3.5} ${y}L${x} ${y + 3.5}L${x - 3.5} ${y}Z`} className={cls} />;
+          const r = n.kind === "ring" ? 3.5 : n.kind === "hub" ? 2.2 : 1.4;
           return <circle key={i} cx={x} cy={y} r={r} className={cls} />;
         })}
       </svg>
