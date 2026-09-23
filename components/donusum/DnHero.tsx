@@ -9,14 +9,14 @@ type Props = {
   sub: string;
   primary?: Cta;
   secondary?: Cta;
-  // Yalnızca bölümün giriş sayfasında: ana sayfadaki hafıza ağının nokta bulutu.
-  cloud?: boolean;
+  // Ana sayfadaki hafıza ağının nokta bulutu: "entry" giriş sayfası, "edge" program sayfası.
+  cloud?: "entry" | "edge";
 };
 
-export default function DnHero({ label, heading, sub, primary, secondary, cloud = false }: Props) {
+export default function DnHero({ label, heading, sub, primary, secondary, cloud }: Props) {
   return (
-    <section className={`dn-hero${cloud ? " dn-hero--cloud" : ""}`}>
-      {cloud && <HeroCloud />}
+    <section className={`dn-hero${cloud ? ` dn-hero--cloud dn-hero--${cloud}` : ""}`}>
+      {cloud && <HeroCloud variant={cloud} />}
       <div className="dn-inner">
         <p className="dn-hero-label">{label}</p>
         <h1 className="dn-hero-title">{heading}</h1>

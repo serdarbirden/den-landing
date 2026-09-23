@@ -28,6 +28,7 @@ export default function ProgramPage({ lang }: { lang: DonusumLang }) {
         <Nav lang={lang} home={home} current={t.meta.path} alternate={programCopy[other].meta.path} />
         <main className="dn">
           <DnHero
+            cloud="edge"
             label={
               <>
                 <a href={t.hero.parent.href}>{t.hero.parent.label}</a> · {t.hero.label}
