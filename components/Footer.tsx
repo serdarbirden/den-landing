@@ -5,6 +5,7 @@ const copy = {
     links: [
       { href: "#urun", label: "Ürün" },
       { href: "#nasil-calisir", label: "Nasıl Çalışır" },
+      { href: "/donusum", label: "Dönüşüm" },
       { href: "#hakkinda", label: "Hakkında" },
       { href: "#erken-erisim", label: "İletişim" },
     ],
@@ -21,12 +22,13 @@ const copy = {
   },
 };
 
-export default function Footer({ lang = "tr" }: { lang?: Lang }) {
+export default function Footer({ lang = "tr", home }: { lang?: Lang; home?: string }) {
   const t = copy[lang];
+  const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
   return (
     <footer>
       <div className="footer-left">
-        <a href="#top" className="footer-word">
+        <a href={home ?? "#top"} className="footer-word">
           <img src="/denlogo.png" alt="den" className="footer-logo" />
         </a>
         <div className="footer-text">
@@ -37,7 +39,7 @@ export default function Footer({ lang = "tr" }: { lang?: Lang }) {
       <ul className="footer-links">
         {t.links.map((link) => (
           <li key={link.href}>
-            <a href={link.href}>{link.label}</a>
+            <a href={resolve(link.href)}>{link.label}</a>
           </li>
         ))}
       </ul>

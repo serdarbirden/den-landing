@@ -8,9 +8,10 @@ const copy = {
       { href: "#urun", label: "Ürün" },
       { href: "#nasil-calisir", label: "Nasıl Çalışır" },
       { href: "#guvenlik", label: "Güvenlik" },
+      { href: "/donusum", label: "Dönüşüm" },
       { href: "#hakkinda", label: "Hakkında" },
     ],
-    cta: { href: "#erken-erisim", label: "İletişim" },
+    cta: { href: "#erken-erisim", label: "Erken Erişim" },
     menuLabel: "Menüyü aç/kapat",
   },
   en: {
@@ -25,10 +26,22 @@ const copy = {
   },
 };
 
-export default function Nav({ lang = "tr" }: { lang?: Lang }) {
+type NavProps = {
+  lang?: Lang;
+  // Ürün sayfasının yolu; alt sayfalarda "#urun" gibi bağlantılar bu yola eklenir.
+  home?: string;
+  // Alt sayfadaysak o sayfanın yolu (ör. "/donusum"); menüde aktif gösterilir.
+  current?: string;
+  // Sayfanın diğer dildeki karşılığı yoksa dil seçici gizlenir.
+  showLangSwitch?: boolean;
+};
+
+export default function Nav({ lang = "tr", home, current, showLangSwitch = true }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const t = copy[lang];
+  const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
+  const isCurrent = (href: string) => current !== undefined && current.startsWith(href);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -48,7 +61,7 @@ export default function Nav({ lang = "tr" }: { lang?: Lang }) {
   return (
     <nav aria-label={lang === "tr" ? "Ana menü" : "Main menu"} ref={navRef}>
       <div className="nav-brand">
-        <a href="#top" className="nav-wordmark">
+        <a href={home ?? "#top"} className="nav-wordmark">
           <img src="/denlogo.png" alt="den" className="nav-logo" />
         </a>
         <span className="nav-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
@@ -68,21 +81,29 @@ export default function Nav({ lang = "tr" }: { lang?: Lang }) {
       <ul className={`nav-links${mobileOpen ? " nav-links-open" : ""}`}>
         {t.links.map((link) => (
           <li key={link.href}>
-            <a href={link.href} onClick={() => setMobileOpen(false)}>{link.label}</a>
+            <a
+              href={resolve(link.href)}
+              aria-current={isCurrent(link.href) ? "page" : undefined}
+              onClick={() => setMobileOpen(false)}
+            >
+              {link.label}
+            </a>
           </li>
         ))}
         <li>
-          <a href={t.cta.href} className="nav-cta" onClick={() => setMobileOpen(false)}>
+          <a href={resolve(t.cta.href)} className="nav-cta" onClick={() => setMobileOpen(false)}>
             {t.cta.label}
           </a>
         </li>
-        <li>
-          <span className="nav-lang">
-            <a href="/" className={lang === "tr" ? "active" : undefined}>TR</a>
-            <span className="nav-lang-sep">/</span>
-            <a href="/en" className={lang === "en" ? "active" : undefined}>EN</a>
-          </span>
-        </li>
+        {showLangSwitch && (
+          <li>
+            <span className="nav-lang">
+              <a href="/" className={lang === "tr" ? "active" : undefined}>TR</a>
+              <span className="nav-lang-sep">/</span>
+              <a href="/en" className={lang === "en" ? "active" : undefined}>EN</a>
+            </span>
+          </li>
+        )}
       </ul>
     </nav>
   );

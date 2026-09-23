@@ -19,6 +19,11 @@ const copy = {
     submit: "Erken Erişim İste",
     secondaryPrefix: "Ya da doğrudan yazın:",
     subject: "Erken Erişim Talebi",
+    crossLink: {
+      before: "Kurumsal dönüşüm programlarımız için ",
+      link: { href: "/donusum", label: "Dönüşüm" },
+      after: " bölümüne bakın.",
+    },
     body: (v: Record<string, string>) =>
       `Ad Soyad: ${v.name}\nE-posta: ${v.email}\nŞirket: ${v.company}\nRol: ${v.role}\nSizi en çok ne yoruyor?: ${v.note}`,
   },
@@ -36,6 +41,8 @@ const copy = {
     submit: "Request Early Access",
     secondaryPrefix: "Or write directly:",
     subject: "Early Access Request",
+    // Dönüşüm bölümünün EN karşılığı henüz yok.
+    crossLink: null,
     body: (v: Record<string, string>) =>
       `Name: ${v.name}\nEmail: ${v.email}\nCompany: ${v.company}\nRole: ${v.role}\nWhat wears you out the most?: ${v.note}`,
   },
@@ -92,6 +99,13 @@ export default function EarlyAccess({ lang = "tr" }: { lang?: Lang }) {
         <p className="ea-secondary reveal d2">
           {t.secondaryPrefix} <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         </p>
+        {t.crossLink && (
+          <p className="ea-crosslink reveal d2">
+            {t.crossLink.before}
+            <a href={t.crossLink.link.href}>{t.crossLink.link.label}</a>
+            {t.crossLink.after}
+          </p>
+        )}
       </div>
     </section>
   );
