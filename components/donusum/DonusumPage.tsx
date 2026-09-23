@@ -28,7 +28,6 @@ export default function DonusumPage({ lang }: { lang: DonusumLang }) {
         <Nav lang={lang} home={home} current={t.meta.path} alternate={donusumCopy[other].meta.path} />
         <main className="dn">
           <DnHero
-            cloud="entry"
             label={t.hero.label}
             heading={t.hero.heading}
             sub={t.hero.sub}

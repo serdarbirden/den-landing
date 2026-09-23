@@ -7,6 +7,13 @@ import * as THREE from "three";
 const BASE_COLOR = new THREE.Color("#6b6560");
 const GLOW_COLOR = new THREE.Color("#491720");
 
+// dark: krem zemin (ana sayfa). cream: koyu zemin (Dönüşüm sayfaları), aynı bulut krem tonda.
+type Tone = "dark" | "cream";
+const TONES: Record<Tone, { base: THREE.Color; glow: THREE.Color; line: string }> = {
+  dark: { base: BASE_COLOR, glow: GLOW_COLOR, line: "#2c2b2a" },
+  cream: { base: new THREE.Color("#f5f5f0"), glow: new THREE.Color("#f5f5f0"), line: "#f5f5f0" },
+};
+
 const BrainPointsMaterial = shaderMaterial(
   {
     uTime: 0,
@@ -350,13 +357,16 @@ function CloudGroup({
   scale,
   offsetY,
   pointSize,
+  tone,
 }: {
   shape: Shape;
   reducedMotion: boolean;
   scale: number;
   offsetY: number;
   pointSize: number;
+  tone: Tone;
 }) {
+  const colors = TONES[tone];
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
   const count = useMemo(() => {
     if (shape === "brain") return isMobile ? 380 : 720;
@@ -421,7 +431,7 @@ function CloudGroup({
         </bufferGeometry>
         <lineBasicMaterial
           ref={lineMaterialRef}
-          color="#2c2b2a"
+          color={colors.line}
           transparent
           opacity={0.14}
           depthWrite={false}
@@ -432,7 +442,14 @@ function CloudGroup({
           <bufferAttribute attach="attributes-position" args={[positions, 3]} />
           <bufferAttribute attach="attributes-aPhase" args={[phases, 1]} />
         </bufferGeometry>
-        <brainPointsMaterial ref={materialRef} transparent depthWrite={false} uBaseSize={pointSize} />
+        <brainPointsMaterial
+          ref={materialRef}
+          transparent
+          depthWrite={false}
+          uBaseSize={pointSize}
+          uColorBase={colors.base}
+          uColorGlow={colors.glow}
+        />
       </points>
     </group>
   );
@@ -444,12 +461,14 @@ export default function BrainField({
   scale = 1.35,
   offsetY = 0,
   pointSize = 34,
+  tone = "dark",
 }: {
   shape?: Shape;
   cameraZ?: number;
   scale?: number;
   offsetY?: number;
   pointSize?: number;
+  tone?: Tone;
 }) {
   const reducedMotion = useMemo(
     () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -463,7 +482,7 @@ export default function BrainField({
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
     >
-      <CloudGroup shape={shape} reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} pointSize={pointSize} />
+      <CloudGroup shape={shape} reducedMotion={reducedMotion} scale={scale} offsetY={offsetY} pointSize={pointSize} tone={tone} />
     </Canvas>
   );
 }

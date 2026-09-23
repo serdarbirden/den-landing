@@ -1,5 +1,7 @@
+import dynamic from "next/dynamic";
 import type { ReactNode } from "react";
-import HeroCloud from "./HeroCloud";
+
+const BrainField = dynamic(() => import("../BrainField"), { ssr: false });
 
 type Cta = { href: string; label: string };
 
@@ -9,14 +11,15 @@ type Props = {
   sub: string;
   primary?: Cta;
   secondary?: Cta;
-  // Ana sayfadaki hafıza ağının nokta bulutu: "entry" giriş sayfası, "edge" program sayfası.
-  cloud?: "entry" | "edge";
 };
 
-export default function DnHero({ label, heading, sub, primary, secondary, cloud }: Props) {
+export default function DnHero({ label, heading, sub, primary, secondary }: Props) {
   return (
-    <section className={`dn-hero${cloud ? ` dn-hero--cloud dn-hero--${cloud}` : ""}`}>
-      {cloud && <HeroCloud variant={cloud} />}
+    <section className="dn-hero">
+      {/* Ana sayfa hero'sundaki nokta bulutu beyin, koyu zeminde krem tonda. */}
+      <div className="dn-hero-brain" aria-hidden="true">
+        <BrainField tone="cream" />
+      </div>
       <div className="dn-inner">
         <p className="dn-hero-label">{label}</p>
         <h1 className="dn-hero-title">{heading}</h1>

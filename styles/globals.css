@@ -755,21 +755,14 @@ footer {
 .dn-hero-sub { animation-delay: 0.45s; }
 .dn-hero .dn-ctas { animation-delay: 0.6s; }
 
-/* Dönüşüm — hero nokta bulutu: krem, tam opak. Okunabilirlik yalnızca konumla sağlanır:
-   bulut metin bloğunun altında ayrılmış bantta, kapsayıcının sağına yaslı durur; metnin arkasına girmez. */
-.dn-hero--cloud { position: relative; padding-bottom: 360px; }
-.dn-cloud {
-  position: absolute; pointer-events: none;
-  bottom: 40px; height: 280px;
-  right: max(48px, calc((100% - 1080px) / 2 + 48px));
-  width: min(640px, calc(100% - 96px));
+/* Dönüşüm — hero arka planı: ana sayfadaki nokta bulutu beyin, krem tonda (BrainField tone="cream").
+   Metin sola yaslı olduğu için beyin hero'nun sağ tarafına yerleşir. */
+.dn-hero { position: relative; overflow: hidden; }
+.dn-hero .dn-inner { position: relative; z-index: 1; }
+.dn-hero-brain {
+  position: absolute; top: 64px; bottom: 0; right: 0; width: 60%;
+  pointer-events: none; user-select: none;
 }
-.dn-cloud svg { display: block; width: 100%; height: 100%; }
-.dn-cloud-link, .dn-cloud-link-strong, .dn-cloud-ring { stroke: var(--dn-text); }
-.dn-cloud-node, .dn-cloud-hub, .dn-cloud-square, .dn-cloud-diamond { fill: var(--dn-text); }
-.dn-cloud-link { stroke-width: 0.5; }
-.dn-cloud-link-strong { stroke-width: 0.9; }
-.dn-cloud-ring { fill: none; stroke-width: 0.9; }
 
 /* Dönüşüm — olgunluk merdiveni */
 .dn-ladder-figure { margin: 0 0 56px; }
@@ -916,9 +909,7 @@ footer {
   .dn-inner { padding: 0 24px; }
   .dn-section { padding-top: 72px; }
   .dn-hero { padding: 130px 0 16px; }
-  /* Mobilde bant daha alçak ve tam genişlikte; yine metnin altında. */
-  .dn-hero--cloud { padding-bottom: 230px; }
-  .dn-cloud { bottom: 36px; height: 170px; right: 24px; width: calc(100% - 48px); }
+  .dn-hero-brain { width: 100%; opacity: 0.6; }
   .dn-den { padding: 28px 24px; }
   .dn-programs, .dn-flow { grid-template-columns: 1fr; }
   .dn-program, .dn-flow-step { border-right: none; border-bottom: 1px solid var(--dn-rule); padding: 28px 0; }
