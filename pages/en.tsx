@@ -19,7 +19,7 @@ export default function HomePageEn() {
   return (
     <>
       <Head>
-        <title>den — Second Brain | No Experience Is Ever Wasted</title>
+        <title>Second Brain | No Experience Is Ever Wasted</title>
         <meta
           name="description"
           content="den builds the digital twin of your organization and its leaders: living organizational memory, decision history, and on-premise AI. No experience is ever wasted."

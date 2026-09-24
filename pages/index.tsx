@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>den — İkinci Beyin | Hiçbir Deneyim Boşa Gitmez</title>
+        <title>İkinci Beyin | Hiçbir Deneyim Boşa Gitmez</title>
         <meta
           name="description"
           content="den, kurumunuzun ve yöneticilerinizin dijital ikizini kurar: yaşayan kurumsal hafıza, karar geçmişi ve on-premise yapay zeka. Hiçbir deneyim boşa gitmez."
