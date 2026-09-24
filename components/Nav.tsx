@@ -11,7 +11,7 @@ const copy = {
       { href: "/donusum", label: "Dönüşüm" },
       { href: "#hakkinda", label: "Hakkında" },
     ],
-    cta: { href: "#erken-erisim", label: "Erken Erişim" },
+    cta: { href: "#erken-erisim", label: "İletişim" },
     menuLabel: "Menüyü aç/kapat",
   },
   en: {
