@@ -17,7 +17,7 @@ const copy = {
       { href: "#how-it-works", label: "How It Works" },
       { href: "/en/transformation", label: "Transformation" },
       { href: "#about", label: "About" },
-      { href: "#early-access", label: "Early Access" },
+      { href: "#early-access", label: "Contact" },
     ],
     tagline: "no experience is ever wasted.",
   },

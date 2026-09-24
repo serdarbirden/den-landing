@@ -14,7 +14,7 @@ const copy = {
         <span className="hero-sub-accent">ikinci beyin</span>.
       </>
     ),
-    primary: { href: "#erken-erisim", label: "Erken Erişim İste" },
+    primary: { href: "#erken-erisim", label: "İletişim" },
     secondary: { href: "#nasil-calisir", label: "Nasıl çalışır?" },
     scroll: "aşağı",
     showWordplay: true,
@@ -28,7 +28,7 @@ const copy = {
         your <span className="hero-sub-accent">second brain</span>.
       </>
     ),
-    primary: { href: "#early-access", label: "Request Early Access" },
+    primary: { href: "#early-access", label: "Contact" },
     secondary: { href: "#how-it-works", label: "How it works" },
     scroll: "scroll",
     showWordplay: false,

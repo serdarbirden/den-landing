@@ -16,7 +16,7 @@ const copy = {
       role: "Rol",
       note: "Sizi en çok ne yoruyor? (opsiyonel)",
     },
-    submit: "Erken Erişim İste",
+    submit: "İletişim",
     secondaryPrefix: "Ya da doğrudan yazın:",
     subject: "Erken Erişim Talebi",
     crossLink: {
@@ -38,7 +38,7 @@ const copy = {
       role: "Role",
       note: "What wears you out the most? (optional)",
     },
-    submit: "Request Early Access",
+    submit: "Contact",
     secondaryPrefix: "Or write directly:",
     subject: "Early Access Request",
     crossLink: {

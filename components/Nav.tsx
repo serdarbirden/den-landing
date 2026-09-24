@@ -22,7 +22,7 @@ const copy = {
       { href: "/en/transformation", label: "Transformation" },
       { href: "#about", label: "About" },
     ],
-    cta: { href: "#early-access", label: "Early Access" },
+    cta: { href: "#early-access", label: "Contact" },
     menuLabel: "Toggle menu",
   },
 };
