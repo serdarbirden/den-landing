@@ -692,11 +692,6 @@ footer {
   color: var(--dn-muted); max-width: 700px; margin-bottom: 52px;
 }
 .dn-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--dn-mid); margin-bottom: 14px; }
-.dn-tag {
-  display: inline-block; font-family: var(--mono); font-size: 10px;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--dn-muted);
-  border: 1px solid var(--dn-edge); padding: 4px 10px; margin-bottom: 24px;
-}
 .dn-field-label {
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--dn-faint); margin-bottom: 8px;
@@ -829,7 +824,7 @@ footer {
 .dn-program { padding: 32px 32px 8px 0; border-right: 1px solid var(--dn-rule); }
 .dn-program:not(:first-child) { padding-left: 32px; }
 .dn-program:last-child { border-right: none; padding-right: 0; }
-.dn-program-name { font-family: var(--serif); font-size: 26px; font-weight: 500; line-height: 1.2; color: var(--dn-text); margin-bottom: 14px; }
+.dn-program-name { font-family: var(--serif); font-size: 26px; font-weight: 500; line-height: 1.2; color: var(--dn-text); margin-bottom: 24px; }
 .dn-program-audience { font-family: var(--sans); font-size: 14px; line-height: 1.75; color: var(--dn-muted); margin-bottom: 24px; }
 
 /* Dönüşüm — nasıl çalışıyoruz */

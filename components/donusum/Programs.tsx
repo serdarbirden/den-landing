@@ -11,7 +11,6 @@ export default function Programs({ num, t }: { num: number; t: ProgramCopy["prog
             <article className={`dn-program reveal${index ? ` d${Math.min(index, 3)}` : ""}`} key={program.name}>
               <p className="dn-num">{String(index + 1).padStart(2, "0")}</p>
               <h3 className="dn-program-name">{program.name}</h3>
-              <span className="dn-tag">{program.duration}</span>
               <p className="dn-field-label">{t.audienceLabel}</p>
               <p className="dn-program-audience">{program.audience}</p>
               <p className="dn-field-label">{t.deliverablesLabel}</p>

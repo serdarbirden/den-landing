@@ -53,7 +53,6 @@ export type DonusumCopy = {
 
 export type ProgramCard = {
   name: string;
-  duration: string;
   audience: string;
   deliverables: string[];
 };
@@ -138,11 +137,13 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
       columns: ["Dönüşüm türü", "Ne değişir", "Kimin problemi", "Ön koşul", "Çıktılar"],
       rows: [
         {
-          name: "Veri Dönüşümü",
-          changes: "Veri sahipliği, erişim yönetişimi, kalite eşikleri",
-          owner: "BT / veri sorumlusu",
-          prerequisite: "Kritik veri kaynaklarının envanteri",
+          name: "Dijitalleşme ve Dijital Dönüşüm",
+          changes:
+            "İşin aracı ve yapılış biçimi birlikte: süreçlerin dijital izi, yeniden tasarımı ve bu süreçlerin ürettiği verinin sahipliği, erişimi ve kalitesi. Üçü ayrı ele alınamaz; süreç dijitalleşmeden veri oluşmaz, süreç yeniden tasarlanmadan veri anlam kazanmaz, veri yönetilmeden süreç ölçülemez.",
+          owner: "Süreç sahibi (iş birimi) + BT / veri sorumlusu",
+          prerequisite: "Kritik süreçlerin ve veri kaynaklarının envanteri",
           outputs: [
+            "Süreç haritası ve temel metrikler",
             "Veri kataloğu ve kaynak izleri",
             "Rol bazlı erişim matrisi",
             "Kullanım senaryosu başına hazırlık kararı",
@@ -168,7 +169,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
         },
       ],
       dependency:
-        "Sıra atlanamaz: yapay zeka dönüşümü veri dönüşümünü, ajanik dönüşüm de yapay zeka dönüşümünü ön koşul olarak ister.",
+        "Sıra atlanamaz: yapay zeka dönüşümü; dijitalleşmeyi, dijital dönüşümü ve bunların kurduğu veri temelini, ajanik dönüşüm de yapay zeka dönüşümünü ön koşul olarak ister.",
     },
     difference: {
       label: "Farkımız",
@@ -258,11 +259,17 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
       columns: ["Type", "What changes", "Whose problem", "Prerequisite", "Deliverables"],
       rows: [
         {
-          name: "Data Transformation",
-          changes: "Data ownership, access governance, quality thresholds",
-          owner: "IT / data lead",
-          prerequisite: "An inventory of critical data sources",
-          outputs: ["Data catalogue and lineage", "Role-based access matrix", "Readiness decision per use case"],
+          name: "Digitization and Digital Transformation",
+          changes:
+            "The tools and the way work is done, together: the digital trail of processes, their redesign, and the ownership, access and quality of the data those processes produce. The three can't be separated — without digitized processes there is no data, without redesigned processes the data has no meaning, and without governed data the processes can't be measured.",
+          owner: "Process owner (business unit) + IT / data lead",
+          prerequisite: "An inventory of critical processes and data sources",
+          outputs: [
+            "Process map and baseline metrics",
+            "Data catalogue and lineage",
+            "Role-based access matrix",
+            "Readiness decision per use case",
+          ],
         },
         {
           name: "AI Transformation",
@@ -280,7 +287,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
         },
       ],
       dependency:
-        "The order can't be skipped: AI transformation requires data transformation, and agentic transformation requires AI transformation.",
+        "The order can't be skipped: AI transformation requires digitization, digital transformation and the data foundation they build; agentic transformation requires AI transformation.",
     },
     difference: {
       label: "What Makes Us Different",
@@ -326,7 +333,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
       items: [
         {
           name: "Teşhis Sprinti",
-          duration: "2–4 hafta",
           audience: "Nereden başlayacağını netleştirmek isteyen yönetim ekipleri.",
           deliverables: [
             "Olgunluk teşhisi (boyut bazlı)",
@@ -336,7 +342,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
         },
         {
           name: "Program Kurulumu",
-          duration: "6–10 hafta",
           audience: "Girişimleri tek tek değil, portföy olarak yönetmeye geçen kurumlar.",
           deliverables: [
             "Karar hakları matrisi ve çeyreklik portföy ritmi",
@@ -346,7 +351,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
         },
         {
           name: "Yürütme ve Devir",
-          duration: "3–6 ay",
           audience: "Pilotu üretime taşıyıp iç ekibe devretmek isteyenler.",
           deliverables: [
             "Üretime alınmış kullanım senaryosu, değerlendirme seti ve izleme",
@@ -423,7 +427,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
       items: [
         {
           name: "Diagnostic Sprint",
-          duration: "2–4 weeks",
           audience: "Leadership teams that need clarity on where to start.",
           deliverables: [
             "Maturity diagnosis across dimensions",
@@ -433,7 +436,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
         },
         {
           name: "Program Setup",
-          duration: "6–10 weeks",
           audience: "Organizations moving from one-off initiatives to portfolio management.",
           deliverables: [
             "Decision rights matrix and quarterly portfolio rhythm",
@@ -443,7 +445,6 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
         },
         {
           name: "Delivery and Handover",
-          duration: "3–6 months",
           audience: "Teams taking a pilot into production and handing it to their own people.",
           deliverables: [
             "A use case running in production with an evaluation set and monitoring",
