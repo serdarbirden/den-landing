@@ -8,22 +8,27 @@ type Cta = { href: string; label: string };
 type Props = {
   label: ReactNode;
   heading: string;
-  sub: string;
+  sub?: string;
   primary?: Cta;
   secondary?: Cta;
+  // Ana sayfadaki nokta bulutu beyin (krem), metnin sağında.
+  brain?: boolean;
+  // Hero'nun altında, metin sütunundan geniş görsel (ör. ürün ekran görüntüsü).
+  media?: ReactNode;
 };
 
-export default function DnHero({ label, heading, sub, primary, secondary }: Props) {
+export default function DnHero({ label, heading, sub, primary, secondary, brain = true, media }: Props) {
   return (
     <section className="dn-hero">
-      {/* Ana sayfa hero'sundaki nokta bulutu beyin, koyu zeminde krem tonda. */}
-      <div className="dn-hero-brain" aria-hidden="true">
-        <BrainField tone="cream" />
-      </div>
+      {brain && (
+        <div className="dn-hero-brain" aria-hidden="true">
+          <BrainField tone="cream" />
+        </div>
+      )}
       <div className="dn-inner">
         <p className="dn-hero-label">{label}</p>
         <h1 className="dn-hero-title">{heading}</h1>
-        <p className="dn-hero-sub">{sub}</p>
+        {sub && <p className="dn-hero-sub">{sub}</p>}
         {(primary || secondary) && (
           <div className="dn-ctas">
             {primary && <a href={primary.href} className="dn-btn">{primary.label}</a>}
@@ -31,6 +36,7 @@ export default function DnHero({ label, heading, sub, primary, secondary }: Prop
           </div>
         )}
       </div>
+      {media && <div className="dn-hero-media">{media}</div>}
     </section>
   );
 }

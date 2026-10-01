@@ -1,23 +1,23 @@
-type Lang = "tr" | "en";
+import { Lang, PATHS } from "../content/site";
+import LangSwitch from "./LangSwitch";
 
+// Menüyle aynı öğeler: Ürün · Dönüşüm · Hakkında · İletişim · TR/EN.
 const copy = {
   tr: {
     links: [
-      { href: "#urun", label: "Ürün" },
-      { href: "#nasil-calisir", label: "Nasıl Çalışır" },
-      { href: "/donusum", label: "Dönüşüm" },
-      { href: "#hakkinda", label: "Hakkında" },
-      { href: "#erken-erisim", label: "İletişim" },
+      { href: PATHS.product.tr, label: "Ürün" },
+      { href: PATHS.transformation.tr, label: "Dönüşüm" },
+      { href: PATHS.about.tr, label: "Hakkında" },
+      { href: PATHS.contact.tr, label: "İletişim" },
     ],
     tagline: "hiçbir deneyim boşa gitmez.",
   },
   en: {
     links: [
-      { href: "#product", label: "Product" },
-      { href: "#how-it-works", label: "How It Works" },
-      { href: "/en/transformation", label: "Transformation" },
-      { href: "#about", label: "About" },
-      { href: "#early-access", label: "Contact" },
+      { href: PATHS.product.en, label: "Product" },
+      { href: PATHS.transformation.en, label: "Transformation" },
+      { href: PATHS.about.en, label: "About" },
+      { href: PATHS.contact.en, label: "Contact" },
     ],
     tagline: "no experience is ever wasted.",
   },
@@ -25,18 +25,18 @@ const copy = {
 
 type FooterProps = {
   lang?: Lang;
-  home?: string;
-  // Ürün sloganı yalnızca ürün sayfalarında gösterilir.
+  current?: string;
+  alternate?: string;
+  // Ürün sloganı yalnızca ana sayfada gösterilir.
   showTagline?: boolean;
 };
 
-export default function Footer({ lang = "tr", home, showTagline = true }: FooterProps) {
+export default function Footer({ lang = "tr", current, alternate, showTagline = false }: FooterProps) {
   const t = copy[lang];
-  const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
   return (
     <footer>
       <div className="footer-left">
-        <a href={home ?? "#top"} className="footer-word">
+        <a href={PATHS.home[lang]} className="footer-word">
           <img src="/denlogo.png" alt="den" className="footer-logo" />
         </a>
         <div className="footer-text">
@@ -47,9 +47,12 @@ export default function Footer({ lang = "tr", home, showTagline = true }: Footer
       <ul className="footer-links">
         {t.links.map((link) => (
           <li key={link.href}>
-            <a href={resolve(link.href)}>{link.label}</a>
+            <a href={link.href}>{link.label}</a>
           </li>
         ))}
+        <li>
+          <LangSwitch lang={lang} current={current} alternate={alternate} />
+        </li>
       </ul>
       <div className="footer-right">
         <div className="footer-social">

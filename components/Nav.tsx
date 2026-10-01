@@ -1,52 +1,44 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Lang, PATHS } from "../content/site";
+import LangSwitch from "./LangSwitch";
 
-type Lang = "tr" | "en";
-
+// Menü öğeleri ayrı sayfalara gider; çapa (#) bağlantısı kullanılmaz.
 const copy = {
   tr: {
     links: [
-      { href: "#urun", label: "Ürün" },
-      { href: "#nasil-calisir", label: "Nasıl Çalışır" },
-      { href: "#guvenlik", label: "Güvenlik" },
-      { href: "/donusum", label: "Dönüşüm" },
-      { href: "#hakkinda", label: "Hakkında" },
+      { href: PATHS.product.tr, label: "Ürün" },
+      { href: PATHS.transformation.tr, label: "Dönüşüm" },
+      { href: PATHS.about.tr, label: "Hakkında" },
     ],
-    cta: { href: "#erken-erisim", label: "İletişim" },
+    cta: { href: PATHS.contact.tr, label: "İletişim" },
     menuLabel: "Menüyü aç/kapat",
+    navLabel: "Ana menü",
   },
   en: {
     links: [
-      { href: "#product", label: "Product" },
-      { href: "#how-it-works", label: "How It Works" },
-      { href: "#security", label: "Security" },
-      { href: "/en/transformation", label: "Transformation" },
-      { href: "#about", label: "About" },
+      { href: PATHS.product.en, label: "Product" },
+      { href: PATHS.transformation.en, label: "Transformation" },
+      { href: PATHS.about.en, label: "About" },
     ],
-    cta: { href: "#early-access", label: "Contact" },
+    cta: { href: PATHS.contact.en, label: "Contact" },
     menuLabel: "Toggle menu",
+    navLabel: "Main menu",
   },
 };
 
 type NavProps = {
   lang?: Lang;
-  // Ürün sayfasının yolu; alt sayfalarda "#urun" gibi bağlantılar bu yola eklenir.
-  home?: string;
-  // Alt sayfadaysak o sayfanın yolu (ör. "/donusum/program"); ilgili menü öğesi aktif gösterilir.
+  // Bu sayfanın yolu (ör. "/donusum/program"); ilgili menü öğesi aktif gösterilir.
   current?: string;
-  // Bu sayfanın diğer dildeki eşleniği. Eşlenik yoksa diğer dilin ana sayfasına gidilir.
+  // Bu sayfanın diğer dildeki eşleniği.
   alternate?: string;
 };
 
-const LANG_HOME: Record<Lang, string> = { tr: "/", en: "/en" };
-
-export default function Nav({ lang = "tr", home, current, alternate }: NavProps) {
+export default function Nav({ lang = "tr", current, alternate }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const t = copy[lang];
-  const resolve = (href: string) => (home && href.startsWith("#") ? `${home}${href}` : href);
   const isCurrent = (href: string) => current !== undefined && current.startsWith(href);
-  const langHref = (target: Lang) =>
-    target === lang ? current ?? LANG_HOME[lang] : alternate ?? LANG_HOME[target];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -64,9 +56,9 @@ export default function Nav({ lang = "tr", home, current, alternate }: NavProps)
   }, [mobileOpen]);
 
   return (
-    <nav aria-label={lang === "tr" ? "Ana menü" : "Main menu"} ref={navRef}>
+    <nav aria-label={t.navLabel} ref={navRef}>
       <div className="nav-brand">
-        <a href={home ?? "#top"} className="nav-wordmark">
+        <a href={PATHS.home[lang]} className="nav-wordmark">
           <img src="/denlogo.png" alt="den" className="nav-logo" />
         </a>
         <span className="nav-dn"><strong>d</strong>irect <strong>e</strong>xperience <strong>n</strong>etwork</span>
@@ -87,7 +79,7 @@ export default function Nav({ lang = "tr", home, current, alternate }: NavProps)
         {t.links.map((link) => (
           <li key={link.href}>
             <a
-              href={resolve(link.href)}
+              href={link.href}
               aria-current={isCurrent(link.href) ? "page" : undefined}
               onClick={() => setMobileOpen(false)}
             >
@@ -95,28 +87,18 @@ export default function Nav({ lang = "tr", home, current, alternate }: NavProps)
             </a>
           </li>
         ))}
-        <li>
-          <a href={resolve(t.cta.href)} className="nav-cta" onClick={() => setMobileOpen(false)}>
+        <li className="nav-cta-item">
+          <a
+            href={t.cta.href}
+            className="nav-cta"
+            aria-current={isCurrent(t.cta.href) ? "page" : undefined}
+            onClick={() => setMobileOpen(false)}
+          >
             {t.cta.label}
           </a>
         </li>
         <li>
-          <span className="nav-lang">
-            {(["tr", "en"] as Lang[]).map((target, index) => (
-              <Fragment key={target}>
-                {index > 0 && <span className="nav-lang-sep">/</span>}
-                <a
-                  href={langHref(target)}
-                  hrefLang={target}
-                  lang={target}
-                  className={target === lang ? "active" : undefined}
-                  aria-current={target === lang ? "true" : undefined}
-                >
-                  {target.toUpperCase()}
-                </a>
-              </Fragment>
-            ))}
-          </span>
+          <LangSwitch lang={lang} current={current} alternate={alternate} />
         </li>
       </ul>
     </nav>

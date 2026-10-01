@@ -4,7 +4,9 @@
 
 export type DonusumLang = "tr" | "en";
 
-export const CONTACT_EMAIL = "serdarbirden@denofficial.com";
+import { CONTACT_EMAIL } from "./site";
+
+export { CONTACT_EMAIL };
 
 export function meetingHref(subject: string) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`;

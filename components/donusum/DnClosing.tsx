@@ -3,7 +3,7 @@ import { CONTACT_EMAIL } from "../../content/donusum";
 type Cta = { href: string; label: string };
 
 type Props = {
-  heading: string;
+  heading?: string;
   body?: string;
   primary: Cta;
   secondary?: Cta;
@@ -14,7 +14,7 @@ export default function DnClosing({ heading, body, primary, secondary, showEmail
   return (
     <section className="dn-closing" id="gorusme">
       <div className="dn-closing-inner">
-        <h2 className="dn-closing-heading reveal">{heading}</h2>
+        {heading && <h2 className="dn-closing-heading reveal">{heading}</h2>}
         {body && <p className="dn-closing-body reveal d1">{body}</p>}
         <div className="dn-ctas dn-ctas-center reveal d1">
           <a href={primary.href} className="dn-btn">{primary.label}</a>

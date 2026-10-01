@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { PATHS } from "../content/site";
 
 const BrainField = dynamic(() => import("./BrainField"), { ssr: false });
 
@@ -14,7 +15,7 @@ const copy = {
         <span className="hero-sub-accent">ikinci beyin</span>.
       </>
     ),
-    primary: { href: "#erken-erisim", label: "İletişim" },
+    primary: { href: PATHS.contact.tr, label: "İletişim" },
     secondary: { href: "#nasil-calisir", label: "Nasıl çalışır?" },
     scroll: "aşağı",
     showWordplay: true,
@@ -28,7 +29,7 @@ const copy = {
         your <span className="hero-sub-accent">second brain</span>.
       </>
     ),
-    primary: { href: "#early-access", label: "Contact" },
+    primary: { href: PATHS.contact.en, label: "Contact" },
     secondary: { href: "#how-it-works", label: "How it works" },
     scroll: "scroll",
     showWordplay: false,
