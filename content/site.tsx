@@ -48,13 +48,14 @@ const twinCards: Record<Lang, TwinCard[]> = {
   ],
 };
 
-/* ───────────── Ana sayfa: "İki ürün, tek hafıza." ve kapanış ───────────── */
+/* ───────────── Ana sayfa: "Tek hafıza, iki sürüm." ve kapanış ───────────── */
 
 export type HomeCopy = {
   products: {
     label: string;
     heading: string;
-    cards: { audience: string; name: string; body: string }[];
+    intro: string;
+    cards: { name: string; body: string }[];
     link: Cta;
   };
   closing: {
@@ -66,30 +67,30 @@ export type HomeCopy = {
   };
 };
 
+// Tek ürün (den İkinci Beyin), iki sürüm: Yerinde ve Taşınabilir. "İki ürün" ifadesi kullanılmaz.
 export const homeCopy: Record<Lang, HomeCopy> = {
   tr: {
     products: {
       label: "Ürün",
-      heading: "İki ürün, tek hafıza.",
+      heading: "Tek hafıza, iki sürüm.",
+      intro: "Hafızanızın ne olduğu değişmez; nerede yaşadığını siz seçersiniz.",
       cards: [
         {
-          audience: "Kurumlar ve karar vericiler için",
-          name: "den İkinci Beyin",
-          body: "Yazışmalar, belgeler, toplantılar ve kararlar tek bir yaşayan hafızada birikir; sorduğunuzda gerekçesiyle hatırlar. Kendi sunucunuzda çalışır, veri binanızdan çıkmaz.",
+          name: "Yerinde",
+          body: "Hafıza kurumunuzun kendi sunucusunda çalışır. Veri binanızdan çıkmaz, erişim rol bazlı yönetilir. Kurumlar ve karar vericiler için.",
         },
         {
-          audience: "Bireysel kullanıcılar için",
-          name: "Taşınabilir Hafıza",
-          body: "İkinci beyninizi uçtan uca şifreli bir pakete alır, istediğiniz cihazda geri yüklersiniz. Paketi sizden başka kimse açamaz, den dahil.",
+          name: "Taşınabilir",
+          body: "Hafıza uçtan uca şifreli bir pakette bulutta durur, istediğiniz cihazda geri yüklenir. Anahtar yalnızca sizde — paketi sizden başka kimse açamaz. Bireysel kullanıcılar için.",
         },
       ],
-      link: { href: PATHS.product.tr, label: "Ürünleri incele" },
+      link: { href: PATHS.product.tr, label: "Ürünü incele" },
     },
     closing: {
       heading: "Biriktirmeye bugün başlayın.",
       subline: "Kurumunuzun hafızası, sizinle konuşmaya hazır.",
       primary: { href: PATHS.contact.tr, label: "İletişim" },
-      secondary: { href: PATHS.product.tr, label: "Ürünleri incele" },
+      secondary: { href: PATHS.product.tr, label: "Ürünü incele" },
       crossLink: {
         before: "Kurumsal dönüşüm programlarımız için ",
         link: { href: PATHS.transformation.tr, label: "Dönüşüm" },
@@ -100,26 +101,25 @@ export const homeCopy: Record<Lang, HomeCopy> = {
   en: {
     products: {
       label: "Product",
-      heading: "Two products, one memory.",
+      heading: "One memory, two editions.",
+      intro: "What your memory is doesn't change; you choose where it lives.",
       cards: [
         {
-          audience: "For organizations and decision-makers",
-          name: "den Second Brain",
-          body: "Correspondence, documents, meetings and decisions accumulate in one living memory; ask, and it remembers with the reasoning. It runs on your own servers, and the data never leaves your building.",
+          name: "On-Site",
+          body: "The memory runs on your organization's own servers. Data never leaves your building, and access is managed by role. For organizations and decision-makers.",
         },
         {
-          audience: "For individuals",
-          name: "Portable Memory",
-          body: "Your second brain goes into an end-to-end encrypted package that you can restore on any device. No one but you can open it, not even den.",
+          name: "Portable",
+          body: "The memory sits in an end-to-end encrypted package in the cloud and is restored on any device you choose. Only you hold the key — no one else can open the package. For individuals.",
         },
       ],
-      link: { href: PATHS.product.en, label: "Explore the products" },
+      link: { href: PATHS.product.en, label: "Explore the product" },
     },
     closing: {
       heading: "Start compounding today.",
       subline: "Your organization's memory is ready to talk to you.",
       primary: { href: PATHS.contact.en, label: "Contact" },
-      secondary: { href: PATHS.product.en, label: "Explore the products" },
+      secondary: { href: PATHS.product.en, label: "Explore the product" },
       crossLink: {
         before: "For our organizational transformation programs, see ",
         link: { href: PATHS.transformation.en, label: "Transformation" },
@@ -129,7 +129,7 @@ export const homeCopy: Record<Lang, HomeCopy> = {
   },
 };
 
-/* ───────────── /urun — Ürün vitrini ───────────── */
+/* ───────────── /urun — den İkinci Beyin: ortak özellikler ve iki sürüm ───────────── */
 
 export type FeatureBlock = { kicker: string; title: string; body: string; shot: string };
 
@@ -137,48 +137,48 @@ export type ProductCopy = {
   meta: Meta;
   hero: { label: string; heading: string; sub: string; shot: string };
   shotPrefix: string;
-  secondBrain: {
-    audience: string;
-    name: string;
-    heading: string;
-    sub: string;
+  // Her iki sürümde de aynı olanlar.
+  shared: {
+    label: string;
     blocks: FeatureBlock[];
     twins: { kicker: string; title: string; cards: TwinCard[] };
-    badges: string[];
   };
+  onSite: { label: string; name: string; heading: string; body: string; badges: string[] };
   portable: {
-    audience: string;
+    label: string;
     name: string;
     heading: string;
-    sub: string;
+    body: string;
     features: { name: string; body: string }[];
-    closingLine: string;
     badges: string[];
   };
-  compare: { label: string; columns: [string, string, string]; rows: [string, string, string][] };
+  compare: {
+    label: string;
+    heading: string;
+    columns: [string, string, string];
+    rows: [string, string, string][];
+    note: string;
+  };
   closing: { heading: string; primary: Cta; secondary: Cta };
 };
 
-// DİL KURALI (Taşınabilir Hafıza): "kripto", "blokzincir", "token", "cüzdan", "Web3" kullanılmaz.
+// DİL KURALI (Taşınabilir sürüm): "kripto", "blokzincir", "token", "cüzdan", "Web3" kullanılmaz.
 export const productCopy: Record<Lang, ProductCopy> = {
   tr: {
     meta: {
-      title: "Ürünler — İkinci Beyin ve Taşınabilir Hafıza | den",
+      title: "İkinci Beyin — Yerinde ve Taşınabilir | den",
       description:
-        "den'in iki ürünü: kurumlar ve karar vericiler için kendi sunucunuzda çalışan İkinci Beyin, bireyler için uçtan uca şifreli Taşınabilir Hafıza.",
+        "den İkinci Beyin tek üründür, iki sürümü vardır: kurumlar için on-premise kurumsal hafıza (Yerinde) ve bireyler için uçtan uca şifreli taşınabilir hafıza (Taşınabilir).",
     },
     hero: {
       label: "Ürün",
-      heading: "İki ürün, tek hafıza.",
-      sub: "den, yaşadığınız her şeyi tek bir hafızada biriktirir. Hafıza nerede çalışacağına siz karar verirsiniz: kendi sunucunuzda ya da yanınızda taşıdığınız şifreli bir kasada.",
+      heading: "İkinci Beyin.",
+      sub: "Yaşadığınız her şey tek bir hafızada birikir; sorduğunuzda gerekçesiyle hatırlar. Hafızanın nerede yaşayacağına siz karar verirsiniz.",
       shot: "Sohbet",
     },
     shotPrefix: "Ekran görüntüsü",
-    secondBrain: {
-      audience: "Kurumlar ve karar vericiler için",
-      name: "den İkinci Beyin",
-      heading: "Kurumunuzun ve sizin dijital ikiziniz.",
-      sub: "Yazışmalar, belgeler, toplantılar ve kararlar tek bir yaşayan hafızada birikir. Sorduğunuzda gerekçesiyle hatırlar. Kendi sunucunuzda çalışır; veri binanızdan çıkmaz.",
+    shared: {
+      label: "Her iki sürümde de aynı",
       blocks: [
         {
           kicker: "Sohbet",
@@ -206,13 +206,19 @@ export const productCopy: Record<Lang, ProductCopy> = {
         },
       ],
       twins: { kicker: "İki İkiz", title: "Kurumun ikizi, yöneticinin ikizi.", cards: twinCards.tr },
-      badges: ["On-premise", "KVKK uyumlu", "Açık kaynak model desteği", "Model bağımsız"],
+    },
+    onSite: {
+      label: "Yerinde — kurumlar ve karar vericiler",
+      name: "den İkinci Beyin · Yerinde",
+      heading: "Hafıza binanızdan çıkmaz.",
+      body: "Kendi sunucunuzda çalışır. Açık kaynak modellerle tamamen kapalı devre kullanılabilir; erişim rol bazlı yönetilir, her işlem denetim izine yazılır.",
+      badges: ["On-premise", "KVKK uyumlu", "Açık kaynak model desteği", "Rol bazlı erişim", "Denetim izi"],
     },
     portable: {
-      audience: "Bireysel kullanıcılar için",
-      name: "Taşınabilir Hafıza",
-      heading: "Hafızanız yanınızda, şifreli ve size kilitli.",
-      sub: "İkinci beyninizi uçtan uca şifreli bir pakete alır, bulutta saklar ve istediğiniz cihazda geri yüklersiniz. Sahipliği ve değişmezliği kayıt altındadır — paketi sizden başka kimse açamaz, den dahil.",
+      label: "Taşınabilir — bireysel kullanıcılar",
+      name: "den İkinci Beyin · Taşınabilir",
+      heading: "Hafızanız yanınızda, size kilitli.",
+      body: "İkinci beyniniz uçtan uca şifreli bir pakete alınır, bulutta saklanır ve istediğiniz cihazda geri yüklenir. Sahipliği ve değişmezliği kayıt altındadır — paketi sizden başka kimse açamaz, den dahil.",
       features: [
         { name: "Şifreli paket", body: "Hafızanız cihazınızdan şifrelenmeden çıkmaz. Anahtar yalnızca sizde." },
         { name: "Her cihazda", body: "Kurtarma ifadenizle başka bir bilgisayarda hafızanızı olduğu gibi geri yükleyin." },
@@ -221,44 +227,42 @@ export const productCopy: Record<Lang, ProductCopy> = {
           body: "Paketinizin sahipliği ve bütünlüğü kayıt altında; hafızanızın değişmediğini her an doğrulayabilirsiniz.",
         },
       ],
-      closingLine: "Hafızanız bir uygulamaya, bir şirkete ya da bir modele kilitli değildir.",
       badges: ["Uçtan uca şifreli", "Cihazdan bağımsız", "Sahiplik kaydı"],
     },
     compare: {
       label: "Karşılaştırma",
-      columns: ["", "den İkinci Beyin", "Taşınabilir Hafıza"],
+      heading: "Hangi sürüm?",
+      columns: ["", "Yerinde", "Taşınabilir"],
       rows: [
         ["Kime göre", "Kurumlar ve karar vericiler", "Bireysel kullanıcılar"],
-        ["Hafıza nerede durur", "Kendi sunucunuzda (on-premise)", "Şifreli pakette, bulutta"],
+        ["Hafıza nerede durur", "Kendi sunucunuzda", "Şifreli pakette, bulutta"],
         ["Erişim", "Kurum içi, rol bazlı", "Yalnızca siz (anahtar sizde)"],
         ["Kurulum", "Kurulum ve devir", "Uygulamadan tek tıkla"],
         ["Fiyatlandırma", "Teklif bazlı", "Aylık abonelik"],
       ],
+      note: "İkisi aynı üründür; hafızanız iki sürüm arasında taşınabilir.",
     },
     closing: {
-      heading: "Hangisi size uygun, konuşalım.",
+      heading: "Hangi sürüm size uygun, konuşalım.",
       primary: { href: PATHS.contact.tr, label: "İletişim" },
       secondary: { href: PATHS.transformation.tr, label: "Dönüşüm programları" },
     },
   },
   en: {
     meta: {
-      title: "Products — Second Brain and Portable Memory | den",
+      title: "Second Brain — On-Site and Portable | den",
       description:
-        "den's two products: Second Brain, running on your own servers for organizations and decision-makers, and Portable Memory, end-to-end encrypted for individuals.",
+        "den Second Brain is one product in two editions: on-premise organizational memory for organizations (On-Site) and end-to-end encrypted portable memory for individuals (Portable).",
     },
     hero: {
       label: "Product",
-      heading: "Two products, one memory.",
-      sub: "den accumulates everything you live through in a single memory. You decide where that memory runs: on your own servers, or in an encrypted vault you carry with you.",
+      heading: "Second Brain.",
+      sub: "Everything you live through accumulates in a single memory; ask, and it remembers with the reasoning. You decide where the memory lives.",
       shot: "Chat",
     },
     shotPrefix: "Screenshot",
-    secondBrain: {
-      audience: "For organizations and decision-makers",
-      name: "den Second Brain",
-      heading: "The digital twin of your organization — and of you.",
-      sub: "Correspondence, documents, meetings and decisions accumulate in one living memory. Ask, and it remembers with the reasoning. It runs on your own servers; the data never leaves your building.",
+    shared: {
+      label: "The same in both editions",
       blocks: [
         {
           kicker: "Chat",
@@ -286,13 +290,19 @@ export const productCopy: Record<Lang, ProductCopy> = {
         },
       ],
       twins: { kicker: "Two Twins", title: "The organization's twin, the executive's twin.", cards: twinCards.en },
-      badges: ["On-premise", "KVKK compliant", "Open-source model support", "Model-agnostic"],
+    },
+    onSite: {
+      label: "On-Site — organizations and decision-makers",
+      name: "den Second Brain · On-Site",
+      heading: "Your memory never leaves your building.",
+      body: "It runs on your own servers. It can run fully air-gapped on open-source models; access is managed by role, and every action is written to an audit trail.",
+      badges: ["On-premise", "KVKK compliant", "Open-source model support", "Role-based access", "Audit trail"],
     },
     portable: {
-      audience: "For individuals",
-      name: "Portable Memory",
-      heading: "Your memory with you — encrypted and locked to you.",
-      sub: "Your second brain goes into an end-to-end encrypted package, stored in the cloud and restored on any device you choose. Its ownership and integrity are on record — no one but you can open the package, not even den.",
+      label: "Portable — individuals",
+      name: "den Second Brain · Portable",
+      heading: "Your memory with you, locked to you.",
+      body: "Your second brain goes into an end-to-end encrypted package, is stored in the cloud and restored on any device you choose. Its ownership and integrity are on record — no one but you can open the package, not even den.",
       features: [
         { name: "Encrypted package", body: "Your memory never leaves your device unencrypted. Only you hold the key." },
         { name: "On every device", body: "Use your recovery phrase to restore your memory, exactly as it was, on another computer." },
@@ -301,22 +311,23 @@ export const productCopy: Record<Lang, ProductCopy> = {
           body: "Your package's ownership and integrity are on record; you can verify at any time that your memory hasn't changed.",
         },
       ],
-      closingLine: "Your memory isn't locked to an app, a company or a model.",
       badges: ["End-to-end encrypted", "Device-independent", "Ownership record"],
     },
     compare: {
       label: "Comparison",
-      columns: ["", "den Second Brain", "Portable Memory"],
+      heading: "Which edition?",
+      columns: ["", "On-Site", "Portable"],
       rows: [
         ["Who it's for", "Organizations and decision-makers", "Individuals"],
-        ["Where the memory lives", "On your own servers (on-premise)", "In an encrypted package, in the cloud"],
+        ["Where the memory lives", "On your own servers", "In an encrypted package, in the cloud"],
         ["Access", "Internal, role-based", "Only you (you hold the key)"],
         ["Setup", "Installation and handover", "One click from the app"],
         ["Pricing", "By quote", "Monthly subscription"],
       ],
+      note: "Both are the same product; your memory can move between the two editions.",
     },
     closing: {
-      heading: "Let's talk about which one fits you.",
+      heading: "Let's talk about which edition fits you.",
       primary: { href: PATHS.contact.en, label: "Contact" },
       secondary: { href: PATHS.transformation.en, label: "Transformation programs" },
     },
@@ -423,7 +434,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
   tr: {
     meta: {
       title: "İletişim | den",
-      description: "den ile iletişime geçin: İkinci Beyin, Taşınabilir Hafıza ve kurumsal dönüşüm programları için bize yazın.",
+      description: "den ile iletişime geçin: İkinci Beyin (Yerinde ve Taşınabilir) ve kurumsal dönüşüm programları için bize yazın.",
     },
     hero: {
       label: "İletişim",
@@ -447,7 +458,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     routes: {
       label: "Göz atın",
       cards: [
-        { href: PATHS.product.tr, title: "Ürünler", body: "den İkinci Beyin ve Taşınabilir Hafıza." },
+        { href: PATHS.product.tr, title: "Ürün", body: "den İkinci Beyin: Yerinde ve Taşınabilir." },
         { href: PATHS.transformation.tr, title: "Dönüşüm programları", body: "Teşhis, program kurulumu, yürütme ve devir." },
       ],
     },
@@ -455,7 +466,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
   en: {
     meta: {
       title: "Contact | den",
-      description: "Get in touch with den about Second Brain, Portable Memory and organizational transformation programs.",
+      description: "Get in touch with den about Second Brain (On-Site and Portable) and organizational transformation programs.",
     },
     hero: {
       label: "Contact",
@@ -479,7 +490,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     routes: {
       label: "Explore",
       cards: [
-        { href: PATHS.product.en, title: "Products", body: "den Second Brain and Portable Memory." },
+        { href: PATHS.product.en, title: "Product", body: "den Second Brain: On-Site and Portable." },
         { href: PATHS.transformation.en, title: "Transformation programs", body: "Diagnosis, program setup, delivery and handover." },
       ],
     },

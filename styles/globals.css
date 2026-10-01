@@ -863,6 +863,7 @@ footer {
 .dn-twin-name { font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.2; color: var(--dn-text); margin-bottom: 12px; }
 .dn-twin-body { font-family: var(--sans); font-size: 14px; line-height: 1.8; color: var(--dn-muted); }
 .dn-badges--spaced { margin-top: 56px; }
+.dn-intro + .dn-badges--spaced { margin-top: 0; }
 
 .dn-table--compare { min-width: 560px; }
 .dn-table--compare thead th {
@@ -893,6 +894,10 @@ footer {
 
 /* Ana sayfa: "İki ürün, tek hafıza." altındaki bağlantı */
 .home-products-link { display: inline-block; margin-top: 40px; }
+.home-products-intro {
+  font-family: var(--sans); font-size: 16px; line-height: 1.85;
+  color: var(--black-mid); max-width: 640px; margin-bottom: 32px;
+}
 
 @media (max-width: 900px) {
   .dn-feature, .dn-feature--flip { grid-template-columns: 1fr; gap: 28px; }
