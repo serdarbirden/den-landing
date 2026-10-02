@@ -9,10 +9,10 @@
   --black-dim:   #6b6560;
   --black-faint: rgba(17,16,16,0.12);
   --surface:     #ddd1c4;
-  --serif:       'Anthropic Serif', Georgia, serif;
-  --sans:        'Anthropic Sans', system-ui, sans-serif;
-  --mono:        'Anthropic Mono', monospace;
-  --claude-orange: #491720;
+  --serif:       var(--font-serif), Georgia, serif;
+  --sans:        var(--font-sans), system-ui, sans-serif;
+  --mono:        var(--font-mono), monospace;
+  --den-wine: #491720;
 }
 
 html { scroll-behavior: smooth; }
@@ -193,7 +193,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
 }
 .node-graph { display: block; width: 100%; max-width: 640px; margin: 0 0 40px; opacity: 0.55; }
 .node-graph circle { fill: var(--black-dim); }
-.node-graph circle.accent { fill: var(--claude-orange); }
+.node-graph circle.accent { fill: var(--den-wine); }
 .node-graph line { stroke: var(--black-faint); stroke-width: 1; }
 .twins-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--black-faint); }
 .twin-card {
@@ -523,7 +523,7 @@ body.nav-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rot
   padding: 16px 44px; text-decoration: none; display: inline-block;
   transition: background-color 0.2s, color 0.2s;
 }
-.cta-btn:hover { background: var(--claude-orange); color: var(--bg); }
+.cta-btn:hover { background: var(--den-wine); color: var(--bg); }
 
 /* FOOTER */
 footer {

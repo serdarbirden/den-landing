@@ -77,7 +77,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
     meta: {
       title: "Dönüşüm — Olgunluk Merdiveni ve Teşhis | den",
       description:
-        "Kurumsal dönüşümde hangi basamaktasınız? Dijitalleşmeden yapay zeka dönüşümü ve ajanik dönüşüme uzanan olgunluk merdiveni, teşhis ve KVKK uyumlu on-premise kurulum.",
+        "Kurumsal dönüşümde hangi basamaktasınız? Dijitalleşmeden yapay zeka dönüşümü ve ajanik dönüşüme uzanan olgunluk merdiveni, teşhis ve KVKK'ya uygun mimariyle on-premise kurulum (veri yurt dışına çıkmaz).",
       path: "/donusum",
     },
     hero: {
@@ -184,7 +184,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
     den: {
       label: "Kurumsal Hafıza",
       heading: "İsteğe bağlı: kurumsal hafıza katmanı.",
-      body: "Dönüşüm programının içine, kurumun kendi sunucusunda çalışan hafıza katmanımız den'i entegre edebiliriz. Kararlarınız, yazışmalarınız ve belgeleriniz tek bir yaşayan hafızada birikir; veri binanızdan çıkmaz. Programdan bağımsız da alınabilir.",
+      body: "Dönüşüm programının içine, kurumun kendi altyapısında çalışan hafıza katmanımız den'i entegre edebiliriz. Kararlarınız, yazışmalarınız ve belgeleriniz tek bir yaşayan hafızada birikir; veri binanızdan çıkmaz. Programdan bağımsız da alınabilir.",
       link: { href: "/", label: "den — İkinci Beyin" },
     },
     closing: {
@@ -198,7 +198,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
     meta: {
       title: "Transformation — Maturity Ladder and Diagnosis | den",
       description:
-        "Which step of organizational transformation are you on? A maturity ladder from digitization to AI transformation and agentic transformation, with diagnosis and KVKK-compliant on-premise delivery.",
+        "Which step of organizational transformation are you on? A maturity ladder from digitization to AI transformation and agentic transformation, with diagnosis and on-premise delivery on a KVKK-ready architecture (data stays in the country).",
       path: "/en/transformation",
     },
     hero: {
@@ -302,7 +302,7 @@ export const donusumCopy: Record<DonusumLang, DonusumCopy> = {
     den: {
       label: "Organizational Memory",
       heading: "Optional: an organizational memory layer.",
-      body: "We can integrate den, our memory layer, into the program — running on your own servers. Your decisions, correspondence and documents accumulate in one living memory, and the data never leaves your building. Available independently of the program.",
+      body: "We can integrate den, our memory layer, into the program — running on your own infrastructure. Your decisions, correspondence and documents accumulate in one living memory, and the data never leaves your building. Available independently of the program.",
       link: { href: "/en", label: "den — Second Brain" },
     },
     closing: {
@@ -319,7 +319,7 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
     meta: {
       title: "Dönüşüm Programları — Teşhis, Kurulum, Devir | den",
       description:
-        "Kurumsal dönüşüm programları: Teşhis Sprinti, Program Kurulumu, Yürütme ve Devir. Yapay zeka dönüşümü ve ajanik dönüşümü üretime taşıyan, KVKK uyumlu on-premise uygulama.",
+        "Kurumsal dönüşüm programları: Teşhis Sprinti, Program Kurulumu, Yürütme ve Devir. Yapay zeka dönüşümü ve ajanik dönüşümü üretime taşıyan, KVKK'ya uygun mimariyle on-premise uygulama (veri yurt dışına çıkmaz).",
       path: "/donusum/program",
     },
     hero: {
@@ -413,7 +413,7 @@ export const programCopy: Record<DonusumLang, ProgramCopy> = {
     meta: {
       title: "Transformation Programs — Diagnosis, Setup, Handover | den",
       description:
-        "Organizational transformation programs: Diagnostic Sprint, Program Setup, Delivery and Handover. Taking AI transformation and agentic transformation into production, with KVKK-compliant on-premise delivery.",
+        "Organizational transformation programs: Diagnostic Sprint, Program Setup, Delivery and Handover. Taking AI transformation and agentic transformation into production, with on-premise delivery on a KVKK-ready architecture (data stays in the country).",
       path: "/en/transformation/programs",
     },
     hero: {

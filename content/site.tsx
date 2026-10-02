@@ -25,7 +25,7 @@ const twinCards: Record<Lang, TwinCard[]> = {
   tr: [
     {
       tag: "Kurumun İkizi",
-      body: "Sözleşmeler, e-postalar, toplantılar, projeler... Kurumunuzun tüm deneyimi bağlantılı bir hafıza ağına dönüşür. 'Bu tedarikçiyle geçmişte ne yaşadık?' sorusunun cevabı artık kimsenin hafızasına bağlı değil.",
+      body: "Yerinde kurulumla sözleşmeler, e-postalar, belgeler, projeler... Kurumunuzun deneyimi bağlantılı bir hafıza ağına dönüşür. 'Bu tedarikçiyle geçmişte ne yaşadık?' sorusunun cevabı artık kimsenin hafızasına bağlı değil.",
       shape: "factory",
     },
     {
@@ -37,7 +37,7 @@ const twinCards: Record<Lang, TwinCard[]> = {
   en: [
     {
       tag: "The Organization's Twin",
-      body: "Contracts, emails, meetings, projects... Your organization's entire experience becomes a connected memory network. 'What happened with this supplier before?' no longer depends on anyone's recollection.",
+      body: "With an On-Site installation, contracts, emails, documents, projects... Your organization's experience becomes a connected memory network. 'What happened with this supplier before?' no longer depends on anyone's recollection.",
       shape: "factory",
     },
     {
@@ -77,7 +77,7 @@ export const homeCopy: Record<Lang, HomeCopy> = {
       cards: [
         {
           name: "Yerinde",
-          body: "Hafıza kurumunuzun kendi sunucusunda çalışır. Veri binanızdan çıkmaz, erişim rol bazlı yönetilir. Kurumlar ve karar vericiler için.",
+          body: "Hafıza kurumunuzun kendi altyapısında çalışır; veri binanızdan çıkmaz. Rol bazlı erişim yol haritasında. Kurumlar ve karar vericiler için.",
         },
         {
           name: "Taşınabilir",
@@ -106,7 +106,7 @@ export const homeCopy: Record<Lang, HomeCopy> = {
       cards: [
         {
           name: "On-Site",
-          body: "The memory runs on your organization's own servers. Data never leaves your building, and access is managed by role. For organizations and decision-makers.",
+          body: "The memory runs on your organization's own infrastructure; data never leaves your building. Role-based access is on the roadmap. For organizations and decision-makers.",
         },
         {
           name: "Portable",
@@ -211,23 +211,23 @@ export const productCopy: Record<Lang, ProductCopy> = {
       label: "Yerinde — kurumlar ve karar vericiler",
       name: "den İkinci Beyin · Yerinde",
       heading: "Hafıza binanızdan çıkmaz.",
-      body: "Kendi sunucunuzda çalışır. Açık kaynak modellerle tamamen kapalı devre kullanılabilir; erişim rol bazlı yönetilir, her işlem denetim izine yazılır.",
-      badges: ["On-premise", "KVKK uyumlu", "Açık kaynak model desteği", "Rol bazlı erişim", "Denetim izi"],
+      body: "Kendi altyapınızda çalışır. Açık kaynak modellerle tamamen kapalı devre kullanılabilir; ajan erişimleri değiştirilemez bir denetim izine yazılır. Rol bazlı erişim yol haritasında.",
+      badges: ["On-premise", "KVKK'ya uygun mimari", "Açık kaynak model desteği", "Ajan denetim izi", "Rol bazlı erişim (yol haritası)"],
     },
     portable: {
       label: "Taşınabilir — bireysel kullanıcılar",
       name: "den İkinci Beyin · Taşınabilir",
       heading: "Hafızanız yanınızda, size kilitli.",
-      body: "İkinci beyniniz uçtan uca şifreli bir pakete alınır, bulutta saklanır ve istediğiniz cihazda geri yüklenir. Sahipliği ve değişmezliği kayıt altındadır — paketi sizden başka kimse açamaz, den dahil.",
+      body: "İkinci beyniniz uçtan uca şifreli bir pakete alınır, bulutta saklanır ve istediğiniz cihazda geri yüklenir. Bütünlüğü kayıt altındadır — paketi sizden başka kimse açamaz, den dahil.",
       features: [
         { name: "Şifreli paket", body: "Hafızanız cihazınızdan şifrelenmeden çıkmaz. Anahtar yalnızca sizde." },
         { name: "Her cihazda", body: "Kurtarma ifadenizle başka bir bilgisayarda hafızanızı olduğu gibi geri yükleyin." },
         {
           name: "Değişmezlik kaydı",
-          body: "Paketinizin sahipliği ve bütünlüğü kayıt altında; hafızanızın değişmediğini her an doğrulayabilirsiniz.",
+          body: "Paketinizin bütünlüğü ve sürüm geçmişi kayıt altında; hafızanızın değişmediğini her an doğrulayabilirsiniz.",
         },
       ],
-      badges: ["Uçtan uca şifreli", "Cihazdan bağımsız", "Sahiplik kaydı"],
+      badges: ["Uçtan uca şifreli", "Cihazdan bağımsız", "Bütünlük kaydı"],
     },
     compare: {
       label: "Karşılaştırma",
@@ -235,12 +235,12 @@ export const productCopy: Record<Lang, ProductCopy> = {
       columns: ["", "Yerinde", "Taşınabilir"],
       rows: [
         ["Kime göre", "Kurumlar ve karar vericiler", "Bireysel kullanıcılar"],
-        ["Hafıza nerede durur", "Kendi sunucunuzda", "Şifreli pakette, bulutta"],
-        ["Erişim", "Kurum içi, rol bazlı", "Yalnızca siz (anahtar sizde)"],
+        ["Hafıza nerede durur", "Kendi altyapınızda", "Şifreli pakette, bulutta"],
+        ["Erişim", "Kurum içi (rol bazlı erişim yol haritasında)", "Yalnızca siz (anahtar sizde)"],
         ["Kurulum", "Kurulum ve devir", "Uygulamadan tek tıkla"],
-        ["Fiyatlandırma", "Teklif bazlı", "Aylık abonelik"],
+        ["Fiyatlandırma", "Teklif bazlı", "Aylık abonelik (yakında)"],
       ],
-      note: "İkisi aynı üründür; hafızanız iki sürüm arasında taşınabilir.",
+      note: "İkisi aynı üründür; hafızanızı sürümler arasında taşıma yakında geliyor.",
     },
     closing: {
       heading: "Hangi sürüm size uygun, konuşalım.",
@@ -295,23 +295,23 @@ export const productCopy: Record<Lang, ProductCopy> = {
       label: "On-Site — organizations and decision-makers",
       name: "den Second Brain · On-Site",
       heading: "Your memory never leaves your building.",
-      body: "It runs on your own servers. It can run fully air-gapped on open-source models; access is managed by role, and every action is written to an audit trail.",
-      badges: ["On-premise", "KVKK compliant", "Open-source model support", "Role-based access", "Audit trail"],
+      body: "It runs on your own infrastructure. It can run fully air-gapped on open-source models; agent access is written to a tamper-evident audit trail. Role-based access is on the roadmap.",
+      badges: ["On-premise", "KVKK-ready architecture", "Open-source model support", "Agent audit trail", "Role-based access (roadmap)"],
     },
     portable: {
       label: "Portable — individuals",
       name: "den Second Brain · Portable",
       heading: "Your memory with you, locked to you.",
-      body: "Your second brain goes into an end-to-end encrypted package, is stored in the cloud and restored on any device you choose. Its ownership and integrity are on record — no one but you can open the package, not even den.",
+      body: "Your second brain goes into an end-to-end encrypted package, is stored in the cloud and restored on any device you choose. Its integrity is on record — no one but you can open the package, not even den.",
       features: [
         { name: "Encrypted package", body: "Your memory never leaves your device unencrypted. Only you hold the key." },
         { name: "On every device", body: "Use your recovery phrase to restore your memory, exactly as it was, on another computer." },
         {
           name: "Integrity record",
-          body: "Your package's ownership and integrity are on record; you can verify at any time that your memory hasn't changed.",
+          body: "Your package's integrity and version history are on record; you can verify at any time that your memory hasn't changed.",
         },
       ],
-      badges: ["End-to-end encrypted", "Device-independent", "Ownership record"],
+      badges: ["End-to-end encrypted", "Device-independent", "Integrity record"],
     },
     compare: {
       label: "Comparison",
@@ -319,12 +319,12 @@ export const productCopy: Record<Lang, ProductCopy> = {
       columns: ["", "On-Site", "Portable"],
       rows: [
         ["Who it's for", "Organizations and decision-makers", "Individuals"],
-        ["Where the memory lives", "On your own servers", "In an encrypted package, in the cloud"],
-        ["Access", "Internal, role-based", "Only you (you hold the key)"],
+        ["Where the memory lives", "On your own infrastructure", "In an encrypted package, in the cloud"],
+        ["Access", "Internal (role-based access on the roadmap)", "Only you (you hold the key)"],
         ["Setup", "Installation and handover", "One click from the app"],
-        ["Pricing", "By quote", "Monthly subscription"],
+        ["Pricing", "By quote", "Monthly subscription (coming soon)"],
       ],
-      note: "Both are the same product; your memory can move between the two editions.",
+      note: "Both are the same product; moving your memory between editions is coming soon.",
     },
     closing: {
       heading: "Let's talk about which edition fits you.",

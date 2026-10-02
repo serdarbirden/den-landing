@@ -8,7 +8,7 @@ const copy = {
     label: "Nasıl Çalışır",
     heading: "Not tutmazsınız. den yaşar.",
     steps: [
-      { name: "Yakalar", body: "E-posta, belge, toplantı, mesajlaşma; zaten ürettiğiniz veriyi kendiliğinden toplar." },
+      { name: "Yakalar", body: "E-posta, takvim, belge ve yapay zeka sohbetleri; zaten ürettiğiniz veriyi tek yerde toplar." },
       { name: "Bağlar", body: "Kişi, kurum, proje ve kararları birbirine bağlayan canlı bir bilgi ağı kurar." },
       { name: "Hatırlar", body: "Sorduğunuzda arama sonucu değil, bağlamıyla ve gerekçesiyle hafıza döndürür." },
       { name: "Öğrenir", body: "Her yeni deneyimle ağ büyür; kararlarınızın tutarlılığını zamanla izler." },
@@ -20,7 +20,7 @@ const copy = {
     label: "How It Works",
     heading: "You don't take notes. den lives.",
     steps: [
-      { name: "Captures", body: "Emails, documents, meetings, messages; it collects the data you already produce, automatically." },
+      { name: "Captures", body: "Emails, calendars, documents and AI chats; it brings the data you already produce into one place." },
       { name: "Connects", body: "Builds a living knowledge graph linking people, organizations, projects and decisions." },
       { name: "Recalls", body: "Ask, and get memory with context and reasoning — not a list of search results." },
       { name: "Learns", body: "The network grows with every new experience; it tracks the consistency of your decisions over time." },
