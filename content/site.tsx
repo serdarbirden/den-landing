@@ -131,11 +131,12 @@ export const homeCopy: Record<Lang, HomeCopy> = {
 
 /* ───────────── /urun — den İkinci Beyin: ortak özellikler ve iki sürüm ───────────── */
 
-export type FeatureBlock = { kicker: string; title: string; body: string; shot: string };
+// img: public/screens/{img}-{lang}.webp (gerçek arayüz, kurgusal demo verisi); alt: ekran görüntüsünün metin karşılığı.
+export type FeatureBlock = { kicker: string; title: string; body: string; shot: string; img: string; alt: string };
 
 export type ProductCopy = {
   meta: Meta;
-  hero: { label: string; heading: string; sub: string; shot: string };
+  hero: { label: string; heading: string; sub: string; shot: string; img: string; mobileImg: string; alt: string };
   shotPrefix: string;
   // Her iki sürümde de aynı olanlar.
   shared: {
@@ -175,6 +176,9 @@ export const productCopy: Record<Lang, ProductCopy> = {
       heading: "İkinci Beyin.",
       sub: "Yaşadığınız her şey tek bir hafızada birikir; sorduğunuzda gerekçesiyle hatırlar. Hafızanın nerede yaşayacağına siz karar verirsiniz.",
       shot: "Sohbet",
+      img: "sohbet",
+      mobileImg: "sohbet-mobil",
+      alt: "den Sohbet ekranı: hafızadan gelen gerekçeli bir cevap ve altında, bilginin geldiği e-posta, toplantı ve belgeleri gösteren kaynak kartları",
     },
     shotPrefix: "Ekran görüntüsü",
     shared: {
@@ -185,24 +189,32 @@ export const productCopy: Record<Lang, ProductCopy> = {
           title: "Sorun, hafızanız cevaplasın.",
           body: "Her cevabın altında, bilginin hangi e-postadan, hangi belgeden, hangi karardan geldiğini gösteren kaynak kartları yer alır.",
           shot: "Sohbet",
+          img: "sohbet-celiski",
+          alt: "den Sohbet ekranı: üstte geçmiş bir kararla çelişki uyarısı, altında yeni CLT teklifinde neyin değiştiğine dair cevap ve kaynak kartları",
         },
         {
           kicker: "Ağ",
           title: "Bu ağı siz çizmediniz.",
           body: "Kişiler, kurumlar, projeler ve kararlar arasındaki bağlantılar arşivinizden otomatik çıkarılır.",
           shot: "Ağ",
+          img: "ag",
+          alt: "den Ağ ekranı: kişiler, kurumlar, projeler ve kararlar arasındaki otomatik çıkarılmış bağlantı ağı, solda düğüm türleri ve dönem kaydırıcısı",
         },
         {
           kicker: "Karar Defteri",
           title: "Kararın kendisi kadar gerekçesi de kalır.",
           body: "Bağlam, seçenekler, vazgeçilenler ve sonuç tek yerde; yeni bir karar geçmişle çelişince uyarır.",
           shot: "Karar Defteri",
+          img: "karar-defteri",
+          alt: "den Karar Defteri ekranı: bir kararın bağlamı, gerekçesi, seçenekleri, vazgeçilenleri, sonucu ve kaynakları",
         },
         {
           kicker: "Çıktı Paneli",
           title: "Hafızanızdan tablo, sayfa, belge.",
           body: "İstediğiniz çıktıyı hafızanıza dayanarak üretir; indirirsiniz ya da hafızaya geri kaydedersiniz.",
           shot: "Çıktı Paneli",
+          img: "cikti-paneli",
+          alt: "den Çıktı Paneli: sohbetin yanında hafızadan üretilmiş, her satırı kaynağa bağlı teklif karşılaştırma tablosu",
         },
       ],
       twins: { kicker: "İki İkiz", title: "Kurumun ikizi, yöneticinin ikizi.", cards: twinCards.tr },
@@ -259,6 +271,9 @@ export const productCopy: Record<Lang, ProductCopy> = {
       heading: "Second Brain.",
       sub: "Everything you live through accumulates in a single memory; ask, and it remembers with the reasoning. You decide where the memory lives.",
       shot: "Chat",
+      img: "sohbet",
+      mobileImg: "sohbet-mobil",
+      alt: "den Chat screen: a reasoned answer from memory, with source cards below showing the emails, meetings and documents it came from",
     },
     shotPrefix: "Screenshot",
     shared: {
@@ -269,24 +284,32 @@ export const productCopy: Record<Lang, ProductCopy> = {
           title: "Ask, and your memory answers.",
           body: "Under every answer, source cards show which email, which document and which decision the information came from.",
           shot: "Chat",
+          img: "sohbet-celiski",
+          alt: "den Chat screen: a conflict warning against a past decision at the top, below it an answer on what changed in the new CLT offer, with source cards",
         },
         {
           kicker: "Graph",
           title: "You didn't draw this network.",
           body: "The links between people, organizations, projects and decisions are extracted from your archive automatically.",
           shot: "Graph",
+          img: "ag",
+          alt: "den Graph screen: an automatically extracted network of people, organizations, projects and decisions, with node types and a period slider on the left",
         },
         {
           kicker: "Decision Log",
           title: "The reasoning stays, not just the decision.",
           body: "Context, options, what was ruled out and the outcome in one place; it warns you when a new decision contradicts the past.",
           shot: "Decision Log",
+          img: "karar-defteri",
+          alt: "den Decision Log screen: a decision with its context, rationale, options, discarded alternatives, outcome and sources",
         },
         {
           kicker: "Output Panel",
           title: "Tables, pages and documents from your memory.",
           body: "It produces the output you ask for, grounded in your memory; download it or save it back into memory.",
           shot: "Output Panel",
+          img: "cikti-paneli",
+          alt: "den Output Panel: a bid comparison table generated from memory next to the chat, every row linked to its source",
         },
       ],
       twins: { kicker: "Two Twins", title: "The organization's twin, the executive's twin.", cards: twinCards.en },

@@ -833,6 +833,8 @@ footer {
 .dn-hero-media { position: relative; z-index: 1; max-width: 1240px; margin: 64px auto 0; padding: 0 24px; }
 .dn-shot { display: block; width: 100%; border: 1px solid var(--dn-rule); border-radius: 8px; overflow: hidden; }
 .dn-shot img { display: block; width: 100%; height: auto; }
+/* Gerçek görüntü: arayüzün zemini sayfa zeminiyle aynı, çerçeve bir ton belirgin. */
+picture.dn-shot { border-color: var(--dn-edge); background: var(--dn-bg); }
 .dn-shot--placeholder {
   aspect-ratio: 1440 / 900; display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dn-faint);

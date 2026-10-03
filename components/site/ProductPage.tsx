@@ -20,6 +20,8 @@ function Badges({ items }: { items: string[] }) {
 export default function ProductPage({ lang }: { lang: Lang }) {
   const t = productCopy[lang];
   const shot = (name: string) => `${t.shotPrefix} — ${name}`;
+  // TR sayfaları TR arayüzü, EN sayfaları EN arayüzü görüntülerini kullanır.
+  const screen = (name: string) => `/screens/${name}-${lang}.webp`;
 
   return (
     <PageShell lang={lang} title={t.meta.title} description={t.meta.description} paths={PATHS.product}>
@@ -28,7 +30,15 @@ export default function ProductPage({ lang }: { lang: Lang }) {
         label={t.hero.label}
         heading={t.hero.heading}
         sub={t.hero.sub}
-        media={<Screenshot label={shot(t.hero.shot)} />}
+        media={
+          <Screenshot
+            label={shot(t.hero.shot)}
+            src={screen(t.hero.img)}
+            mobileSrc={screen(t.hero.mobileImg)}
+            alt={t.hero.alt}
+            priority
+          />
+        }
       />
 
       {/* A — her iki sürümde de aynı */}
@@ -39,7 +49,12 @@ export default function ProductPage({ lang }: { lang: Lang }) {
             {t.shared.blocks.map((block, index) => (
               <div className={`dn-feature${index % 2 ? " dn-feature--flip" : ""} reveal`} key={block.kicker}>
                 <div className="dn-feature-media">
-                  <Screenshot label={shot(block.shot)} />
+                  <Screenshot
+                    label={shot(block.shot)}
+                    src={screen(block.img)}
+                    alt={block.alt}
+                    sizes="(max-width: 900px) 92vw, 680px"
+                  />
                 </div>
                 <div className="dn-feature-text">
                   <p className="dn-kicker">{block.kicker}</p>
