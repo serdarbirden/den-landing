@@ -4,15 +4,15 @@ const copy = {
   tr: {
     id: "guvenlik",
     label: "Güvenlik",
-    heading: "İkinci beyniniz binanızdan çıkmaz.",
-    body: "den, kurum içi (on-premise) çalışacak şekilde tasarlandı. Verileriniz kendi altyapınızda kalır; mimari KVKK'ya uygundur, veri yurt dışına çıkmaz. İsterseniz açık kaynak modellerle, tamamen kapalı devre.",
+    heading: "Hafızanız binanızdan çıkmaz.",
+    body: "Yerinde sürümde den, kurum içi (on-premise) çalışır. Verileriniz kendi altyapınızda kalır; mimari KVKK'ya uygundur, veri yurt dışına çıkmaz. İsterseniz açık kaynak modellerle, tamamen kapalı devre.",
     badges: ["On-premise", "KVKK'ya uygun mimari", "Açık kaynak model desteği"],
   },
   en: {
     id: "security",
     label: "Security",
-    heading: "Your second brain never leaves your building.",
-    body: "den is designed to run on-premise. Your data stays on your own infrastructure; the architecture is built for data protection rules (KVKK / GDPR), and data never leaves the country. If you choose, it runs entirely air-gapped on open-source models.",
+    heading: "Your memory never leaves your building.",
+    body: "In the On-Site edition, den runs on-premise. Your data stays on your own infrastructure; the architecture is built for data protection rules (KVKK / GDPR), and data never leaves the country. If you choose, it runs entirely air-gapped on open-source models.",
     badges: ["On-premise", "KVKK/GDPR-ready architecture", "Open-source model support"],
   },
 };

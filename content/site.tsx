@@ -51,6 +51,23 @@ const twinCards: Record<Lang, TwinCard[]> = {
 /* ───────────── Ana sayfa: "Tek hafıza, iki sürüm." ve kapanış ───────────── */
 
 export type HomeCopy = {
+  // Slogan 2 bölümü: model bağımsızlığı ve hafızanın sahipliği (hero'nun hemen ardından).
+  aiMemory: {
+    label: string;
+    heading: string;
+    intro: string;
+    pillars: { name: string; body: string }[];
+    punchline: string;
+  };
+  // Alt katman: hafızanın içinde ne var — kişi / kurum ikizi ve ürün yüzeyleri.
+  inside: {
+    label: string;
+    heading: string;
+    intro: string;
+    twins: { name: string; body: string }[];
+    surfaces: { name: string; body: string }[];
+    link: Cta;
+  };
   products: {
     label: string;
     heading: string;
@@ -70,6 +87,54 @@ export type HomeCopy = {
 // Tek ürün (den İkinci Beyin), iki sürüm: Yerinde ve Taşınabilir. "İki ürün" ifadesi kullanılmaz.
 export const homeCopy: Record<Lang, HomeCopy> = {
   tr: {
+    aiMemory: {
+      label: "Yapay Zekâ Hafızası",
+      heading: "AI değişebilir. Hafızanız değişmez.",
+      intro:
+        "Modeller gelir, gider, yenilenir. den'de hafıza modelden ayrı durur: modeli değiştirdiğinizde biriktirdiğiniz bilgi, kararlar ve bağlam yerinde kalır.",
+      pillars: [
+        {
+          name: "Modelden bağımsız",
+          body: "Anthropic modelleriyle, Ollama üzerinden yerelde çalışan açık kaynak modellerle ve OpenAI uyumlu uç noktalarla çalışır. Model bir ayardır; hafıza değil.",
+        },
+        {
+          name: "Hafıza size ait",
+          body: "Hafıza düz Markdown dosyalarında yaşar; Obsidian ile açabilir, okuyabilir, yedekleyebilirsiniz. Modeli değiştirseniz de hafıza aynı kalır.",
+        },
+        {
+          name: "Ajanlar bağlanır, siz onaylarsınız",
+          body: "MCP destekleyen yapay zekâ araçları ve ajanlar hafızayı okur. Yazma varsayılan olarak onayınızdan geçer; ajan erişimleri denetim izine kaydedilir.",
+        },
+        {
+          name: "Şifreli ve taşınabilir",
+          body: "Taşınabilir sürümde hafıza uçtan uca şifreli bir pakete alınır ve kurtarma ifadenizle başka bir cihazda geri yüklenir.",
+        },
+      ],
+      punchline: "Yapay zekâyı siz seçersiniz. Hafıza sizde kalır.",
+    },
+    inside: {
+      label: "Hafızanın içinde",
+      heading: "Hafızanın içinde ne var?",
+      intro:
+        "den'in tuttuğu hafıza, sizin ve kurumunuzun dijital ikizidir — bir ikinci beyin. MCP destekleyen yapay zekâ araçları aynı ikize bağlanır.",
+      twins: [
+        {
+          name: "Sizin ikiziniz",
+          body: "Kararlarınız, gerekçeleriniz, vazgeçtikleriniz. 'Bu konuda geçen yıl ne düşünmüştüm?' sorusuna tarih, bağlam ve gerekçeyle cevap verir.",
+        },
+        {
+          name: "Kurumunuzun ikizi",
+          body: "Yerinde kurulumla sözleşmeler, e-postalar, belgeler ve projeler bağlantılı bir hafıza ağına dönüşür; bilgi kimsenin hatırlamasına bağlı kalmaz.",
+        },
+      ],
+      surfaces: [
+        { name: "Sohbet", body: "Sorun, hafızanız kaynak kartlarıyla cevaplasın." },
+        { name: "Ağ", body: "Kişi, kurum, proje ve kararlar arasındaki bağlar otomatik çıkarılır." },
+        { name: "Karar Defteri", body: "Kararın gerekçesi kalır; geçmişle çelişince uyarır." },
+        { name: "Çıktı Paneli", body: "Hafızanızdan tablo, sayfa ve belge üretir." },
+      ],
+      link: { href: PATHS.product.tr, label: "Ürünü incele" },
+    },
     products: {
       label: "Ürün",
       heading: "Tek hafıza, iki sürüm.",
@@ -99,6 +164,54 @@ export const homeCopy: Record<Lang, HomeCopy> = {
     },
   },
   en: {
+    aiMemory: {
+      label: "AI Memory",
+      heading: "AI can change. Your memory doesn't.",
+      intro:
+        "Models come, go and get replaced. In den, memory stays separate from the model: when you switch models, the knowledge, decisions and context you have built up stay where they are.",
+      pillars: [
+        {
+          name: "Model-independent",
+          body: "Works with Anthropic models, with open-source models running locally through Ollama, and with OpenAI-compatible endpoints. The model is a setting; the memory is not.",
+        },
+        {
+          name: "Your memory is yours",
+          body: "The memory lives in plain Markdown files; you can open, read and back them up with Obsidian. Even if you change the model, the memory stays the same.",
+        },
+        {
+          name: "Agents connect, you approve",
+          body: "MCP-capable AI tools and agents read the memory. Writes go through your approval by default; agent access is recorded in an audit trail.",
+        },
+        {
+          name: "Encrypted and portable",
+          body: "In the Portable edition, the memory goes into an end-to-end encrypted package and is restored on another device with your recovery phrase.",
+        },
+      ],
+      punchline: "You choose the AI. The memory stays with you.",
+    },
+    inside: {
+      label: "Inside the memory",
+      heading: "What's inside the memory?",
+      intro:
+        "The memory den keeps is the digital twin of you and your organization — a second brain. MCP-capable AI tools connect to the same twin.",
+      twins: [
+        {
+          name: "Your twin",
+          body: "Your decisions, your reasoning, the paths you didn't take. Ask 'what did I think about this last year?' and it answers with date, context and rationale.",
+        },
+        {
+          name: "Your organization's twin",
+          body: "With an On-Site installation, contracts, emails, documents and projects become a connected memory network; knowledge no longer depends on anyone's recollection.",
+        },
+      ],
+      surfaces: [
+        { name: "Chat", body: "Ask, and your memory answers with source cards." },
+        { name: "Graph", body: "Links between people, organizations, projects and decisions are extracted automatically." },
+        { name: "Decision Log", body: "The reasoning stays; it warns you when the past is contradicted." },
+        { name: "Output Panel", body: "Produces tables, pages and documents from your memory." },
+      ],
+      link: { href: PATHS.product.en, label: "Explore the product" },
+    },
     products: {
       label: "Product",
       heading: "One memory, two editions.",
@@ -167,14 +280,14 @@ export type ProductCopy = {
 export const productCopy: Record<Lang, ProductCopy> = {
   tr: {
     meta: {
-      title: "İkinci Beyin — Yerinde ve Taşınabilir | den",
+      title: "İkinci Beyin — yapay zekânın hafızası, Yerinde ve Taşınabilir | den",
       description:
-        "den İkinci Beyin tek üründür, iki sürümü vardır: kurumlar için on-premise kurumsal hafıza (Yerinde) ve bireyler için uçtan uca şifreli taşınabilir hafıza (Taşınabilir).",
+        "den İkinci Beyin, yapay zekânın hafızasıdır: MCP destekleyen yapay zekâ araçları aynı hafızaya bağlanır, model değişse de hafıza size ait kalır. Tek ürün, iki sürüm: kurumlar için on-premise (Yerinde), bireyler için uçtan uca şifreli (Taşınabilir).",
     },
     hero: {
       label: "Ürün",
       heading: "İkinci Beyin.",
-      sub: "Yaşadığınız her şey tek bir hafızada birikir; sorduğunuzda gerekçesiyle hatırlar. Hafızanın nerede yaşayacağına siz karar verirsiniz.",
+      sub: "Yapay zekânın hafızası. Bilginiz, kararlarınız ve deneyiminiz tek bir hafızada birikir; sorduğunuzda gerekçesiyle hatırlar. MCP destekleyen yapay zekâ araçları aynı hafızaya bağlanır — model değişse de hafıza sizde kalır. Nerede yaşayacağına siz karar verirsiniz.",
       shot: "Sohbet",
       img: "sohbet",
       mobileImg: "sohbet-mobil",
@@ -262,14 +375,14 @@ export const productCopy: Record<Lang, ProductCopy> = {
   },
   en: {
     meta: {
-      title: "Second Brain — On-Site and Portable | den",
+      title: "Second Brain — the memory for AI, On-Site and Portable | den",
       description:
-        "den Second Brain is one product in two editions: on-premise organizational memory for organizations (On-Site) and end-to-end encrypted portable memory for individuals (Portable).",
+        "den Second Brain is the memory for AI: MCP-capable AI tools connect to the same memory, and the memory stays yours even when the model changes. One product, two editions: on-premise for organizations (On-Site), end-to-end encrypted for individuals (Portable).",
     },
     hero: {
       label: "Product",
       heading: "Second Brain.",
-      sub: "Everything you live through accumulates in a single memory; ask, and it remembers with the reasoning. You decide where the memory lives.",
+      sub: "The memory for AI. Your knowledge, decisions and experience accumulate in a single memory; ask, and it remembers with the reasoning. MCP-capable AI tools connect to the same memory — even when the model changes, the memory stays with you. You decide where it lives.",
       shot: "Chat",
       img: "sohbet",
       mobileImg: "sohbet-mobil",

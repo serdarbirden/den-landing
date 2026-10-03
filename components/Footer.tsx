@@ -10,7 +10,7 @@ const copy = {
       { href: PATHS.about.tr, label: "Hakkında" },
       { href: PATHS.contact.tr, label: "İletişim" },
     ],
-    tagline: "hiçbir deneyim boşa gitmez.",
+    tagline: "AI değişebilir. Hafızanız değişmez.",
   },
   en: {
     links: [
@@ -19,7 +19,7 @@ const copy = {
       { href: PATHS.about.en, label: "About" },
       { href: PATHS.contact.en, label: "Contact" },
     ],
-    tagline: "no experience is ever wasted.",
+    tagline: "AI can change. Your memory doesn't.",
   },
 };
 
